@@ -18,8 +18,7 @@ deprecated:
 description:
     - "Retrieve information about one or more oVirt/RHV events."
     - This module was called C(ovirt_event_facts) before Ansible 2.9, returning C(ansible_facts).
-      Note that the M(ovirt_event_info) module no longer returns C(ansible_facts)!
-options:
+      Note that the M(community.general.ovirt_event_info) module no longer returns C(ansible_factsoptions:
     case_sensitive:
         description:
             - "Indicates if the search performed using the search parameter should be performed taking case

@@ -34,8 +34,7 @@ deprecated:
 description:
     - "Retrieve information about one or more oVirt/RHV permissions."
     - This module was called C(ovirt_permission_facts) before Ansible 2.9, returning C(ansible_facts).
-      Note that the M(ovirt_permission_info) module no longer returns C(ansible_facts)!
-notes:
+      Note that the M(community.general.ovirt_permission_info) module no longer returns C(ansible_factsnotes:
     - "This module returns a variable C(ovirt_permissions), which
        contains a list of permissions. You need to register the result with
        the I(register) keyword to use it."

@@ -34,8 +34,7 @@ deprecated:
 description:
     - "Retrieve information about one or more oVirt/RHV disks."
     - This module was called C(ovirt_disk_facts) before Ansible 2.9, returning C(ansible_facts).
-      Note that the M(ovirt_disk_info) module no longer returns C(ansible_facts)!
-notes:
+      Note that the M(community.general.ovirt_disk_info) module no longer returns C(ansible_factsnotes:
     - "This module returns a variable C(ovirt_disks), which
        contains a list of disks. You need to register the result with
        the I(register) keyword to use it."

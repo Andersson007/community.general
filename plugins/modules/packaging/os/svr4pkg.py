@@ -38,7 +38,7 @@ options:
     description:
       - Specifies the location to install the package from. Required when C(state=present).
       - "Can be any path acceptable to the C(pkgadd) command's C(-d) option. e.g.: C(somefile.pkg), C(/dir/with/pkgs), C(http:/server/mypkgs.pkg)."
-      - If using a file or directory, they must already be accessible by the host. See the M(copy) module for a way to get them there.
+      - If using a file or directory, they must already be accessible by the host. See the M(community.general.copy) module for a way to get them there.
   proxy:
     description:
       - HTTP[s] proxy to be used if C(src) is a URL.

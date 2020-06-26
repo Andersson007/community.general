@@ -19,8 +19,7 @@ description:
      - If an image does not exist locally, it will not appear in the results. If you want to check whether an image exists
        locally, you can call the module with the image name, then check whether the result list is empty (image does not
        exist) or has one element (the image exists locally).
-     - The module will not attempt to pull images from registries. Use M(docker_image) with I(source) set to C(pull)
-       to ensure an image is pulled.
+     - The module will not attempt to pull images from registries. Use M(community.general.docker_image) with I(source       to ensure an image is pulled.
 
 notes:
      - This module was called C(docker_image_facts) before Ansible 2.8. The usage did not change.

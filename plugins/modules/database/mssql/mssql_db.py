@@ -51,8 +51,7 @@ options:
     default: 'no'
 notes:
    - Requires the pymssql Python package on the remote host. For Ubuntu, this
-     is as easy as pip install pymssql (See M(pip).)
-requirements:
+     is as easy as pip install pymssql (See M(community.general.pip).requirements:
    - python >= 2.7
    - pymssql
 author: Vedit Firat Arig (@vedit)

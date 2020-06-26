@@ -34,8 +34,7 @@ deprecated:
 description:
     - "Retrieve information about one or more oVirt/RHV tags."
     - This module was called C(ovirt_tag_facts) before Ansible 2.9, returning C(ansible_facts).
-      Note that the M(ovirt_tag_info) module no longer returns C(ansible_facts)!
-notes:
+      Note that the M(community.general.ovirt_tag_info) module no longer returns C(ansible_factsnotes:
     - "This module returns a variable C(ovirt_tags), which
        contains a list of tags. You need to register the result with
        the I(register) keyword to use it."

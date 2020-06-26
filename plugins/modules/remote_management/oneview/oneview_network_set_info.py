@@ -12,8 +12,7 @@ short_description: Retrieve information about the OneView Network Sets
 description:
     - Retrieve information about the Network Sets from OneView.
     - This module was called C(oneview_network_set_facts) before Ansible 2.9, returning C(ansible_facts).
-      Note that the M(oneview_network_set_info) module no longer returns C(ansible_facts)!
-requirements:
+      Note that the M(community.general.oneview_network_set_info) module no longer returns C(ansible_factsrequirements:
     - hpOneView >= 2.0.1
 author:
     - Felipe Bulsoni (@fgbulsoni)
