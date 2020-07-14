@@ -40,7 +40,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Create a keypair
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Keypair request
       local_action:
@@ -62,7 +62,7 @@ EXAMPLES = '''
 
 - name: Create a keypair
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Keypair request
       local_action:

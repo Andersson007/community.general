@@ -34,7 +34,7 @@ options:
     - GID (use this option to set it manually).
     aliases: ['gid']
     type: str
-  group:
+  ansible.builtin.group:
     description:
     - List of group names assigned to this group.
     - If an empty list is passed all groups will be removed from this group.
@@ -46,7 +46,7 @@ options:
     description:
     - Create as a non-POSIX group.
     type: bool
-  user:
+  ansible.builtin.user:
     description:
     - List of user names assigned to this group.
     - If an empty list is passed all users will be removed from this group.
@@ -78,7 +78,7 @@ EXAMPLES = r'''
 - name: Ensure that groups sysops and appops are assigned to ops but no other group
   community.general.ipa_group:
     name: ops
-    group:
+    ansible.builtin.group:
     - sysops
     - appops
     ipa_host: ipa.example.com
@@ -88,7 +88,7 @@ EXAMPLES = r'''
 - name: Ensure that users linus and larry are assign to the group, but no other user
   community.general.ipa_group:
     name: sysops
-    user:
+    ansible.builtin.user:
     - linus
     - larry
     ipa_host: ipa.example.com

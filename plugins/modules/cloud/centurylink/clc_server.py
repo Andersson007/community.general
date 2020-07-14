@@ -62,7 +62,7 @@ options:
     description:
       - Run in idempotent mode.  Will insure that this exact number of servers are running in the provided group,
         creating and deleting them to reach that count.  Requires count_group to be set.
-  group:
+  ansible.builtin.group:
     description:
       - The Server Group to create servers under.
     default: 'Default Group'
@@ -128,7 +128,7 @@ options:
       - The type of storage to attach to the server.
     default: 'standard'
     choices: ['standard', 'hyperscale']
-  template:
+  ansible.builtin.template:
     description:
       - The template to use for server creation.  Will search for a template if a partial string is provided.
         This is required when state is 'present'
@@ -177,18 +177,18 @@ EXAMPLES = '''
 - name: Provision a single Ubuntu Server
   community.general.clc_server:
     name: test
-    template: ubuntu-14-64
+    ansible.builtin.template: ubuntu-14-64
     count: 1
-    group: Default Group
+    ansible.builtin.group: Default Group
     state: present
 
 - name: Ensure 'Default Group' has exactly 5 servers
   community.general.clc_server:
     name: test
-    template: ubuntu-14-64
+    ansible.builtin.template: ubuntu-14-64
     exact_count: 5
     count_group: Default Group
-    group: Default Group
+    ansible.builtin.group: Default Group
 
 - name: Stop a Server
   community.general.clc_server:
@@ -817,7 +817,7 @@ class ClcServer:
             except CLCException:
                 module.fail_json(
                     msg=str(
-                        "Unable to find a template: " +
+                        "Unable to find a ansible.builtin.template: " +
                         lookup_template +
                         " in location: " +
                         datacenter.id))
@@ -1327,7 +1327,7 @@ class ClcServer:
         if result is None:
             module.fail_json(
                 msg=str(
-                    "Unable to find group: " +
+                    "Unable to find ansible.builtin.group: " +
                     lookup_group +
                     " in location: " +
                     datacenter.id))

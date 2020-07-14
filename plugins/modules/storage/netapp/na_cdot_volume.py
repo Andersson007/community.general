@@ -99,7 +99,7 @@ EXAMPLES = """
         size: 20
         size_unit: mb
         vserver: ansibleVServer
-        hostname: "{{ netapp_hostname }}"
+        ansible.builtin.hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
         junction_path: /ansibleVolume
@@ -113,7 +113,7 @@ EXAMPLES = """
         infinite: False
         online: False
         vserver: ansibleVServer
-        hostname: "{{ netapp_hostname }}"
+        ansible.builtin.hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
 

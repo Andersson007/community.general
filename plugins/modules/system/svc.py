@@ -289,7 +289,7 @@ def main():
                 else:
                     os.unlink(d_file)
             except (OSError, IOError) as e:
-                module.fail_json(msg="Could not change downed file: %s " % (to_native(e)))
+                module.fail_json(msg="Could not change downed ansible.builtin.file: %s " % (to_native(e)))
 
     module.exit_json(changed=changed, svc=svc.report())
 

@@ -19,7 +19,7 @@ description:
       to use within the script and returns the result of the script being run.
 
 options:
-  script:
+  ansible.builtin.script:
     description:
       - The groovy script to be executed.
         This gets passed as a string Template if args is defined.
@@ -36,7 +36,7 @@ options:
         using self-signed certificates as it avoids verifying the source site.
     type: bool
     default: 'yes'
-  user:
+  ansible.builtin.user:
     description:
       - The username to connect to the jenkins server with.
   password:
@@ -60,12 +60,12 @@ notes:
 EXAMPLES = '''
 - name: Obtaining a list of plugins
   community.general.jenkins_script:
-    script: 'println(Jenkins.instance.pluginManager.plugins)'
-    user: admin
+    ansible.builtin.script: 'println(Jenkins.instance.pluginManager.plugins)'
+    ansible.builtin.user: admin
     password: admin
 
 - name: Setting master using a variable to hold a more complicate script
-  set_fact:
+  ansible.builtin.set_fact:
     setmaster_mode: |
         import jenkins.model.*
         instance = Jenkins.getInstance()
@@ -74,14 +74,14 @@ EXAMPLES = '''
 
 - name: Use the variable as the script
   community.general.jenkins_script:
-    script: "{{ setmaster_mode }}"
+    ansible.builtin.script: "{{ setmaster_mode }}"
     args:
       jenkins_mode: Node.Mode.EXCLUSIVE
 
 - name: Interacting with an untrusted HTTPS connection
   community.general.jenkins_script:
-    script: "println(Jenkins.instance.pluginManager.plugins)"
-    user: admin
+    ansible.builtin.script: "println(Jenkins.instance.pluginManager.plugins)"
+    ansible.builtin.user: admin
     password: admin
     url: https://localhost
     validate_certs: no

@@ -54,7 +54,7 @@ EXAMPLES = """
     state: present
     name: ansibleAggr
     disk_count: 1
-    hostname: "{{ netapp_hostname }}"
+    ansible.builtin.hostname: "{{ netapp_hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
 
@@ -62,7 +62,7 @@ EXAMPLES = """
   community.general.na_cdot_aggregate:
     state: present
     name: ansibleAggr
-    hostname: "{{ netapp_hostname }}"
+    ansible.builtin.hostname: "{{ netapp_hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
 """

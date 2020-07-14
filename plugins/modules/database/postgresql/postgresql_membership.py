@@ -94,7 +94,7 @@ extends_documentation_fragment:
 EXAMPLES = r'''
 - name: Grant role read_only to alice and bob
   community.general.postgresql_membership:
-    group: read_only
+    ansible.builtin.group: read_only
     target_roles:
     - alice
     - bob

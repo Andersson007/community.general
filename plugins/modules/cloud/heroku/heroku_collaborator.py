@@ -32,7 +32,7 @@ options:
       - Suppress email invitation when creating collaborator
     type: bool
     default: "no"
-  user:
+  ansible.builtin.user:
     description:
       - User ID or e-mail
     required: true
@@ -50,21 +50,21 @@ EXAMPLES = '''
 - name: Create a heroku collaborator
   community.general.heroku_collaborator:
     api_key: YOUR_API_KEY
-    user: max.mustermann@example.com
+    ansible.builtin.user: max.mustermann@example.com
     apps: heroku-example-app
     state: present
 
 - name: An example of using the module in loop
   community.general.heroku_collaborator:
     api_key: YOUR_API_KEY
-    user: '{{ item.user }}'
+    ansible.builtin.user: '{{ item.user }}'
     apps: '{{ item.apps | default(apps) }}'
     suppress_invitation: '{{ item.suppress_invitation | default(suppress_invitation) }}'
     state: '{{ item.state | default("present") }}'
   with_items:
-    - { user: 'a.b@example.com' }
-    - { state: 'absent', user: 'b.c@example.com', suppress_invitation: false }
-    - { user: 'x.y@example.com', apps: ["heroku-example-app"] }
+    - { ansible.builtin.user: 'a.b@example.com' }
+    - { state: 'absent', ansible.builtin.user: 'b.c@example.com', suppress_invitation: false }
+    - { ansible.builtin.user: 'x.y@example.com', apps: ["heroku-example-app"] }
 '''
 
 RETURN = ''' # '''

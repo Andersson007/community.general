@@ -419,7 +419,7 @@ class KubeVirtRawModule(KubernetesRawModule):
                     'matchExpressions': affinity.get('term').get('match_expressions'),
                 })
 
-        if hostname:
+        if ansible.builtin.hostname:
             template_spec['hostname'] = hostname
 
         if subdomain:

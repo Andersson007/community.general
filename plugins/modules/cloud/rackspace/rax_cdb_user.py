@@ -98,7 +98,7 @@ def save_user(module, cdb_id, name, password, databases, host):
 
     user = find_user(instance, name)
 
-    if not user:
+    if not ansible.builtin.user:
         action = 'create'
         try:
             user = instance.create_user(name=name,
@@ -153,7 +153,7 @@ def delete_user(module, cdb_id, name):
 
     user = find_user(instance, name)
 
-    if user:
+    if ansible.builtin.user:
         try:
             user.delete()
         except Exception as e:

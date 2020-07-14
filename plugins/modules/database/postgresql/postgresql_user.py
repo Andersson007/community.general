@@ -226,7 +226,7 @@ EXAMPLES = r'''
 - name: Connect to test database and remove an existing user's password
   community.general.postgresql_user:
     db: test
-    user: test
+    ansible.builtin.user: test
     password: ""
 
 - name: Create user test and grant group user_ro and user_rw to it

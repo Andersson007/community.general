@@ -40,7 +40,7 @@ options:
     description:
       - A revision number (e.g., git commit SHA)
     required: false
-  user:
+  ansible.builtin.user:
     description:
       - The name of the user/process that triggered this deployment
     required: false
@@ -68,7 +68,7 @@ EXAMPLES = '''
   community.general.newrelic_deployment:
     token: AAAAAA
     app_name: myapp
-    user: ansible deployment
+    ansible.builtin.user: ansible deployment
     revision: '1.0'
 '''
 

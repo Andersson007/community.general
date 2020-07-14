@@ -75,7 +75,7 @@ options:
     - It is required if name is not unique.
     - Please note that a supplied UUID will be ignored on VM creation, as XenServer creates the UUID internally.
     type: str
-  template:
+  ansible.builtin.template:
     description:
     - Name of a template, an existing VM (must be shut down) or a snapshot that should be used to create VM.
     - Templates/VMs/snapshots on XenServer do not necessarily have unique names. The module will fail if multiple templates with same name are found.
@@ -196,14 +196,14 @@ extends_documentation_fragment:
 EXAMPLES = r'''
 - name: Create a VM from a template
   community.general.xenserver_guest:
-    hostname: "{{ xenserver_hostname }}"
+    ansible.builtin.hostname: "{{ xenserver_hostname }}"
     username: "{{ xenserver_username }}"
     password: "{{ xenserver_password }}"
     validate_certs: no
     folder: /testvms
     name: testvm_2
     state: poweredon
-    template: CentOS 7
+    ansible.builtin.template: CentOS 7
     disks:
     - size_gb: 10
       sr: my_sr
@@ -223,7 +223,7 @@ EXAMPLES = r'''
 
 - name: Create a VM template
   community.general.xenserver_guest:
-    hostname: "{{ xenserver_hostname }}"
+    ansible.builtin.hostname: "{{ xenserver_hostname }}"
     username: "{{ xenserver_username }}"
     password: "{{ xenserver_password }}"
     validate_certs: no
@@ -241,7 +241,7 @@ EXAMPLES = r'''
 
 - name: Rename a VM (requires the VM's UUID)
   community.general.xenserver_guest:
-    hostname: "{{ xenserver_hostname }}"
+    ansible.builtin.hostname: "{{ xenserver_hostname }}"
     username: "{{ xenserver_username }}"
     password: "{{ xenserver_password }}"
     uuid: 421e4592-c069-924d-ce20-7e7533fab926
@@ -251,7 +251,7 @@ EXAMPLES = r'''
 
 - name: Remove a VM by UUID
   community.general.xenserver_guest:
-    hostname: "{{ xenserver_hostname }}"
+    ansible.builtin.hostname: "{{ xenserver_hostname }}"
     username: "{{ xenserver_username }}"
     password: "{{ xenserver_password }}"
     uuid: 421e4592-c069-924d-ce20-7e7533fab926
@@ -260,7 +260,7 @@ EXAMPLES = r'''
 
 - name: Modify custom params (boot order)
   community.general.xenserver_guest:
-    hostname: "{{ xenserver_hostname }}"
+    ansible.builtin.hostname: "{{ xenserver_hostname }}"
     username: "{{ xenserver_username }}"
     password: "{{ xenserver_password }}"
     name: testvm_8
@@ -272,7 +272,7 @@ EXAMPLES = r'''
 
 - name: Customize network parameters
   community.general.xenserver_guest:
-    hostname: "{{ xenserver_hostname }}"
+    ansible.builtin.hostname: "{{ xenserver_hostname }}"
     username: "{{ xenserver_username }}"
     password: "{{ xenserver_password }}"
     name: testvm_10

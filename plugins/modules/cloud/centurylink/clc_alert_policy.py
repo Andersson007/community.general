@@ -70,7 +70,7 @@ EXAMPLES = '''
 ---
 - name: Create Alert Policy Example
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Create an Alert Policy for disk above 80% for 5 minutes
@@ -87,12 +87,12 @@ EXAMPLES = '''
       register: policy
 
     - name: Debug
-      debug: var=policy
+      ansible.builtin.debug: var=policy
 
 ---
 - name: Delete Alert Policy Example
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Delete an Alert Policy
@@ -103,7 +103,7 @@ EXAMPLES = '''
       register: policy
 
     - name: Debug
-      debug: var=policy
+      ansible.builtin.debug: var=policy
 '''
 
 RETURN = '''

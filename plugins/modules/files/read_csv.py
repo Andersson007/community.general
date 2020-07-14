@@ -82,7 +82,7 @@ EXAMPLES = r'''
   register: users
   delegate_to: localhost
 
-- debug:
+- ansible.builtin.debug:
     msg: 'User {{ users.dict.dag.name }} has UID {{ users.dict.dag.uid }} and GID {{ users.dict.dag.gid }}'
 
 # Read a CSV file and access the first item
@@ -92,7 +92,7 @@ EXAMPLES = r'''
   register: users
   delegate_to: localhost
 
-- debug:
+- ansible.builtin.debug:
     msg: 'User {{ users.list.1.name }} has UID {{ users.list.1.uid }} and GID {{ users.list.1.gid }}'
 
 # Example CSV file without header and semi-colon delimiter
@@ -202,7 +202,7 @@ def main():
         with open(path, 'rb') as f:
             data = f.read()
     except (IOError, OSError) as e:
-        module.fail_json(msg="Unable to open file: %s" % to_text(e))
+        module.fail_json(msg="Unable to open ansible.builtin.file: %s" % to_text(e))
 
     if PY3:
         # Manually decode on Python3 so that we can use the surrogateescape error handler
@@ -224,7 +224,7 @@ def main():
             for row in reader:
                 data_list.append(row)
         except csv.Error as e:
-            module.fail_json(msg="Unable to process file: %s" % to_text(e))
+            module.fail_json(msg="Unable to process ansible.builtin.file: %s" % to_text(e))
     else:
         try:
             for row in reader:
@@ -232,7 +232,7 @@ def main():
                     module.fail_json(msg="Key '%s' is not unique for value '%s'" % (key, row[key]))
                 data_dict[row[key]] = row
         except csv.Error as e:
-            module.fail_json(msg="Unable to process file: %s" % to_text(e))
+            module.fail_json(msg="Unable to process ansible.builtin.file: %s" % to_text(e))
 
     module.exit_json(dict=data_dict, list=data_list)
 

@@ -121,7 +121,7 @@ def main():
         crypttab = Crypttab(path)
         existing_line = crypttab.match(name)
     except Exception as e:
-        module.fail_json(msg="failed to open and parse crypttab file: %s" % to_native(e),
+        module.fail_json(msg="failed to open and parse crypttab ansible.builtin.file: %s" % to_native(e),
                          exception=traceback.format_exc(), **module.params)
 
     if 'present' in state and existing_line is None and backing_device is None:

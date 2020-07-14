@@ -30,7 +30,7 @@ options:
     description:
       - GitLab token for logging in.
     type: str
-  group:
+  ansible.builtin.group:
     description:
       - Id or The full path of the group of which this projects belongs to.
     type: str
@@ -114,7 +114,7 @@ EXAMPLES = '''
     api_username: dj-wasabi
     api_password: "MySecretPassword"
     name: my_first_project
-    group: ansible
+    ansible.builtin.group: ansible
     issues_enabled: False
     wiki_enabled: True
     snippets_enabled: True

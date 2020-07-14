@@ -23,7 +23,7 @@ options:
     description:
       - Remote RMCP port.
     default: 623
-  user:
+  ansible.builtin.user:
     description:
       - Username to use to connect to the BMC.
     required: true
@@ -63,7 +63,7 @@ EXAMPLES = '''
 - name: Ensure machine is powered on
   community.general.ipmi_power:
     name: test.testdomain.com
-    user: admin
+    ansible.builtin.user: admin
     password: password
     state: on
 '''

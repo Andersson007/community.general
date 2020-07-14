@@ -21,7 +21,7 @@ notes:
     # Documentation fragment for ONTAP (na_cdot)
     ONTAP = r'''
 options:
-  hostname:
+  ansible.builtin.hostname:
       required: true
       description:
       - The hostname or IP address of the ONTAP instance.
@@ -49,7 +49,7 @@ notes:
     # Documentation fragment for SolidFire
     SOLIDFIRE = r'''
 options:
-  hostname:
+  ansible.builtin.hostname:
       required: true
       description:
       - The hostname or IP address of the SolidFire cluster.
@@ -77,7 +77,7 @@ notes:
     # Documentation fragment for ONTAP (na_ontap)
     NA_ONTAP = r'''
 options:
-  hostname:
+  ansible.builtin.hostname:
       description:
       - The hostname or IP address of the ONTAP instance.
       type: str

@@ -18,7 +18,7 @@ options:
   instance_id:
     description:
       - Instance Id of the virtual instance to perform action option.
-  hostname:
+  ansible.builtin.hostname:
     description:
       - Hostname to be provided to a virtual instance.
   domain:
@@ -114,11 +114,11 @@ author:
 EXAMPLES = '''
 - name: Build instance
   hosts: localhost
-  gather_facts: no
+  ansible.builtin.gather_facts: no
   tasks:
   - name: Build instance request
     community.general.sl_vm:
-      hostname: instance-1
+      ansible.builtin.hostname: instance-1
       domain: anydomain.com
       datacenter: dal09
       tags: ansible-module-test
@@ -134,11 +134,11 @@ EXAMPLES = '''
 
 - name: Build additional instances
   hosts: localhost
-  gather_facts: no
+  ansible.builtin.gather_facts: no
   tasks:
   - name: Build instances request
     community.general.sl_vm:
-      hostname: "{{ item.hostname }}"
+      ansible.builtin.hostname: "{{ item.hostname }}"
       domain: "{{ item.domain }}"
       datacenter: "{{ item.datacenter }}"
       tags: "{{ item.tags }}"
@@ -153,7 +153,7 @@ EXAMPLES = '''
       ssh_keys: "{{ item.ssh_keys }}"
       wait: "{{ item.wait }}"
     with_items:
-      - hostname: instance-2
+      - ansible.builtin.hostname: instance-2
         domain: anydomain.com
         datacenter: dal09
         tags:
@@ -171,7 +171,7 @@ EXAMPLES = '''
         os_code: UBUNTU_LATEST
         ssh_keys: []
         wait: True
-      - hostname: instance-3
+      - ansible.builtin.hostname: instance-3
         domain: anydomain.com
         datacenter: dal09
         tags:
@@ -192,7 +192,7 @@ EXAMPLES = '''
 
 - name: Cancel instances
   hosts: localhost
-  gather_facts: no
+  ansible.builtin.gather_facts: no
   tasks:
   - name: Cancel by tag
     community.general.sl_vm:

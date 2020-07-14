@@ -68,7 +68,7 @@ EXAMPLES = '''
 - name: Create a vpc
   community.general.hwc_network_vpc:
       identity_endpoint: "{{ identity_endpoint }}"
-      user: "{{ user }}"
+      ansible.builtin.user: "{{ user }}"
       password: "{{ password }}"
       domain: "{{ domain }}"
       project: "{{ project }}"
@@ -169,11 +169,11 @@ def main():
     if not re.search('/None/|/None$', link):
         client = config.client(get_region(module), "vpc", "project")
         fetch = fetch_resource(module, client, link)
-        if fetch:
+        if ansible.builtin.fetch:
             fetch = fetch.get('vpc')
     changed = False
 
-    if fetch:
+    if ansible.builtin.fetch:
         if state == 'present':
             expect = _get_editable_properties(module)
             current_state = response_to_hash(module, fetch)

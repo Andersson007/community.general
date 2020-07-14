@@ -92,7 +92,7 @@ options:
     required: false
     description:
       - Comma separated list of filesystem types this zone is allowed to mount.
-  hostname:
+  ansible.builtin.hostname:
     required: false
     description:
       - Zone/VM hostname.

@@ -54,7 +54,7 @@ options:
       - URL where the Jenkins server is accessible.
     required: false
     default: http://localhost:8080
-  user:
+  ansible.builtin.user:
     description:
        - User to authenticate with the Jenkins server.
     required: false
@@ -67,7 +67,7 @@ EXAMPLES = '''
     name: test
     password: admin
     url: http://localhost:8080
-    user: admin
+    ansible.builtin.user: admin
 
 - name: Create a jenkins job using the token
   community.general.jenkins_job:
@@ -75,7 +75,7 @@ EXAMPLES = '''
     name: test
     token: asdfasfasfasdfasdfadfasfasdfasdfc
     url: http://localhost:8080
-    user: admin
+    ansible.builtin.user: admin
 
 - name: Delete a jenkins job using basic authentication
   community.general.jenkins_job:
@@ -83,7 +83,7 @@ EXAMPLES = '''
     password: admin
     state: absent
     url: http://localhost:8080
-    user: admin
+    ansible.builtin.user: admin
 
 - name: Delete a jenkins job using the token
   community.general.jenkins_job:
@@ -91,7 +91,7 @@ EXAMPLES = '''
     token: asdfasfasfasdfasdfadfasfasdfasdfc
     state: absent
     url: http://localhost:8080
-    user: admin
+    ansible.builtin.user: admin
 
 - name: Disable a jenkins job using basic authentication
   community.general.jenkins_job:
@@ -99,7 +99,7 @@ EXAMPLES = '''
     password: admin
     enabled: False
     url: http://localhost:8080
-    user: admin
+    ansible.builtin.user: admin
 
 - name: Disable a jenkins job using the token
   community.general.jenkins_job:
@@ -107,7 +107,7 @@ EXAMPLES = '''
     token: asdfasfasfasdfasdfadfasfasdfasdfc
     enabled: False
     url: http://localhost:8080
-    user: admin
+    ansible.builtin.user: admin
 '''
 
 RETURN = '''

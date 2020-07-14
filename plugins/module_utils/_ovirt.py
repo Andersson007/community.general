@@ -278,7 +278,7 @@ def search_by_name(service, name, **kwargs):
     via REST, so in case using search for nested entity we return all entities
     and filter them by name.
 
-    :param service: service of the entity
+    :param ansible.builtin.service: service of the entity
     :param name: name of the entity
     :return: Entity object returned by Python SDK
     """
@@ -343,7 +343,7 @@ def wait(
     """
     Wait until entity fulfill expected condition.
 
-    :param service: service of the entity
+    :param ansible.builtin.service: service of the entity
     :param condition: condition to be fulfilled
     :param fail_condition: if this condition is true, raise Exception
     :param timeout: max time to wait in seconds

@@ -20,7 +20,7 @@ options:
     description:
       - image to use for bootable volumes. Can be an C(id), C(human_id) or
         C(name). This option requires C(pyrax>=1.9.3)
-  meta:
+  ansible.builtin.meta:
     description:
       - A hash of metadata to associate with the volume
   name:
@@ -70,7 +70,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Build a Block Storage Volume
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:
@@ -85,7 +85,7 @@ EXAMPLES = '''
         region: DFW
         wait: yes
         state: present
-        meta:
+        ansible.builtin.meta:
           app: my-cool-app
       register: my_volume
 '''

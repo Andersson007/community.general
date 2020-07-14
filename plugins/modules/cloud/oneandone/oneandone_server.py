@@ -44,7 +44,7 @@ options:
       - The datacenter location.
     default: US
     choices: [ "US", "ES", "DE", "GB" ]
-  hostname:
+  ansible.builtin.hostname:
     description:
       - The hostname or ID of the server. Only used when state is 'present'.
   description:
@@ -142,7 +142,7 @@ EXAMPLES = '''
 - name: Create three servers and enumerate their names
   community.general.oneandone_server:
     auth_token: oneandone_private_api_key
-    hostname: node%02d
+    ansible.builtin.hostname: node%02d
     fixed_instance_size: XL
     datacenter: US
     appliance: C5A349786169F140BCBC335675014C08
@@ -152,7 +152,7 @@ EXAMPLES = '''
 - name: Create three servers, passing in an ssh_key
   community.general.oneandone_server:
     auth_token: oneandone_private_api_key
-    hostname: node%02d
+    ansible.builtin.hostname: node%02d
     vcore: 2
     cores_per_processor: 4
     ram: 8.0
@@ -567,7 +567,7 @@ def _auto_increment_hostname(count, hostname):
     string formatting (%) operator. Otherwise, increment using name-01,
     name-02, name-03, and so forth.
     """
-    if '%' not in hostname:
+    if '%' not in ansible.builtin.hostname:
         hostname = "%s-%%01d" % hostname
 
     return [

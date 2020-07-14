@@ -88,7 +88,7 @@ EXAMPLES = '''
         project:
           - allow: read
       by:
-        group: "build"
+        ansible.builtin.group: "build"
 
 - name: Remove a rundeck system policy
   community.general.rundeck_acl_policy:

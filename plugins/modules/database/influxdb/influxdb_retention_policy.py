@@ -51,7 +51,7 @@ EXAMPLES = r'''
 # Example influxdb_retention_policy command from Ansible Playbooks
 - name: Create 1 hour retention policy
   community.general.influxdb_retention_policy:
-      hostname: "{{influxdb_ip_address}}"
+      ansible.builtin.hostname: "{{influxdb_ip_address}}"
       database_name: "{{influxdb_database_name}}"
       policy_name: test
       duration: 1h
@@ -61,7 +61,7 @@ EXAMPLES = r'''
 
 - name: Create 1 day retention policy
   community.general.influxdb_retention_policy:
-      hostname: "{{influxdb_ip_address}}"
+      ansible.builtin.hostname: "{{influxdb_ip_address}}"
       database_name: "{{influxdb_database_name}}"
       policy_name: test
       duration: 1d
@@ -69,7 +69,7 @@ EXAMPLES = r'''
 
 - name: Create 1 week retention policy
   community.general.influxdb_retention_policy:
-      hostname: "{{influxdb_ip_address}}"
+      ansible.builtin.hostname: "{{influxdb_ip_address}}"
       database_name: "{{influxdb_database_name}}"
       policy_name: test
       duration: 1w
@@ -77,7 +77,7 @@ EXAMPLES = r'''
 
 - name: Create infinite retention policy
   community.general.influxdb_retention_policy:
-      hostname: "{{influxdb_ip_address}}"
+      ansible.builtin.hostname: "{{influxdb_ip_address}}"
       database_name: "{{influxdb_database_name}}"
       policy_name: test
       duration: INF

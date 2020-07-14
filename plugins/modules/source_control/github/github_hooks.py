@@ -19,7 +19,7 @@ deprecated:
 description:
      - Adds service hooks and removes service hooks that have an error status.
 options:
-  user:
+  ansible.builtin.user:
     description:
       - GitHub username.
     required: true
@@ -64,7 +64,7 @@ EXAMPLES = '''
   community.general.github_hooks:
     action: create
     hookurl: http://11.111.111.111:2222
-    user: '{{ gituser }}'
+    ansible.builtin.user: '{{ gituser }}'
     oauthkey: '{{ oauthkey }}'
     repo: https://api.github.com/repos/pcgentry/Github-Auto-Deploy
 
@@ -73,7 +73,7 @@ EXAMPLES = '''
 - name: Clean all hooks
   community.general.github_hooks:
     action: cleanall
-    user: '{{ gituser }}'
+    ansible.builtin.user: '{{ gituser }}'
     oauthkey: '{{ oauthkey }}'
     repo: '{{ repo }}'
   delegate_to: localhost

@@ -34,7 +34,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Build a Queue
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:

@@ -15,7 +15,7 @@ short_description: Send a message to jabber user or chat room
 description:
    - Send a message to jabber
 options:
-  user:
+  ansible.builtin.user:
     description:
       - User as which to connect
     required: true
@@ -51,21 +51,21 @@ author: "Brian Coca (@bcoca)"
 EXAMPLES = '''
 - name: Send a message to a user
   community.general.jabber:
-    user: mybot@example.net
+    ansible.builtin.user: mybot@example.net
     password: secret
     to: friend@example.net
     msg: Ansible task finished
 
 - name: Send a message to a room
   community.general.jabber:
-    user: mybot@example.net
+    ansible.builtin.user: mybot@example.net
     password: secret
     to: mychaps@conference.example.net/ansiblebot
     msg: Ansible task finished
 
 - name: Send a message, specifying the host and port
   community.general.jabber:
-    user: mybot@example.net
+    ansible.builtin.user: mybot@example.net
     host: talk.example.net
     port: 5223
     password: secret

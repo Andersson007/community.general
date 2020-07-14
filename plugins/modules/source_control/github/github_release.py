@@ -18,7 +18,7 @@ options:
     token:
         description:
             - GitHub Personal Access Token for authenticating. Mutually exclusive with C(password).
-    user:
+    ansible.builtin.user:
         description:
             - The GitHub account that owns the repository
         required: true
@@ -66,20 +66,20 @@ requirements:
 EXAMPLES = '''
 - name: Get latest release of a public repository
   community.general.github_release:
-    user: ansible
+    ansible.builtin.user: ansible
     repo: ansible
     action: latest_release
 
 - name: Get latest release of testuseer/testrepo
   community.general.github_release:
     token: tokenabc1234567890
-    user: testuser
+    ansible.builtin.user: testuser
     repo: testrepo
     action: latest_release
 
 - name: Get latest release of test repo using username and password. Ansible 2.4.
   community.general.github_release:
-    user: testuser
+    ansible.builtin.user: testuser
     password: secret123
     repo: testrepo
     action: latest_release
@@ -87,7 +87,7 @@ EXAMPLES = '''
 - name: Create a new release
   community.general.github_release:
     token: tokenabc1234567890
-    user: testuser
+    ansible.builtin.user: testuser
     repo: testrepo
     action: create_release
     tag: test

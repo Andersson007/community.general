@@ -21,7 +21,7 @@ options:
     description:
       - Category to execute on OOB controller
     type: str
-  command:
+  ansible.builtin.command:
     required: true
     description:
       - List of commands to execute on OOB controller
@@ -60,7 +60,7 @@ EXAMPLES = '''
   - name: Create BIOS configuration job (schedule BIOS setting update)
     community.general.idrac_redfish_command:
       category: Systems
-      command: CreateBiosConfigJob
+      ansible.builtin.command: CreateBiosConfigJob
       resource_id: System.Embedded.1
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"

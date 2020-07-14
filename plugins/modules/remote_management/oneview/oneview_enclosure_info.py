@@ -39,14 +39,14 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Gather information about all Enclosures
   community.general.oneview_enclosure_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
   no_log: true
   delegate_to: localhost
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosures }}"
 
 - name: Gather paginated, filtered and sorted information about Enclosures
@@ -56,27 +56,27 @@ EXAMPLES = '''
       count: 3
       sort: name:descending
       filter: status=OK
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
   no_log: true
   delegate_to: localhost
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosures }}"
 
 - name: Gather information about an Enclosure by name
   community.general.oneview_enclosure_info:
     name: Enclosure-Name
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
   no_log: true
   delegate_to: localhost
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosures }}"
 
 - name: Gather information about an Enclosure by name with options
@@ -86,20 +86,20 @@ EXAMPLES = '''
       - script                       # optional
       - environmentalConfiguration   # optional
       - utilization                  # optional
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
   no_log: true
   delegate_to: localhost
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosures }}"
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosure_script }}"
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosure_environmental_configuration }}"
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosure_utilization }}"
 
 - name: "Gather information about an Enclosure with temperature data at a resolution of one sample per day, between two
@@ -114,16 +114,16 @@ EXAMPLES = '''
             - endDate=2017-07-01T03:29:42.000Z
           view: day
           refresh: false
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
   no_log: true
   delegate_to: localhost
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosures }}"
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.enclosure_utilization }}"
 '''
 

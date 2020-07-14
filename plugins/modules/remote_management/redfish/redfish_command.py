@@ -23,7 +23,7 @@ options:
     description:
       - Category to execute on OOB controller
     type: str
-  command:
+  ansible.builtin.command:
     required: true
     description:
       - List of commands to execute on OOB controller
@@ -200,7 +200,7 @@ EXAMPLES = '''
   - name: Restart system power gracefully
     community.general.redfish_command:
       category: Systems
-      command: PowerGracefulRestart
+      ansible.builtin.command: PowerGracefulRestart
       resource_id: 437XR1138R2
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
@@ -209,7 +209,7 @@ EXAMPLES = '''
   - name: Set one-time boot device to {{ bootdevice }}
     community.general.redfish_command:
       category: Systems
-      command: SetOneTimeBoot
+      ansible.builtin.command: SetOneTimeBoot
       resource_id: 437XR1138R2
       bootdevice: "{{ bootdevice }}"
       baseuri: "{{ baseuri }}"
@@ -219,7 +219,7 @@ EXAMPLES = '''
   - name: Set one-time boot device to UefiTarget of "/0x31/0x33/0x01/0x01"
     community.general.redfish_command:
       category: Systems
-      command: SetOneTimeBoot
+      ansible.builtin.command: SetOneTimeBoot
       resource_id: 437XR1138R2
       bootdevice: "UefiTarget"
       uefi_target: "/0x31/0x33/0x01/0x01"
@@ -230,7 +230,7 @@ EXAMPLES = '''
   - name: Set one-time boot device to BootNext target of "Boot0001"
     community.general.redfish_command:
       category: Systems
-      command: SetOneTimeBoot
+      ansible.builtin.command: SetOneTimeBoot
       resource_id: 437XR1138R2
       bootdevice: "UefiBootNext"
       boot_next: "Boot0001"
@@ -241,7 +241,7 @@ EXAMPLES = '''
   - name: Set chassis indicator LED to blink
     community.general.redfish_command:
       category: Chassis
-      command: IndicatorLedBlink
+      ansible.builtin.command: IndicatorLedBlink
       resource_id: 1U
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
@@ -250,7 +250,7 @@ EXAMPLES = '''
   - name: Add user
     community.general.redfish_command:
       category: Accounts
-      command: AddUser
+      ansible.builtin.command: AddUser
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -261,7 +261,7 @@ EXAMPLES = '''
   - name: Add user using new option aliases
     community.general.redfish_command:
       category: Accounts
-      command: AddUser
+      ansible.builtin.command: AddUser
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -272,7 +272,7 @@ EXAMPLES = '''
   - name: Delete user
     community.general.redfish_command:
       category: Accounts
-      command: DeleteUser
+      ansible.builtin.command: DeleteUser
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -281,7 +281,7 @@ EXAMPLES = '''
   - name: Disable user
     community.general.redfish_command:
       category: Accounts
-      command: DisableUser
+      ansible.builtin.command: DisableUser
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -290,7 +290,7 @@ EXAMPLES = '''
   - name: Enable user
     community.general.redfish_command:
       category: Accounts
-      command: EnableUser
+      ansible.builtin.command: EnableUser
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -299,7 +299,7 @@ EXAMPLES = '''
   - name: Add and enable user
     community.general.redfish_command:
       category: Accounts
-      command: AddUser,EnableUser
+      ansible.builtin.command: AddUser,EnableUser
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -310,7 +310,7 @@ EXAMPLES = '''
   - name: Update user password
     community.general.redfish_command:
       category: Accounts
-      command: UpdateUserPassword
+      ansible.builtin.command: UpdateUserPassword
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -320,7 +320,7 @@ EXAMPLES = '''
   - name: Update user role
     community.general.redfish_command:
       category: Accounts
-      command: UpdateUserRole
+      ansible.builtin.command: UpdateUserRole
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -330,7 +330,7 @@ EXAMPLES = '''
   - name: Update user name
     community.general.redfish_command:
       category: Accounts
-      command: UpdateUserName
+      ansible.builtin.command: UpdateUserName
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -340,7 +340,7 @@ EXAMPLES = '''
   - name: Update user name
     community.general.redfish_command:
       category: Accounts
-      command: UpdateUserName
+      ansible.builtin.command: UpdateUserName
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -350,7 +350,7 @@ EXAMPLES = '''
   - name: Update AccountService properties
     community.general.redfish_command:
       category: Accounts
-      command: UpdateAccountServiceProperties
+      ansible.builtin.command: UpdateAccountServiceProperties
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -361,7 +361,7 @@ EXAMPLES = '''
   - name: Clear Manager Logs with a timeout of 20 seconds
     community.general.redfish_command:
       category: Manager
-      command: ClearLogs
+      ansible.builtin.command: ClearLogs
       resource_id: BMC
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
@@ -371,7 +371,7 @@ EXAMPLES = '''
   - name: Clear Sessions
     community.general.redfish_command:
       category: Sessions
-      command: ClearSessions
+      ansible.builtin.command: ClearSessions
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -379,7 +379,7 @@ EXAMPLES = '''
   - name: Simple update
     community.general.redfish_command:
       category: Update
-      command: SimpleUpdate
+      ansible.builtin.command: SimpleUpdate
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -388,7 +388,7 @@ EXAMPLES = '''
   - name: Simple update with additional options
     community.general.redfish_command:
       category: Update
-      command: SimpleUpdate
+      ansible.builtin.command: SimpleUpdate
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -403,7 +403,7 @@ EXAMPLES = '''
   - name: Insert Virtual Media
     community.general.redfish_command:
       category: Manager
-      command: VirtualMediaInsert
+      ansible.builtin.command: VirtualMediaInsert
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -417,7 +417,7 @@ EXAMPLES = '''
   - name: Eject Virtual Media
     community.general.redfish_command:
       category: Manager
-      command: VirtualMediaEject
+      ansible.builtin.command: VirtualMediaEject
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -576,7 +576,7 @@ def main():
             module.fail_json(msg=to_native(result['msg']))
 
         for command in command_list:
-            if "Power" in command:
+            if "Power" in ansible.builtin.command:
                 result = rf_utils.manage_system_power(command)
             elif command == "SetOneTimeBoot":
                 result = rf_utils.set_one_time_boot_device(

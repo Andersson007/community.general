@@ -58,7 +58,7 @@ options:
             This option is mandatory for Network Share.
         type: str
         required: True
-    reboot:
+    ansible.builtin.reboot:
         description: Whether to reboots after applying the updates or not.
         type: bool
         default: false
@@ -89,7 +89,7 @@ EXAMPLES = """
        share_user: "share_user_name"
        share_password: "share_user_pwd"
        share_mnt: "/mnt/share"
-       reboot: True
+       ansible.builtin.reboot: True
        job_wait: True
        catalog_file_name: "Catalog.xml"
 """

@@ -33,7 +33,7 @@ options:
       - Packet API token. You can also supply it in env var C(PACKET_API_TOKEN).
     type: str
 
-  hostname:
+  ansible.builtin.hostname:
     description:
       - A hostname of a device to/from which to assign/remove a subnet.
     required: False
@@ -99,7 +99,7 @@ EXAMPLES = '''
 
   - community.general.packet_ip_subnet:
       project_id: 89b497ee-5afc-420a-8fb5-56984898f4df
-      hostname: myserver
+      ansible.builtin.hostname: myserver
       cidr: "147.75.201.78/32"
 
 # Release IP address 147.75.201.78

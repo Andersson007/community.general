@@ -12,7 +12,7 @@ class ModuleDocFragment(object):
     # Parameters for influxdb modules
     DOCUMENTATION = r'''
 options:
-  hostname:
+  ansible.builtin.hostname:
     description:
     - The hostname or IP address on which InfluxDB server is listening.
     - Since Ansible 2.5, defaulted to localhost.

@@ -139,7 +139,7 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
         #   export DOCKER_HOST="tcp://134.209.204.160:2376"
         #   export DOCKER_CERT_PATH="/root/.docker/machine/machines/routinator"
         #   export DOCKER_MACHINE_NAME="routinator"
-        #   # Run this command to configure your shell:
+        #   # Run this command to configure your ansible.builtin.shell:
         #   # eval $(docker-machine env --shell=bash routinator)
 
         # capture any of the DOCKER_xxx variables that were output and create Ansible host vars

@@ -31,7 +31,7 @@ options:
     description:
       - Name of the role to set as owner of the database
     type: str
-  template:
+  ansible.builtin.template:
     description:
       - Template used to create the database
     type: str
@@ -147,7 +147,7 @@ EXAMPLES = r'''
     encoding: UTF-8
     lc_collate: de_DE.UTF-8
     lc_ctype: de_DE.UTF-8
-    template: template0
+    ansible.builtin.template: template0
 
 # Note: Default limit for the number of concurrent connections to a specific database is "-1", which means "unlimited"
 - name: Create a new database with name "acme" which has a limit of 100 concurrent connections
@@ -297,7 +297,7 @@ def db_create(cursor, db, owner, template, encoding, lc_collate, lc_ctype, conn_
         query_fragments = ['CREATE DATABASE "%s"' % db]
         if owner:
             query_fragments.append('OWNER "%s"' % owner)
-        if template:
+        if ansible.builtin.template:
             query_fragments.append('TEMPLATE "%s"' % template)
         if encoding:
             query_fragments.append('ENCODING %(enc)s')
@@ -489,7 +489,7 @@ def login_flags(db, host, port, user, db_prefix=True):
         flags.append(' --host={0}'.format(host))
     if port:
         flags.append(' --port={0}'.format(port))
-    if user:
+    if ansible.builtin.user:
         flags.append(' --username={0}'.format(user))
     return flags
 

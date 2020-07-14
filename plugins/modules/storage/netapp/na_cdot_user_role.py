@@ -65,7 +65,7 @@ EXAMPLES = """
         command_directory_name: DEFAULT
         access_level: none
         vserver: ansibleVServer
-        hostname: "{{ netapp_hostname }}"
+        ansible.builtin.hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
 

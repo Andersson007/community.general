@@ -56,7 +56,7 @@ EXAMPLES = """
     name: ansibleQTree
     flexvol_name: ansibleVolume
     vserver: ansibleVServer
-    hostname: "{{ netapp_hostname }}"
+    ansible.builtin.hostname: "{{ netapp_hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
 
@@ -66,7 +66,7 @@ EXAMPLES = """
     name: ansibleQTree
     flexvol_name: ansibleVolume
     vserver: ansibleVServer
-    hostname: "{{ netapp_hostname }}"
+    ansible.builtin.hostname: "{{ netapp_hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
 """

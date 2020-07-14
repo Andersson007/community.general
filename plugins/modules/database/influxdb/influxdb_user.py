@@ -72,7 +72,7 @@ EXAMPLES = r'''
     user_name: john
     user_password: s3cr3t
     admin: yes
-    hostname: "{{ influxdb_hostname }}"
+    ansible.builtin.hostname: "{{ influxdb_hostname }}"
     login_username: "{{ influxdb_username }}"
     login_password: "{{ influxdb_password }}"
 
@@ -224,7 +224,7 @@ def main():
     changed = False
 
     if state == 'present':
-        if user:
+        if ansible.builtin.user:
             if not check_user_password(module, client, user_name, user_password) and user_password is not None:
                 set_user_password(module, client, user_name, user_password)
                 changed = True
@@ -253,7 +253,7 @@ def main():
         module.exit_json(changed=changed)
 
     if state == 'absent':
-        if user:
+        if ansible.builtin.user:
             drop_user(module, client, user_name)
         else:
             module.exit_json(changed=False)

@@ -25,7 +25,7 @@ options:
     description:
     - A description of this role-group.
     type: str
-  group:
+  ansible.builtin.group:
     description:
     - List of group names assign to this role.
     - If an empty list is passed all assigned groups will be unassigned from the role.
@@ -57,7 +57,7 @@ options:
     - If option is passed all assigned privileges that are not passed will be removed.
     type: list
     elements: str
-  service:
+  ansible.builtin.service:
     description:
     - List of service names to assign.
     - If an empty list is passed all assigned services will be removed from the role.
@@ -70,7 +70,7 @@ options:
     default: "present"
     choices: ["absent", "present"]
     type: str
-  user:
+  ansible.builtin.user:
     description:
     - List of user names to assign.
     - If an empty list is passed all assigned users will be removed from the role.
@@ -88,7 +88,7 @@ EXAMPLES = r'''
     name: dba
     description: Database Administrators
     state: present
-    user:
+    ansible.builtin.user:
     - pinky
     - brain
     ipa_host: ipa.example.com
@@ -99,7 +99,7 @@ EXAMPLES = r'''
   community.general.ipa_role:
     name: another-role
     description: Just another role
-    group:
+    ansible.builtin.group:
     - editors
     host:
     - host01.example.com
@@ -108,7 +108,7 @@ EXAMPLES = r'''
     privilege:
     - Group Administrators
     - User Administrators
-    service:
+    ansible.builtin.service:
     - service01
 
 - name: Ensure role is absent

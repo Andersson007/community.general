@@ -44,7 +44,7 @@ EXAMPLES = r'''
     size: 2T
     state: present
     array: vx100_ultra.test.com
-    user: admin
+    ansible.builtin.user: admin
     password: secret
 
 - name: Expand volume named foo to 4 TiB
@@ -53,7 +53,7 @@ EXAMPLES = r'''
     size: 4T
     state: present
     array: vx100_ultra.test.com
-    user: admin
+    ansible.builtin.user: admin
     password: secret
 
 - name: Delete volume named foo
@@ -61,7 +61,7 @@ EXAMPLES = r'''
     name: foo
     state: absent
     array: vx100_ultra.test.com
-    user: admin
+    ansible.builtin.user: admin
     password: secret
 '''
 

@@ -30,7 +30,7 @@ options:
         description:
           - A reference to an existing utm_ca_signing_ca or utm_ca_verification_ca object.
         required: true
-    meta:
+    ansible.builtin.meta:
         description:
           - A reference to an existing utm_ca_meta_x509 object.
         required: true
@@ -62,7 +62,7 @@ EXAMPLES = """
     utm_token: abcdefghijklmno1234
     name: TestHostKeyCertEntry
     ca: REF_ca/signing_ca_OBJECT_STRING
-    meta: REF_ca/meta_x509_OBJECT_STRING
+    ansible.builtin.meta: REF_ca/meta_x509_OBJECT_STRING
     certificate: |
       --- BEGIN CERTIFICATE ---
       . . .
@@ -108,7 +108,7 @@ result:
         ca:
             description: A reference to an existing utm_ca_signing_ca or utm_ca_verification_ca object.
             type: str
-        meta:
+        ansible.builtin.meta:
             description: A reference to an existing utm_ca_meta_x509 object.
             type: str
         certificate:

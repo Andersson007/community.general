@@ -241,7 +241,7 @@ EXAMPLES = '''
     zone_id: 'example-com'
     type: TXT
     record_data:
-      - '"v=spf1 include:_spf.google.com -all"'   # A single-string TXT value
+      - '"v=spf1 ansible.builtin.include:_spf.google.com -all"'   # A single-string TXT value
       - '"hello " "world"'    # A multi-string TXT value
 '''
 

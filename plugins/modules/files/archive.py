@@ -525,7 +525,7 @@ def main():
                     module.fail_json(
                         path=to_native(b_path),
                         dest=dest,
-                        msg='Unable to write to compressed file: %s' % to_native(e), exception=format_exc()
+                        msg='Unable to write to compressed ansible.builtin.file: %s' % to_native(e), exception=format_exc()
                     )
 
                 if arcfile:
@@ -548,7 +548,7 @@ def main():
             except OSError as e:
                 module.fail_json(
                     path=to_native(b_path),
-                    msg='Unable to remove source file: %s' % to_native(e), exception=format_exc()
+                    msg='Unable to remove source ansible.builtin.file: %s' % to_native(e), exception=format_exc()
                 )
 
     try:

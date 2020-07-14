@@ -19,7 +19,7 @@ description:
   - Create and modify issues in a JIRA instance.
 
 options:
-  uri:
+  ansible.builtin.uri:
     required: true
     description:
       - Base URI for the JIRA instance.
@@ -143,7 +143,7 @@ EXAMPLES = """
 # Create a new issue and add a comment to it:
 - name: Create an issue
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     project: ANS
@@ -159,7 +159,7 @@ EXAMPLES = """
 
 - name: Comment on issue
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     issue: '{{ issue.meta.key }}'
@@ -169,7 +169,7 @@ EXAMPLES = """
 # Assign an existing issue using edit
 - name: Assign an issue using free-form fields
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     issue: '{{ issue.meta.key}}'
@@ -179,7 +179,7 @@ EXAMPLES = """
 # Create an issue with an existing assignee
 - name: Create an assigned issue
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     project: ANS
@@ -192,7 +192,7 @@ EXAMPLES = """
 # Edit an issue
 - name: Set the labels on an issue using free-form fields
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     issue: '{{ issue.meta.key }}'
@@ -206,7 +206,7 @@ EXAMPLES = """
 # Updating a field using operations: add, set & remove
 - name: Change the value of a Select dropdown
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     issue: '{{ issue.meta.key }}'
@@ -222,7 +222,7 @@ EXAMPLES = """
 # Retrieve metadata for an issue and use it to create an account
 - name: Get an issue
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     project: ANS
@@ -234,7 +234,7 @@ EXAMPLES = """
 # You can limit the search for specific fields by adding optional args. Note! It must be a dict, hence, lastViewed: null
 - name: Search for an issue
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     project: ANS
@@ -248,7 +248,7 @@ EXAMPLES = """
 
 - name: Create a unix account for the reporter
   become: true
-  user:
+  ansible.builtin.user:
     name: '{{ issue.meta.fields.creator.name }}'
     comment: '{{ issue.meta.fields.creator.displayName }}'
 
@@ -256,7 +256,7 @@ EXAMPLES = """
 # url of your jira installation.
 - name: Create link from HSP-1 to MKY-1
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     operation: link
@@ -267,7 +267,7 @@ EXAMPLES = """
 # Transition an issue by target status
 - name: Close the issue
   community.general.jira:
-    uri: '{{ server }}'
+    ansible.builtin.uri: '{{ server }}'
     username: '{{ user }}'
     password: '{{ pass }}'
     issue: '{{ issue.meta.key }}'

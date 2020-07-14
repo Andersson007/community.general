@@ -69,7 +69,7 @@ EXAMPLES = """
         root_volume: vol1
         root_volume_aggregate: aggr1
         root_volume_security_style: mixed
-        hostname: "{{ netapp_hostname }}"
+        ansible.builtin.hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
 

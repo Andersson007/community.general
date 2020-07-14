@@ -39,7 +39,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Gather information about all Network Sets
   community.general.oneview_network_set_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -47,12 +47,12 @@ EXAMPLES = '''
   delegate_to: localhost
   register: result
 
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.network_sets }}"
 
 - name: Gather paginated, filtered, and sorted information about Network Sets
   community.general.oneview_network_set_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -65,12 +65,12 @@ EXAMPLES = '''
   delegate_to: localhost
   register: result
 
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.network_sets }}"
 
 - name: Gather information about all Network Sets, excluding Ethernet networks
   community.general.oneview_network_set_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -80,12 +80,12 @@ EXAMPLES = '''
   delegate_to: localhost
   register: result
 
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.network_sets }}"
 
 - name: Gather information about a Network Set by name
   community.general.oneview_network_set_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -94,12 +94,12 @@ EXAMPLES = '''
   delegate_to: localhost
   register: result
 
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.network_sets }}"
 
 - name: Gather information about a Network Set by name, excluding Ethernet networks
   community.general.oneview_network_set_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -110,7 +110,7 @@ EXAMPLES = '''
   delegate_to: localhost
   register: result
 
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.network_sets }}"
 '''
 

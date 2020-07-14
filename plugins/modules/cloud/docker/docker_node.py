@@ -15,7 +15,7 @@ description:
     - Manages the Docker nodes via Swarm Manager.
     - This module allows to change the node's role, its availability, and to modify, add or remove node labels.
 options:
-    hostname:
+    ansible.builtin.hostname:
         description:
             - The hostname or ID of node as registered in Swarm.
             - If more than one node is registered using the same hostname the ID must be used,
@@ -84,35 +84,35 @@ author:
 EXAMPLES = '''
 - name: Set node role
   community.general.docker_node:
-    hostname: mynode
+    ansible.builtin.hostname: mynode
     role: manager
 
 - name: Set node availability
   community.general.docker_node:
-    hostname: mynode
+    ansible.builtin.hostname: mynode
     availability: drain
 
 - name: Replace node labels with new labels
   community.general.docker_node:
-    hostname: mynode
+    ansible.builtin.hostname: mynode
     labels:
       key: value
     labels_state: replace
 
 - name: Merge node labels and new labels
   community.general.docker_node:
-    hostname: mynode
+    ansible.builtin.hostname: mynode
     labels:
       key: value
 
 - name: Remove all labels assigned to node
   community.general.docker_node:
-    hostname: mynode
+    ansible.builtin.hostname: mynode
     labels_state: replace
 
 - name: Remove selected labels from the node
   community.general.docker_node:
-    hostname: mynode
+    ansible.builtin.hostname: mynode
     labels_to_remove:
       - key1
       - key2

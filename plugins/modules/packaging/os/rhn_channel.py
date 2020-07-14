@@ -38,7 +38,7 @@ options:
             - The full URL to the RHN/Satellite API.
         required: true
         type: str
-    user:
+    ansible.builtin.user:
         description:
             - RHN/Satellite login.
         required: true
@@ -66,7 +66,7 @@ EXAMPLES = '''
     name: rhel-x86_64-server-v2vwin-6
     sysname: server01
     url: https://rhn.redhat.com/rpc/api
-    user: rhnuser
+    ansible.builtin.user: rhnuser
     password: guessme
   delegate_to: localhost
 '''

@@ -57,7 +57,7 @@ EXAMPLES = r'''
     pg: pg1
     state: present
     array: vx100_ultra.test.com
-    user: admin
+    ansible.builtin.user: admin
     password: secret
 
 - name: Delete export group named db_export
@@ -65,7 +65,7 @@ EXAMPLES = r'''
     name: db_export
     state: absent
     array: vx100_ultra.test.com
-    user: admin
+    ansible.builtin.user: admin
     password: secret
 '''
 

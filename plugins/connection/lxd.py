@@ -96,7 +96,7 @@ class Connection(ConnectionBase):
         self._display.vvv(u"PUT {0} TO {1}".format(in_path, out_path), host=self._host)
 
         if not os.path.isfile(to_bytes(in_path, errors='surrogate_or_strict')):
-            raise AnsibleFileNotFound("input path is not a file: %s" % in_path)
+            raise AnsibleFileNotFound("input path is not a ansible.builtin.file: %s" % in_path)
 
         local_cmd = [self._lxc_cmd, "file", "push", in_path, self._host + "/" + out_path]
 

@@ -69,7 +69,7 @@ EXAMPLES = """
     name: janedoe
     password: '9s36?;fyNp'
     owner: root
-    group: www-data
+    ansible.builtin.group: www-data
     mode: 0640
 
 - name: Remove a user from a password file

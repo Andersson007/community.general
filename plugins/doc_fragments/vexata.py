@@ -25,7 +25,7 @@ options:
       - Vexata VX100 array hostname or IPv4 Address.
     required: true
     type: str
-  user:
+  ansible.builtin.user:
     description:
       - Vexata API user with administrative privileges.
     required: false

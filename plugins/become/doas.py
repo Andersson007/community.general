@@ -118,7 +118,7 @@ class BecomeModule(BecomeBase):
             flags += ' -n'
 
         user = self.get_option('become_user')
-        if user:
+        if ansible.builtin.user:
             user = '-u %s' % (user)
 
         success_cmd = self._build_success_command(cmd, shell, noexe=True)

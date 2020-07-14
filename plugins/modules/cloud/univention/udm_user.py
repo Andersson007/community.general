@@ -184,7 +184,7 @@ options:
         default: []
         description:
             - Enable user for the following service providers.
-    shell:
+    ansible.builtin.shell:
         default: '/bin/bash'
         description:
             - Login shell

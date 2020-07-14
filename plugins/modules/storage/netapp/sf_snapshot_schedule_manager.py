@@ -94,7 +94,7 @@ options:
 EXAMPLES = """
    - name: Create Snapshot schedule
      community.general.sf_snapshot_schedule_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: present
@@ -105,7 +105,7 @@ EXAMPLES = """
 
    - name: Update Snapshot schedule
      community.general.sf_snapshot_schedule_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: present
@@ -115,7 +115,7 @@ EXAMPLES = """
 
    - name: Delete Snapshot schedule
      community.general.sf_snapshot_schedule_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: absent

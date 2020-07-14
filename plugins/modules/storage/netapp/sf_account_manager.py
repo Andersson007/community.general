@@ -68,7 +68,7 @@ options:
 EXAMPLES = """
 - name: Create Account
   community.general.sf_account_manager:
-    hostname: "{{ solidfire_hostname }}"
+    ansible.builtin.hostname: "{{ solidfire_hostname }}"
     username: "{{ solidfire_username }}"
     password: "{{ solidfire_password }}"
     state: present
@@ -76,7 +76,7 @@ EXAMPLES = """
 
 - name: Modify Account
   community.general.sf_account_manager:
-    hostname: "{{ solidfire_hostname }}"
+    ansible.builtin.hostname: "{{ solidfire_hostname }}"
     username: "{{ solidfire_username }}"
     password: "{{ solidfire_password }}"
     state: present
@@ -85,7 +85,7 @@ EXAMPLES = """
 
 - name: Delete Account
   community.general.sf_account_manager:
-    hostname: "{{ solidfire_hostname }}"
+    ansible.builtin.hostname: "{{ solidfire_hostname }}"
     username: "{{ solidfire_username }}"
     password: "{{ solidfire_password }}"
     state: absent

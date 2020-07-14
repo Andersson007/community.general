@@ -46,7 +46,7 @@ ansible_facts:
       description: "Public IP address of a host"
       type: str
       sample: "8.8.8.8"
-    hostname:
+    ansible.builtin.hostname:
       description: Domain name
       type: str
       sample: "google-public-dns-a.google.com"

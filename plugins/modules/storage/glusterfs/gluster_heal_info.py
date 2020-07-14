@@ -39,7 +39,7 @@ EXAMPLES = '''
     name: test_volume
     status_filter: self-heal
   register: self_heal_status
-- debug:
+- ansible.builtin.debug:
     var: self_heal_status
 
 - name: Gather rebalance facts about all gluster hosts in the cluster
@@ -47,7 +47,7 @@ EXAMPLES = '''
     name: test_volume
     status_filter: rebalance
   register: rebalance_status
-- debug:
+- ansible.builtin.debug:
     var: rebalance_status
 '''
 
@@ -90,7 +90,7 @@ def run_gluster(gargs, **kwargs):
             module.fail_json(msg='error running gluster (%s) command (rc=%d): %s' %
                              (' '.join(args), rc, out or err), exception=traceback.format_exc())
     except Exception as e:
-        module.fail_json(msg='error running gluster (%s) command: %s' % (' '.join(args),
+        module.fail_json(msg='error running gluster (%s) ansible.builtin.command: %s' % (' '.join(args),
                                                                          to_native(e)), exception=traceback.format_exc())
     return out
 

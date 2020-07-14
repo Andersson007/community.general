@@ -19,7 +19,7 @@ author:
     - "James Martin (@jsmartin)"
     - "Drew Kerrigan (@drewkerrigan)"
 options:
-  command:
+  ansible.builtin.command:
     description:
       - The command you would like to perform against the cluster.
     choices: ['ping', 'kv_test', 'join', 'plan', 'commit']
@@ -56,7 +56,7 @@ options:
 EXAMPLES = '''
 - name: "Join's a Riak node to another node"
   community.general.riak:
-    command: join
+    ansible.builtin.command: join
     target_node: riak@10.1.1.1
 
 - name: Wait for handoffs to finish. Use with async and poll.

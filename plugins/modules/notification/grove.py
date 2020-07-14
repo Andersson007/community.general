@@ -20,7 +20,7 @@ options:
     description:
       - Token of the channel to post to.
     required: true
-  service:
+  ansible.builtin.service:
     description:
       - Name of the service (displayed as the "user" in the message)
     required: false
@@ -50,7 +50,7 @@ EXAMPLES = '''
 - name: Sends a notification to a grove.io channel
   community.general.grove:
     channel_token: 6Ph62VBBJOccmtTPZbubiPzdrhipZXtg
-    service: my-app
+    ansible.builtin.service: my-app
     message: 'deployed {{ target }}'
 '''
 

@@ -21,7 +21,7 @@ options:
     type: str
     description:
       - Category to execute on iDRAC
-  command:
+  ansible.builtin.command:
     required: true
     description:
       - List of commands to execute on iDRAC
@@ -80,7 +80,7 @@ EXAMPLES = '''
   - name: Enable NTP and set NTP server and Time zone attributes in iDRAC
     community.general.idrac_redfish_config:
       category: Manager
-      command: SetManagerAttributes
+      ansible.builtin.command: SetManagerAttributes
       resource_id: iDRAC.Embedded.1
       manager_attributes:
         NTPConfigGroup.1.NTPEnable: "Enabled"
@@ -93,7 +93,7 @@ EXAMPLES = '''
   - name: Enable Syslog and set Syslog servers in iDRAC
     community.general.idrac_redfish_config:
       category: Manager
-      command: SetManagerAttributes
+      ansible.builtin.command: SetManagerAttributes
       resource_id: iDRAC.Embedded.1
       manager_attributes:
         SysLog.1.SysLogEnable: "Enabled"
@@ -106,7 +106,7 @@ EXAMPLES = '''
   - name: Configure SNMP community string, port, protocol and trap format
     community.general.idrac_redfish_config:
       category: Manager
-      command: SetManagerAttributes
+      ansible.builtin.command: SetManagerAttributes
       resource_id: iDRAC.Embedded.1
       manager_attributes:
         SNMP.1.AgentEnable: "Enabled"
@@ -122,7 +122,7 @@ EXAMPLES = '''
   - name: Enable CSIOR
     community.general.idrac_redfish_config:
       category: Manager
-      command: SetLifecycleControllerAttributes
+      ansible.builtin.command: SetLifecycleControllerAttributes
       resource_id: iDRAC.Embedded.1
       manager_attributes:
         LCAttributes.1.CollectSystemInventoryOnRestart: "Enabled"
@@ -133,7 +133,7 @@ EXAMPLES = '''
   - name: Set Power Supply Redundancy Policy to A/B Grid Redundant
     community.general.idrac_redfish_config:
       category: Manager
-      command: SetSystemAttributes
+      ansible.builtin.command: SetSystemAttributes
       resource_id: iDRAC.Embedded.1
       manager_attributes:
         ServerPwr.1.PSRedPolicy: "A/B Grid Redundant"

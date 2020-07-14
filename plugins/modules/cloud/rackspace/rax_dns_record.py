@@ -88,7 +88,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Create DNS Records
   hosts: all
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Create A record
       local_action:

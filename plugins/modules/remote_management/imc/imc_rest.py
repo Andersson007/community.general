@@ -22,7 +22,7 @@ requirements:
 - lxml
 - xmljson >= 0.1.8
 options:
-  hostname:
+  ansible.builtin.hostname:
     description:
     - IP Address or hostname of Cisco IMC, resolvable by Ansible control host.
     required: true
@@ -82,7 +82,7 @@ notes:
 EXAMPLES = r'''
 - name: Power down server
   community.general.imc_rest:
-    hostname: '{{ imc_hostname }}'
+    ansible.builtin.hostname: '{{ imc_hostname }}'
     username: '{{ imc_username }}'
     password: '{{ imc_password }}'
     validate_certs: no
@@ -94,7 +94,7 @@ EXAMPLES = r'''
 
 - name: Configure IMC using multiple XML fragments
   community.general.imc_rest:
-    hostname: '{{ imc_hostname }}'
+    ansible.builtin.hostname: '{{ imc_hostname }}'
     username: '{{ imc_username }}'
     password: '{{ imc_password }}'
     validate_certs: no
@@ -119,7 +119,7 @@ EXAMPLES = r'''
 
 - name: Enable PXE boot and power-cycle server
   community.general.imc_rest:
-    hostname: '{{ imc_hostname }}'
+    ansible.builtin.hostname: '{{ imc_hostname }}'
     username: '{{ imc_username }}'
     password: '{{ imc_password }}'
     validate_certs: no
@@ -137,7 +137,7 @@ EXAMPLES = r'''
 
 - name: Reconfigure IMC to boot from storage
   community.general.imc_rest:
-    hostname: '{{ imc_host }}'
+    ansible.builtin.hostname: '{{ imc_host }}'
     username: '{{ imc_username }}'
     password: '{{ imc_password }}'
     validate_certs: no
@@ -149,7 +149,7 @@ EXAMPLES = r'''
 
 - name: Add customer description to server
   community.general.imc_rest:
-    hostname: '{{ imc_host }}'
+    ansible.builtin.hostname: '{{ imc_host }}'
     username: '{{ imc_username }}'
     password: '{{ imc_password }}'
     validate_certs: no
@@ -161,7 +161,7 @@ EXAMPLES = r'''
 
 - name: Disable HTTP and increase session timeout to max value 10800 secs
   community.general.imc_rest:
-    hostname: '{{ imc_host }}'
+    ansible.builtin.hostname: '{{ imc_host }}'
     username: '{{ imc_username }}'
     password: '{{ imc_password }}'
     validate_certs: no

@@ -33,7 +33,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Gather information about all Logical Interconnect Groups
   community.general.oneview_logical_interconnect_group_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -41,7 +41,7 @@ EXAMPLES = '''
   delegate_to: localhost
   register: result
 
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.logical_interconnect_groups }}"
 
 - name: Gather paginated, filtered and sorted information about Logical Interconnect Groups
@@ -51,7 +51,7 @@ EXAMPLES = '''
       count: 3
       sort: name:descending
       filter: name=LIGName
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -59,13 +59,13 @@ EXAMPLES = '''
   delegate_to: localhost
   register: result
 
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.logical_interconnect_groups }}"
 
 - name: Gather information about a Logical Interconnect Group by name
   community.general.oneview_logical_interconnect_group_info:
     name: logical interconnect group name
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -73,7 +73,7 @@ EXAMPLES = '''
   delegate_to: localhost
   register: result
 
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.logical_interconnect_groups }}"
 '''
 

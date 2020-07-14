@@ -23,7 +23,7 @@ options:
       - WEIGHTED_LEAST_CONNECTIONS
       - WEIGHTED_ROUND_ROBIN
     default: LEAST_CONNECTIONS
-  meta:
+  ansible.builtin.meta:
     description:
       - A hash of metadata to associate with the instance
   name:
@@ -98,7 +98,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Build a Load Balancer
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:
@@ -114,7 +114,7 @@ EXAMPLES = '''
         region: DFW
         wait: yes
         state: present
-        meta:
+        ansible.builtin.meta:
           app: my-cool-app
       register: my_lb
 '''

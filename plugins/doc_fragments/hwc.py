@@ -16,7 +16,7 @@ options:
             - The Identity authentication URL.
         type: str
         required: true
-    user:
+    ansible.builtin.user:
         description:
             - The user name to login with (currently only user names are
               supported, and not user IDs).

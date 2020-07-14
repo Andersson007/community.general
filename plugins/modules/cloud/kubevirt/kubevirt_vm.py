@@ -57,7 +57,7 @@ options:
                launch flow. Without using a DataVolume, users have to prepare a pvc with a disk image before assigning
                it to a VM or VMI manifest. With a DataVolume, both the pvc creation and import is automated on behalf of the user."
         type: list
-    template:
+    ansible.builtin.template:
         description:
             - "Name of Template to be used in creation of a virtual machine."
         type: str
@@ -133,7 +133,7 @@ EXAMPLES = '''
         metadata:
           labels:
             app: galaxy
-            service: web
+            ansible.builtin.service: web
             origin: vmware
 
       # Ansible parameters:
@@ -380,11 +380,11 @@ class KubeVirtVM(KubeVirtRawModule):
                     if parameter.name == k:
                         parameter.value = v
 
-            # Proccess the template:
+            # Proccess the ansible.builtin.template:
             processedtemplates_res = self.client.resources.get(api_version='template.openshift.io/v1', kind='Template', name='processedtemplates')
             processedtemplate = processedtemplates_res.create(proccess_template.to_dict()).to_dict()['objects'][0]
 
-            # Process defaults of the template:
+            # Process defaults of the ansible.builtin.template:
             self._process_template_defaults(proccess_template, processedtemplate, defaults)
 
         if not ephemeral:

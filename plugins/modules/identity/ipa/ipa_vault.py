@@ -50,7 +50,7 @@ options:
         aliases: ["user"]
         type: list
         elements: str
-    service:
+    ansible.builtin.service:
         description:
         - Any service can own one or more service vaults.
         - Mutually exclusive with user.
@@ -61,7 +61,7 @@ options:
         default: "present"
         choices: ["absent", "present"]
         type: str
-    replace:
+    ansible.builtin.replace:
         description:
         - Force replace the existant vault on IPA server.
         type: bool
@@ -82,7 +82,7 @@ EXAMPLES = r'''
   community.general.ipa_vault:
     name: vault01
     vault_type: standard
-    user: user01
+    ansible.builtin.user: user01
     ipa_host: ipa.example.com
     ipa_user: admin
     ipa_pass: topsecret
@@ -100,7 +100,7 @@ EXAMPLES = r'''
   community.general.ipa_vault:
     name: vault01
     vault_type: standard
-    user: user01
+    ansible.builtin.user: user01
     state: absent
     ipa_host: ipa.example.com
     ipa_user: admin
@@ -114,7 +114,7 @@ EXAMPLES = r'''
     ipa_host: ipa.example.com
     ipa_user: admin
     ipa_pass: topsecret
-    replace: True
+    ansible.builtin.replace: True
 
 - name: Get vault info if already exists
   community.general.ipa_vault:
@@ -196,7 +196,7 @@ def ensure(module, client):
                 ipa_vault = client.vault_add_internal(name, item=module_vault)
         else:
             # Already exists
-            if replace:
+            if ansible.builtin.replace:
                 diff = get_vault_diff(client, ipa_vault, module_vault, module)
                 if len(diff) > 0:
                     changed = True

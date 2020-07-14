@@ -47,7 +47,7 @@ options:
     description:
       - the instance root password
       - required only for C(state=present)
-  hostname:
+  ansible.builtin.hostname:
     description:
       - the instance hostname
       - required only for C(state=present)
@@ -156,7 +156,7 @@ EXAMPLES = r'''
     api_password: 1q2w3e
     api_host: node1
     password: 123456
-    hostname: example.org
+    ansible.builtin.hostname: example.org
     ostemplate: 'local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
 
 - name: Create new container with hookscript and description
@@ -167,7 +167,7 @@ EXAMPLES = r'''
     api_password: 1q2w3e
     api_host: node1
     password: 123456
-    hostname: example.org
+    ansible.builtin.hostname: example.org
     ostemplate: 'local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
     hookscript: 'local:snippets/vm_hook.sh'
     description: created with ansible
@@ -179,7 +179,7 @@ EXAMPLES = r'''
     api_password: '1q2w3e'
     api_host: 'node1'
     password: '123456'
-    hostname: 'example.org'
+    ansible.builtin.hostname: 'example.org'
     ostemplate: 'local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
 
 - name: Create new container with minimal options with force(it will rewrite existing container)
@@ -190,7 +190,7 @@ EXAMPLES = r'''
     api_password: 1q2w3e
     api_host: node1
     password: 123456
-    hostname: example.org
+    ansible.builtin.hostname: example.org
     ostemplate: 'local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
     force: yes
 
@@ -201,7 +201,7 @@ EXAMPLES = r'''
     api_user: root@pam
     api_host: node1
     password: 123456
-    hostname: example.org
+    ansible.builtin.hostname: example.org
     ostemplate: 'local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
 
 - name: Create new container with minimal options defining network interface with dhcp
@@ -212,7 +212,7 @@ EXAMPLES = r'''
     api_password: 1q2w3e
     api_host: node1
     password: 123456
-    hostname: example.org
+    ansible.builtin.hostname: example.org
     ostemplate: 'local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
     netif: '{"net0":"name=eth0,ip=dhcp,ip6=dhcp,bridge=vmbr0"}'
 
@@ -224,7 +224,7 @@ EXAMPLES = r'''
     api_password: 1q2w3e
     api_host: node1
     password: 123456
-    hostname: example.org
+    ansible.builtin.hostname: example.org
     ostemplate: 'local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
     netif: '{"net0":"name=eth0,gw=192.168.0.1,ip=192.168.0.2/24,bridge=vmbr0"}'
 
@@ -236,7 +236,7 @@ EXAMPLES = r'''
     api_password: 1q2w3e
     api_host: node1
     password: 123456
-    hostname: example.org
+    ansible.builtin.hostname: example.org
     ostemplate: local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
     mounts: '{"mp0":"local:8,mp=/mnt/test/"}'
 
@@ -248,7 +248,7 @@ EXAMPLES = r'''
     api_password: 1q2w3e
     api_host: node1
     password: 123456
-    hostname: example.org
+    ansible.builtin.hostname: example.org
     ostemplate: local:vztmpl/ubuntu-14.04-x86_64.tar.gz'
     cores: 2
 
@@ -512,7 +512,7 @@ def main():
     # If hostname is set get the VM id from ProxmoxAPI
     if not vmid and state == 'present':
         vmid = get_nextvmid(module, proxmox)
-    elif not vmid and hostname:
+    elif not vmid and ansible.builtin.hostname:
         hosts = get_vmid(proxmox, hostname)
         if len(hosts) == 0:
             module.fail_json(msg="Vmid could not be fetched => Hostname doesn't exist (action: %s)" % state)

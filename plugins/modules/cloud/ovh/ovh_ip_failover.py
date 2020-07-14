@@ -27,7 +27,7 @@ options:
         description:
             - The IP address to manage (can be a single IP like 1.1.1.1
               or a block like 1.1.1.1/28 )
-    service:
+    ansible.builtin.service:
         required: true
         description:
             - The name of the OVH service this IP address should be routed
@@ -77,14 +77,14 @@ EXAMPLES = '''
 # Route an IP address 1.1.1.1 to the service ns666.ovh.net
 - community.general.ovh_ip_failover:
     name: 1.1.1.1
-    service: ns666.ovh.net
+    ansible.builtin.service: ns666.ovh.net
     endpoint: ovh-eu
     application_key: yourkey
     application_secret: yoursecret
     consumer_key: yourconsumerkey
 - community.general.ovh_ip_failover:
     name: 1.1.1.1
-    service: ns666.ovh.net
+    ansible.builtin.service: ns666.ovh.net
     endpoint: ovh-eu
     wait_completion: false
     application_key: yourkey
@@ -93,7 +93,7 @@ EXAMPLES = '''
   register: moved
 - community.general.ovh_ip_failover:
     name: 1.1.1.1
-    service: ns666.ovh.net
+    ansible.builtin.service: ns666.ovh.net
     endpoint: ovh-eu
     wait_task_completion: "{{moved.taskId}}"
     application_key: yourkey
@@ -224,7 +224,7 @@ def main():
                 'and parameters. Error returned by OVH api was : {0}'
             .format(apiError))
 
-    if ipproperties['routedTo']['serviceName'] != service:
+    if ipproperties['routedTo']['serviceName'] != ansible.builtin.service:
         if not module.check_mode:
             if wait_task_completion == 0:
                 # Move the IP and get the created taskId

@@ -51,22 +51,22 @@ EXAMPLES = '''
 - name: Get NetApp info (Password Authentication)
   community.general.na_ontap_gather_facts:
     state: info
-    hostname: "na-vsim"
+    ansible.builtin.hostname: "na-vsim"
     username: "admin"
     password: "admins_password"
-- debug:
+- ansible.builtin.debug:
     var: ontap_facts
 - name: Limit Fact Gathering to Aggregate Information
   community.general.na_ontap_gather_facts:
     state: info
-    hostname: "na-vsim"
+    ansible.builtin.hostname: "na-vsim"
     username: "admin"
     password: "admins_password"
     gather_subset: "aggregate_info"
 - name: Limit Fact Gathering to Volume and Lun Information
   community.general.na_ontap_gather_facts:
     state: info
-    hostname: "na-vsim"
+    ansible.builtin.hostname: "na-vsim"
     username: "admin"
     password: "admins_password"
     gather_subset:
@@ -75,7 +75,7 @@ EXAMPLES = '''
 - name: Gather all facts except for volume and lun information
   community.general.na_ontap_gather_facts:
     state: info
-    hostname: "na-vsim"
+    ansible.builtin.hostname: "na-vsim"
     username: "admin"
     password: "admins_password"
     gather_subset:

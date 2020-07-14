@@ -37,18 +37,18 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Gather information about all Data Centers
   community.general.oneview_datacenter_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
   delegate_to: localhost
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.datacenters }}"
 
 - name: Gather paginated, filtered and sorted information about Data Centers
   community.general.oneview_datacenter_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -58,24 +58,24 @@ EXAMPLES = '''
       sort: 'name:descending'
       filter: 'state=Unmanaged'
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.datacenters }}"
 
 - name: Gather information about a Data Center by name
   community.general.oneview_datacenter_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
     name: "My Data Center"
   delegate_to: localhost
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.datacenters }}"
 
 - name: Gather information about the Data Center Visual Content
   community.general.oneview_datacenter_info:
-    hostname: 172.16.101.48
+    ansible.builtin.hostname: 172.16.101.48
     username: administrator
     password: my_password
     api_version: 500
@@ -84,9 +84,9 @@ EXAMPLES = '''
       - visualContent
   delegate_to: localhost
   register: result
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.datacenters }}"
-- debug:
+- ansible.builtin.debug:
     msg: "{{ result.datacenter_visual_content }}"
 '''
 

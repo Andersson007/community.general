@@ -23,7 +23,7 @@ options:
       - The change, either as a number of servers or as a percentage, to make
         in the scaling group. If this is a percentage, you must set
         I(is_percent) to C(true) also.
-  cron:
+  ansible.builtin.cron:
     description:
       - The time when the policy will be executed, as a cron entry. For
         example, if this is parameter is set to C(1 0 * * *)
@@ -73,7 +73,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 ---
 - hosts: localhost
-  gather_facts: false
+  ansible.builtin.gather_facts: false
   connection: local
   tasks:
     - community.general.rax_scaling_policy:
@@ -91,7 +91,7 @@ EXAMPLES = '''
     - community.general.rax_scaling_policy:
         credentials: ~/.raxpub
         region: ORD
-        cron: '1 0 * * *'
+        ansible.builtin.cron: '1 0 * * *'
         change: 25
         cooldown: 300
         is_percent: true
@@ -152,7 +152,7 @@ def rax_asp(module, at=None, change=0, cron=None, cooldown=300,
             module.fail_json(msg='No unique policy match found by name')
         if at:
             args = dict(at=at)
-        elif cron:
+        elif ansible.builtin.cron:
             args = dict(cron=cron)
         else:
             args = None

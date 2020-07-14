@@ -88,7 +88,7 @@ options:
   flavor:
     description:
       - flavor to use for the instance
-  group:
+  ansible.builtin.group:
     description:
       - host group to assign to server, is also used for idempotent operations
         to ensure a specific number of instances
@@ -106,7 +106,7 @@ options:
       - key pair to use on the instance
     aliases:
       - keypair
-  meta:
+  ansible.builtin.meta:
     description:
       - A hash of metadata to associate with the instance
   name:
@@ -156,7 +156,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Build a Cloud Server
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Server build request
       local_action:
@@ -177,7 +177,7 @@ EXAMPLES = '''
 
 - name: Build an exact count of cloud servers with incremented names
   hosts: local
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Server build requests
       local_action:
@@ -190,7 +190,7 @@ EXAMPLES = '''
         count: 10
         count_offset: 10
         exact_count: yes
-        group: test
+        ansible.builtin.group: test
         wait: yes
       register: rax
 '''
@@ -488,7 +488,7 @@ def cloudservers(module, state=None, name=None, flavor=None, image=None,
     servers = []
 
     # Add the group meta key
-    if group and 'group' not in meta:
+    if group and 'group' not in ansible.builtin.meta:
         meta['group'] = group
     elif 'group' in meta and group is None:
         group = meta['group']
@@ -547,7 +547,7 @@ def cloudservers(module, state=None, name=None, flavor=None, image=None,
                     # Ignore DELETED servers
                     if server.status == 'DELETED':
                         continue
-                    if server.metadata.get('group') == group:
+                    if server.metadata.get('group') == ansible.builtin.group:
                         servers.append(server)
                     match = re.search(pattern, server.name)
                     if match:
@@ -562,7 +562,7 @@ def cloudservers(module, state=None, name=None, flavor=None, image=None,
                     # Ignore DELETED servers
                     if server.status == 'DELETED':
                         continue
-                    if server.metadata.get('group') == group:
+                    if server.metadata.get('group') == ansible.builtin.group:
                         servers.append(server)
                 # available_numbers not needed here, we inspect auto_increment
                 # again later
@@ -637,7 +637,7 @@ def cloudservers(module, state=None, name=None, flavor=None, image=None,
                         # Ignore DELETED servers
                         if server.status == 'DELETED':
                             continue
-                        if server.metadata.get('group') == group:
+                        if server.metadata.get('group') == ansible.builtin.group:
                             servers.append(server)
                         match = re.search(pattern, server.name)
                         if match:
@@ -673,7 +673,7 @@ def cloudservers(module, state=None, name=None, flavor=None, image=None,
                         continue
 
                     # Ignore servers with non matching metadata
-                    if server.metadata != meta:
+                    if server.metadata != ansible.builtin.meta:
                         continue
                     servers.append(server)
 

@@ -40,7 +40,7 @@ options:
       - you can get the original file back if you somehow clobbered it incorrectly.
     type: bool
     default: 'no'
-  command:
+  ansible.builtin.command:
     description:
       - Path to the sensu check to run (not required when I(state=absent))
     required: true
@@ -132,7 +132,7 @@ EXAMPLES = '''
 - name: Get cpu metrics
   community.general.sensu_check:
     name: cpu_load
-    command: /etc/sensu/plugins/system/cpu-mpstat-metrics.rb
+    ansible.builtin.command: /etc/sensu/plugins/system/cpu-mpstat-metrics.rb
     metric: yes
     handlers: relay
     subscribers: common
@@ -142,7 +142,7 @@ EXAMPLES = '''
 - name: Check nginx process
   community.general.sensu_check:
     name: nginx_running
-    command: /etc/sensu/plugins/processes/check-procs.rb -f /var/run/nginx.pid
+    ansible.builtin.command: /etc/sensu/plugins/processes/check-procs.rb -f /var/run/nginx.pid
     handlers: default
     subscribers: nginx
     interval: 60

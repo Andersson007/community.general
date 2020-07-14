@@ -43,7 +43,7 @@ options:
     - If option is omitted hostgroups will not be checked or changed.
     type: list
     elements: str
-  service:
+  ansible.builtin.service:
     description:
     - List of service names to assign.
     - If an empty list is passed all services will be removed from the rule.
@@ -84,7 +84,7 @@ options:
     default: "present"
     choices: ["absent",  "disabled", "enabled","present"]
     type: str
-  user:
+  ansible.builtin.user:
     description:
     - List of user names to assign.
     - If an empty list if passed all assigned users will be removed from the rule.

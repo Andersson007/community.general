@@ -145,7 +145,7 @@ def main():
         fetch = fetch_resource(module, client, link)
     changed = False
 
-    if fetch:
+    if ansible.builtin.fetch:
         if state == 'present':
             expect = _get_resource_editable_properties(module)
             current_state = response_to_hash(module, fetch)

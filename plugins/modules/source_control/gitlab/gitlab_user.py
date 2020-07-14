@@ -63,7 +63,7 @@ options:
     description:
       - The ssh key itself.
     type: str
-  group:
+  ansible.builtin.group:
     description:
       - Id or Full path of parent group in the form of group/name.
       - Add user as an member to this group.
@@ -125,7 +125,7 @@ EXAMPLES = '''
     sshkey_name: MySSH
     sshkey_file: ssh-rsa AAAAB3NzaC1yc...
     state: present
-    group: super_group/mon_group
+    ansible.builtin.group: super_group/mon_group
     access_level: owner
 
 - name: "Block GitLab User"
@@ -244,7 +244,7 @@ class GitLabUser(object):
             try:
                 user.save()
             except Exception as e:
-                self._module.fail_json(msg="Failed to update user: %s " % to_native(e))
+                self._module.fail_json(msg="Failed to update ansible.builtin.user: %s " % to_native(e))
             return True
         else:
             return False
@@ -280,7 +280,7 @@ class GitLabUser(object):
                     'title': sshkey['name'],
                     'key': sshkey['file']})
             except gitlab.exceptions.GitlabCreateError as e:
-                self._module.fail_json(msg="Failed to assign sshkey to user: %s" % to_native(e))
+                self._module.fail_json(msg="Failed to assign sshkey to ansible.builtin.user: %s" % to_native(e))
             return True
         return False
 
@@ -340,7 +340,7 @@ class GitLabUser(object):
                     'user_id': self.getUserId(user),
                     'access_level': self.ACCESS_LEVEL[access_level]})
             except gitlab.exceptions.GitlabCreateError as e:
-                self._module.fail_json(msg="Failed to assign user to group: %s" % to_native(e))
+                self._module.fail_json(msg="Failed to assign user to ansible.builtin.group: %s" % to_native(e))
             return True
         return False
 
@@ -369,7 +369,7 @@ class GitLabUser(object):
         try:
             user = self._gitlab.users.create(arguments)
         except (gitlab.exceptions.GitlabCreateError) as e:
-            self._module.fail_json(msg="Failed to create user: %s " % to_native(e))
+            self._module.fail_json(msg="Failed to create ansible.builtin.user: %s " % to_native(e))
 
         return user
 
@@ -388,7 +388,7 @@ class GitLabUser(object):
     def existsUser(self, username):
         # When user exists, object will be stored in self.userObject.
         user = self.findUser(username)
-        if user:
+        if ansible.builtin.user:
             self.userObject = user
             return True
         return False

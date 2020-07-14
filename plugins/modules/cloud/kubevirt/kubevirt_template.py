@@ -287,7 +287,7 @@ class KubeVirtVMTemplate(KubeVirtRawModule):
         # Parse parameters specific for this module:
         definition = virtdict()
 
-        # Execute the CRUD of VM template:
+        # Execute the CRUD of VM ansible.builtin.template:
         kind = 'Template'
         template_api_version = 'template.openshift.io/v1'
 
@@ -360,7 +360,7 @@ class KubeVirtVMTemplate(KubeVirtRawModule):
 
                 definition['objects'].append(vm_def)
 
-        # Create template:
+        # Create ansible.builtin.template:
         resource = self.client.resources.get(api_version=template_api_version, kind=kind, name='templates')
         definition = self.set_defaults(resource, definition)
         result = self.perform_action(resource, definition)

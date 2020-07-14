@@ -47,7 +47,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Create domain
   hosts: all
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Domain create request
       local_action:

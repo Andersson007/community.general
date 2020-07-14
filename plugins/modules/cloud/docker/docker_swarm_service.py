@@ -23,7 +23,7 @@ options:
       - Corresponds to the C(ARG) parameter of C(docker service create).
     type: list
     elements: str
-  command:
+  ansible.builtin.command:
     description:
       - Command to execute when the container starts.
       - A command may be either a string or a list or a list of strings.
@@ -166,7 +166,7 @@ options:
         description:
           - Start period for the container to initialize before starting health-retries countdown.
         type: str
-  hostname:
+  ansible.builtin.hostname:
     description:
       - Container hostname.
       - Corresponds to the C(--hostname) option of C(docker service create).
@@ -744,7 +744,7 @@ options:
     choices:
       - stop-first
       - start-first
-  user:
+  ansible.builtin.user:
     description:
       - Sets the username or UID used for the specified command.
       - Before Ansible 2.8, the default value for this option was C(root).
@@ -894,7 +894,7 @@ EXAMPLES = '''
   community.general.docker_swarm_service:
     name: myservice
     image: alpine
-    command: sleep
+    ansible.builtin.command: sleep
     args:
       - "3600"
 

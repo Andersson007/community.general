@@ -230,7 +230,7 @@ options:
     description:
       - Enable/disable the protection flag of the VM. This will enable/disable the remove VM and remove disk operations.
     type: bool
-  reboot:
+  ansible.builtin.reboot:
     description:
       - Allow reboot. If set to C(yes), the VM exit on reboot.
     type: bool
@@ -314,7 +314,7 @@ options:
     description:
       - Enables/disables time drift fix.
     type: bool
-  template:
+  ansible.builtin.template:
     description:
       - Enables/disables the template.
     type: bool

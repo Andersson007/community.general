@@ -33,7 +33,7 @@ options:
     description:
       - Used to set an expiration on a file or folder uploaded to Cloud Files.
         Requires an integer, specifying expiration in seconds
-  meta:
+  ansible.builtin.meta:
     description:
       - A hash of items to set as metadata values on an uploaded file or folder
   method:
@@ -81,7 +81,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: "Test Cloud Files Objects"
   hosts: local
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: "Get objects from test container"
       community.general.rax_files_objects:
@@ -134,7 +134,7 @@ EXAMPLES = '''
         container: testcont
         src: ~/Downloads/testcont/file2
         method: put
-        meta:
+        ansible.builtin.meta:
           testkey: testdata
           who_uploaded_this: someuser@example.com
 
@@ -162,7 +162,7 @@ EXAMPLES = '''
 
 - name: "Test Cloud Files Objects Metadata"
   hosts: local
-  gather_facts: false
+  ansible.builtin.gather_facts: false
   tasks:
     - name: "Get metadata on one object"
       community.general.rax_files_objects:
@@ -182,7 +182,7 @@ EXAMPLES = '''
         type: meta
         dest: file17
         method: put
-        meta:
+        ansible.builtin.meta:
           key1: value1
           key2: value2
         clear_meta: true
@@ -199,7 +199,7 @@ EXAMPLES = '''
         type: meta
         dest: file17
         method: delete
-        meta:
+        ansible.builtin.meta:
           key1: ''
           key2: ''
 
@@ -288,7 +288,7 @@ def upload(module, cf, container, src, dest, meta, expires):
     EXIT_DICT['msg'] = "Uploaded %s to container: %s" % (src, c.name)
     if cont_obj or total_bytes > 0:
         EXIT_DICT['changed'] = True
-    if meta:
+    if ansible.builtin.meta:
         EXIT_DICT['meta'] = dict(updated=True)
 
     if cont_obj:
@@ -501,7 +501,7 @@ def delete_meta(module, cf, container, src, dest, meta):
 
     results = []  # Num of metadata keys removed, not objects affected
     for obj in objs:
-        if meta:
+        if ansible.builtin.meta:
             for k, v in meta.items():
                 try:
                     result = c.get_object(obj).remove_metadata_key(k)

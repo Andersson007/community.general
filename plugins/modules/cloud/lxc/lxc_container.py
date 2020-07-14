@@ -31,7 +31,7 @@ options:
         description:
           - Backend storage type for the container.
         default: dir
-    template:
+    ansible.builtin.template:
         description:
           - Name of the template to use within an LXC create.
         default: ubuntu
@@ -175,7 +175,7 @@ EXAMPLES = """
   community.general.lxc_container:
     name: test-container-started
     container_log: true
-    template: ubuntu
+    ansible.builtin.template: ubuntu
     state: started
     template_options: --release trusty
 
@@ -183,7 +183,7 @@ EXAMPLES = """
   community.general.lxc_container:
     name: test-container-stopped
     container_log: true
-    template: ubuntu
+    ansible.builtin.template: ubuntu
     state: stopped
     template_options: --release trusty
 
@@ -191,7 +191,7 @@ EXAMPLES = """
   community.general.lxc_container:
     name: test-container-frozen
     container_log: true
-    template: ubuntu
+    ansible.builtin.template: ubuntu
     state: frozen
     template_options: --release trusty
     container_command: |
@@ -203,7 +203,7 @@ EXAMPLES = """
     name: test-container-config
     backing_store: dir
     container_log: true
-    template: ubuntu
+    ansible.builtin.template: ubuntu
     state: started
     archive: true
     archive_compression: none
@@ -219,7 +219,7 @@ EXAMPLES = """
   community.general.lxc_container:
     name: test-container-lvm
     container_log: true
-    template: ubuntu
+    ansible.builtin.template: ubuntu
     state: frozen
     backing_store: lvm
     template_options: --release trusty
@@ -238,7 +238,7 @@ EXAMPLES = """
   register: lvm_container_info
 
 - name: Debug info on container "test-container-lvm"
-  debug:
+  ansible.builtin.debug:
     var: lvm_container_info
 
 - name: Run a command in a container and ensure its in a "stopped" state.
@@ -294,7 +294,7 @@ EXAMPLES = """
   community.general.lxc_container:
     name: test-container-overlayfs
     container_log: true
-    template: ubuntu
+    ansible.builtin.template: ubuntu
     state: started
     backing_store: overlayfs
     template_options: --release trusty
@@ -305,7 +305,7 @@ EXAMPLES = """
   register: clone_container_info
 
 - name: Debug info on container "test-container"
-  debug:
+  ansible.builtin.debug:
     var: clone_container_info
 
 - name: Clone a container using snapshot
@@ -541,9 +541,9 @@ def create_script(command):
     This method should be backward compatible with Python 2.4+ when executing
     from within the container.
 
-    :param command: command to run, this can be a script and can use spacing
+    :param ansible.builtin.command: command to run, this can be a script and can use spacing
                     with newlines as separation.
-    :type command: ``str``
+    :type ansible.builtin.command: ``str``
     """
 
     (fd, script_file) = tempfile.mkstemp(prefix='lxc-attach-script')

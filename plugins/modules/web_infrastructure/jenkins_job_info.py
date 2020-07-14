@@ -38,7 +38,7 @@ options:
     description:
       - URL where the Jenkins server is accessible.
     default: http://localhost:8080
-  user:
+  ansible.builtin.user:
     description:
        - User to authenticate with the Jenkins server.
   validate_certs:
@@ -54,41 +54,41 @@ author:
 EXAMPLES = '''
 # Get all Jenkins jobs using basic auth
 - community.general.jenkins_job_info:
-    user: admin
+    ansible.builtin.user: admin
     password: hunter2
   register: my_jenkins_job_info
 
 # Get all Jenkins jobs using the token
 - community.general.jenkins_job_info:
-    user: admin
+    ansible.builtin.user: admin
     token: abcdefghijklmnop
   register: my_jenkins_job_info
 
 # Get info about a single job using basic auth
 - community.general.jenkins_job_info:
     name: some-job-name
-    user: admin
+    ansible.builtin.user: admin
     password: hunter2
   register: my_jenkins_job_info
 
 # Get info about a single job in a folder using basic auth
 - community.general.jenkins_job_info:
     name: some-folder-name/some-job-name
-    user: admin
+    ansible.builtin.user: admin
     password: hunter2
   register: my_jenkins_job_info
 
 # Get info about jobs matching a shell glob using basic auth
 - community.general.jenkins_job_info:
     glob: some-job-*
-    user: admin
+    ansible.builtin.user: admin
     password: hunter2
   register: my_jenkins_job_info
 
 # Get info about all failing jobs using basic auth
 - community.general.jenkins_job_info:
     color: red
-    user: admin
+    ansible.builtin.user: admin
     password: hunter2
   register: my_jenkins_job_info
 
@@ -96,13 +96,13 @@ EXAMPLES = '''
 - community.general.jenkins_job_info:
     name: some-job-*
     color: blue
-    user: admin
+    ansible.builtin.user: admin
     password: hunter2
   register: my_jenkins_job_info
 
 - name: Get the info from custom URL with token and validate_certs=False
   community.general.jenkins_job_info:
-    user: admin
+    ansible.builtin.user: admin
     token: 126df5c60d66c66e3b75b11104a16a8a
     url: https://jenkins.example.com
     validate_certs: False

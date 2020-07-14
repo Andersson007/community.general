@@ -30,7 +30,7 @@ options:
     name:
         description:
             - PagerDuty unique subdomain. Obsolete. It is not used with PagerDuty REST v2 API.
-    user:
+    ansible.builtin.user:
         description:
             - PagerDuty user ID. Obsolete. Please, use I(token) for authorization.
     token:
@@ -40,7 +40,7 @@ options:
     requester_id:
         description:
             - ID of user making the request. Only needed when creating a maintenance_window.
-    service:
+    ansible.builtin.service:
         description:
             - A comma separated list of PagerDuty service IDs.
         aliases: [ services ]
@@ -77,10 +77,10 @@ EXAMPLES = '''
 - name: Create a 1 hour maintenance window for service FOO123
   community.general.pagerduty:
     name: companyabc
-    user: example@example.com
+    ansible.builtin.user: example@example.com
     token: yourtoken
     state: running
-    service: FOO123
+    ansible.builtin.service: FOO123
 
 - name: Create a 5 minute maintenance window for service FOO123
   community.general.pagerduty:
@@ -89,15 +89,15 @@ EXAMPLES = '''
     hours: 0
     minutes: 5
     state: running
-    service: FOO123
+    ansible.builtin.service: FOO123
 
 
 - name: Create a 4 hour maintenance window for service FOO123 with the description "deployment"
   community.general.pagerduty:
     name: companyabc
-    user: example@example.com
+    ansible.builtin.user: example@example.com
     state: running
-    service: FOO123
+    ansible.builtin.service: FOO123
     hours: 4
     desc: deployment
   register: pd_window
@@ -105,7 +105,7 @@ EXAMPLES = '''
 - name: Delete the previous maintenance window
   community.general.pagerduty:
     name: companyabc
-    user: example@example.com
+    ansible.builtin.user: example@example.com
     state: absent
     window_id: '{{ pd_window.result.maintenance_window.id }}'
 
@@ -249,7 +249,7 @@ def main():
     pd = PagerDutyRequest(module, name, user, token)
 
     if state == "running" or state == "started":
-        if not service:
+        if not ansible.builtin.service:
             module.fail_json(msg="service not specified")
         (rc, out, changed) = pd.create(requester_id, service, hours, minutes, desc)
         if rc == 0:

@@ -378,7 +378,7 @@ class Homebrew(object):
         if not self.valid_package(package):
             self._current_package = None
             self.failed = True
-            self.message = 'Invalid package: {0}.'.format(package)
+            self.message = 'Invalid ansible.builtin.package: {0}.'.format(package)
             raise HomebrewException(self.message)
 
         else:
@@ -462,7 +462,7 @@ class Homebrew(object):
     def _current_package_is_installed(self):
         if not self.valid_package(self.current_package):
             self.failed = True
-            self.message = 'Invalid package: {0}.'.format(self.current_package)
+            self.message = 'Invalid ansible.builtin.package: {0}.'.format(self.current_package)
             raise HomebrewException(self.message)
 
         cmd = [
@@ -593,7 +593,7 @@ class Homebrew(object):
     def _install_current_package(self):
         if not self.valid_package(self.current_package):
             self.failed = True
-            self.message = 'Invalid package: {0}.'.format(self.current_package)
+            self.message = 'Invalid ansible.builtin.package: {0}.'.format(self.current_package)
             raise HomebrewException(self.message)
 
         if self._current_package_is_installed():
@@ -649,7 +649,7 @@ class Homebrew(object):
 
         if not self.valid_package(self.current_package):
             self.failed = True
-            self.message = 'Invalid package: {0}.'.format(self.current_package)
+            self.message = 'Invalid ansible.builtin.package: {0}.'.format(self.current_package)
             raise HomebrewException(self.message)
 
         if not self._current_package_is_installed():
@@ -720,7 +720,7 @@ class Homebrew(object):
     def _uninstall_current_package(self):
         if not self.valid_package(self.current_package):
             self.failed = True
-            self.message = 'Invalid package: {0}.'.format(self.current_package)
+            self.message = 'Invalid ansible.builtin.package: {0}.'.format(self.current_package)
             raise HomebrewException(self.message)
 
         if not self._current_package_is_installed():
@@ -769,7 +769,7 @@ class Homebrew(object):
     def _link_current_package(self):
         if not self.valid_package(self.current_package):
             self.failed = True
-            self.message = 'Invalid package: {0}.'.format(self.current_package)
+            self.message = 'Invalid ansible.builtin.package: {0}.'.format(self.current_package)
             raise HomebrewException(self.message)
 
         if not self._current_package_is_installed():
@@ -816,7 +816,7 @@ class Homebrew(object):
     def _unlink_current_package(self):
         if not self.valid_package(self.current_package):
             self.failed = True
-            self.message = 'Invalid package: {0}.'.format(self.current_package)
+            self.message = 'Invalid ansible.builtin.package: {0}.'.format(self.current_package)
             raise HomebrewException(self.message)
 
         if not self._current_package_is_installed():

@@ -604,7 +604,7 @@ def main():
     # group should not exist
     if state == "absent":
         # if we have a group, delete it
-        if group:
+        if ansible.builtin.group:
             res_args = manageiq_group.delete_group(group)
         # if we do not have a group, nothing to do
         else:
@@ -619,7 +619,7 @@ def main():
         role = manageiq_group.role(role_id, role_name)
         norm_managed_filters = manageiq_group.normalize_user_managed_filters_to_sorted_dict(managed_filters, module)
         # if we have a group, edit it
-        if group:
+        if ansible.builtin.group:
             res_args = manageiq_group.edit_group(group, description, role, tenant,
                                                  norm_managed_filters, managed_filters_merge_mode,
                                                  belongsto_filters, belongsto_filters_merge_mode)

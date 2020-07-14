@@ -23,7 +23,7 @@ options:
     description:
       - The environment name, typically 'production', 'staging', etc.
     required: true
-  user:
+  ansible.builtin.user:
     description:
       - The username of the person doing the deployment
   repo:
@@ -50,7 +50,7 @@ EXAMPLES = '''
   community.general.honeybadger_deployment:
     token: AAAAAA
     environment: staging
-    user: ansible
+    ansible.builtin.user: ansible
     revision: b6826b8
     repo: 'git@github.com:user/repo.git'
 '''

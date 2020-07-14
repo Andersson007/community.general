@@ -32,7 +32,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Gather info about servers
   hosts: all
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Get facts about servers
       local_action:
@@ -41,7 +41,7 @@ EXAMPLES = '''
         name: "{{ inventory_hostname }}"
         region: DFW
     - name: Map some facts
-      set_fact:
+      ansible.builtin.set_fact:
         ansible_ssh_host: "{{ rax_accessipv4 }}"
 '''
 

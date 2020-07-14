@@ -59,7 +59,7 @@ EXAMPLES = '''
 
 - name: Add local repository `/space/ALT/Sisyphus` and update package cache
   community.general.apt_repo:
-    repo: copy:///space/ALT/Sisyphus
+    repo: ansible.builtin.copy:///space/ALT/Sisyphus
     state: present
     update: yes
 '''

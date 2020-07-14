@@ -83,7 +83,7 @@ options:
     description:
       - Print extra information.
     type: bool
-  debug:
+  ansible.builtin.debug:
     description:
       - Enable full debugging.
     type: bool

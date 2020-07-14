@@ -45,7 +45,7 @@ options:
         description:
           - Name of the user that should own jks file.
         required: false
-    group:
+    ansible.builtin.group:
         description:
           - Name of the group that should own jks file.
         required: false

@@ -89,7 +89,7 @@ EXAMPLES = '''
       description: 'path matcher one'
       default_service: 'bes-pathmatcher-one-default'
       path_rules:
-      - service: 'my-one-bes'
+      - ansible.builtin.service: 'my-one-bes'
         paths:
         - '/data'
         - '/aboutus'

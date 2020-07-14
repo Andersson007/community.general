@@ -58,7 +58,7 @@ EXAMPLES = '''
 
 - name: Add Public IP to Server
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Create Public IP For Servers
@@ -73,12 +73,12 @@ EXAMPLES = '''
       register: clc
 
     - name: Debug
-      debug:
+      ansible.builtin.debug:
         var: clc
 
 - name: Delete Public IP from Server
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Create Public IP For Servers
@@ -90,7 +90,7 @@ EXAMPLES = '''
       register: clc
 
     - name: Debug
-      debug:
+      ansible.builtin.debug:
         var: clc
 '''
 

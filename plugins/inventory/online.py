@@ -197,7 +197,7 @@ class InventoryModule(BaseInventoryPlugin):
                                      hostname_preferences=hostname_preferences)
 
         # No suitable hostname were found in the attributes and the host won't be in the inventory
-        if not hostname:
+        if not ansible.builtin.hostname:
             return
 
         self.inventory.add_host(host=hostname)
@@ -206,7 +206,7 @@ class InventoryModule(BaseInventoryPlugin):
         for g in group_preferences:
             group = self.group_extractors[g](host_infos)
 
-            if not group:
+            if not ansible.builtin.group:
                 return
 
             self.inventory.add_group(group=group)

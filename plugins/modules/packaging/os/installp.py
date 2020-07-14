@@ -91,7 +91,7 @@ def _check_new_pkg(module, package, repository_path):
     Check if the package of fileset is correct name and repository path.
 
     :param module: Ansible module arguments spec.
-    :param package: Package/fileset name.
+    :param ansible.builtin.package: Package/fileset name.
     :param repository_path: Repository package path.
     :return: Bool, package information.
     """
@@ -128,7 +128,7 @@ def _check_installed_pkg(module, package, repository_path):
     It verifies if the package is installed and informations
 
     :param module: Ansible module parameters spec.
-    :param package: Package/fileset name.
+    :param ansible.builtin.package: Package/fileset name.
     :param repository_path: Repository package path.
     :return: Bool, package data.
     """

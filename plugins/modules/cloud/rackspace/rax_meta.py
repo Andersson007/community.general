@@ -23,7 +23,7 @@ options:
   name:
     description:
       - Server name to modify metadata for
-  meta:
+  ansible.builtin.meta:
     description:
       - A hash of metadata to associate with the instance
 author: "Matt Martz (@sivel)"
@@ -35,7 +35,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: Set metadata for a server
   hosts: all
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Set metadata
       local_action:
@@ -43,8 +43,8 @@ EXAMPLES = '''
         credentials: ~/.raxpub
         name: "{{ inventory_hostname }}"
         region: DFW
-        meta:
-          group: primary_group
+        ansible.builtin.meta:
+          ansible.builtin.group: primary_group
           groups:
             - group_two
             - group_three
@@ -122,7 +122,7 @@ def rax_meta(module, address, name, server_id, meta):
             meta[k] = '%s' % v
 
     server = servers[0]
-    if server.metadata == meta:
+    if server.metadata == ansible.builtin.meta:
         changed = False
     else:
         changed = True

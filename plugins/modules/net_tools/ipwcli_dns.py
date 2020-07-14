@@ -92,7 +92,7 @@ options:
             - Required for C(type=NAPTR)
         type: str
         choices: ['S', 'A', 'U', 'P']
-    service:
+    ansible.builtin.service:
         description:
             - Sets the service of the NAPTR record.
             - Required for C(type=NAPTR)
@@ -143,7 +143,7 @@ EXAMPLES = '''
     container: ZoneOne
     ttl: 100
     order: 10
-    service: 'SIP+D2T'
+    ansible.builtin.service: 'SIP+D2T'
     replacement: '_sip._tcp.test.example.com.'
     flags: S
 '''

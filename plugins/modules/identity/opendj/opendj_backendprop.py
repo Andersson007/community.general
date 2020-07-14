@@ -22,7 +22,7 @@ options:
             - The path to the bin directory of OpenDJ.
         required: false
         default: /opt/opendj/bin
-    hostname:
+    ansible.builtin.hostname:
         description:
             - The hostname of the OpenDJ server.
         required: true

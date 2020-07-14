@@ -37,7 +37,7 @@ extends_documentation_fragment:
 EXAMPLES = r'''
 - name: Write points into database
   community.general.influxdb_write:
-      hostname: "{{influxdb_ip_address}}"
+      ansible.builtin.hostname: "{{influxdb_ip_address}}"
       database_name: "{{influxdb_database_name}}"
       data_points:
         - measurement: connections

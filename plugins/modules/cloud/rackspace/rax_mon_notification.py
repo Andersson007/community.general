@@ -45,7 +45,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Monitoring notification example
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:

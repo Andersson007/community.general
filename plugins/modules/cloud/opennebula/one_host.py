@@ -59,7 +59,7 @@ options:
     labels:
         description:
             - The labels for this host.
-    template:
+    ansible.builtin.template:
         description:
             - The template or attribute changes to merge into the host template.
         aliases:
@@ -84,7 +84,7 @@ EXAMPLES = '''
   community.general.one_host:
     name: host2
     cluster_name: default
-    template:
+    ansible.builtin.template:
         LABELS:
             - gold
             - ssd

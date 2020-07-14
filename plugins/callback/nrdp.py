@@ -43,7 +43,7 @@ DOCUMENTATION = '''
             ini:
                 - section: callback_nrdp
                   key: token
-        hostname:
+        ansible.builtin.hostname:
             description: hostname where the passive check is linked to
             required: True
             env:

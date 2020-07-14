@@ -29,7 +29,7 @@ options:
     description:
       - Revision number/sha being deployed.
     required: true
-  user:
+  ansible.builtin.user:
     description:
       - User who deployed.
     required: false
@@ -61,7 +61,7 @@ EXAMPLES = '''
     community.general.rollbar_deployment:
     token: AAAAAA
     environment: staging
-    user: ansible
+    ansible.builtin.user: ansible
     revision: '4.2'
     rollbar_user: admin
     comment: Test Deploy
@@ -71,7 +71,7 @@ EXAMPLES = '''
     token: "{{ rollbar_access_token }}"
     environment: production
     revision: "{{ lookup('pipe', 'git rev-parse HEAD') }}"
-    user: "{{ lookup('env', 'USER') }}"
+    ansible.builtin.user: "{{ lookup('env', 'USER') }}"
 '''
 import traceback
 

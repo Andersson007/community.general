@@ -29,7 +29,7 @@ options:
     description:
        - Name of the Managed Instance Group.
     required: true
-  template:
+  ansible.builtin.template:
     description:
        - Instance Template to be used in creating the VMs.  See
          U(https://cloud.google.com/compute/docs/instance-templates) to learn more
@@ -77,7 +77,7 @@ EXAMPLES = '''
 # - The use of the 'pause' module is not required, it is just for convenience.
 - name: Managed Instance Group Example
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Create MIG
       community.general.gce_mig:
@@ -85,7 +85,7 @@ EXAMPLES = '''
         zone: us-central1-c
         state: present
         size: 1
-        template: my-instance-template-1
+        ansible.builtin.template: my-instance-template-1
         named_ports:
         - name: http
           port: 80
@@ -93,7 +93,7 @@ EXAMPLES = '''
           port: 82
 
     - name: Pause for 30 seconds
-      pause:
+      ansible.builtin.pause:
         seconds: 30
 
     - name: Recreate MIG Instances with Instance Template change.
@@ -101,11 +101,11 @@ EXAMPLES = '''
         name: ansible-mig-example
         zone: us-central1-c
         state: present
-        template: my-instance-template-2-small
+        ansible.builtin.template: my-instance-template-2-small
         recreate_instances: yes
 
     - name: Pause for 30 seconds
-      pause:
+      ansible.builtin.pause:
         seconds: 30
 
     - name: Resize MIG
@@ -121,7 +121,7 @@ EXAMPLES = '''
         zone: us-central1-c
         state: present
         size: 3
-        template: my-instance-template-2-small
+        ansible.builtin.template: my-instance-template-2-small
         recreate_instances: yes
         autoscaling:
           enabled: yes
@@ -136,7 +136,7 @@ EXAMPLES = '''
               target: 0.4
 
     - name: Pause for 30 seconds
-      pause:
+      ansible.builtin.pause:
         seconds: 30
 
     - name: Delete MIG
@@ -745,7 +745,7 @@ def main():
             # Doesn't exist in GCE, and state==absent.
             changed = False
             module.fail_json(
-                msg="Cannot delete unknown managed instance group: %s" %
+                msg="Cannot delete unknown managed instance ansible.builtin.group: %s" %
                 (params['name']))
         else:
             # Create MIG

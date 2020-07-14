@@ -58,7 +58,7 @@ def get_fqdn_and_port(repo_url):
     elif "://" in repo_url:
         # this should be something we can parse with urlparse
         parts = urlparse(repo_url)
-        # parts[1] will be empty on python2.4 on ssh:// or git:// urls, so
+        # parts[1] will be empty on python2.4 on ssh:// or ansible.builtin.git:// urls, so
         # ensure we actually have a parts[1] before continuing.
         if parts[1] != '':
             fqdn = parts[1]

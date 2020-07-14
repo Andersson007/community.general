@@ -63,7 +63,7 @@ options:
 EXAMPLES = """
    - name: Create Volume Access Group
      community.general.sf_volume_access_group_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: present
@@ -72,7 +72,7 @@ EXAMPLES = """
 
    - name: Modify Volume Access Group
      community.general.sf_volume_access_group_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: present
@@ -82,7 +82,7 @@ EXAMPLES = """
 
    - name: Delete Volume Access Group
      community.general.sf_volume_access_group_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: absent

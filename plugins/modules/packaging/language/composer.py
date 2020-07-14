@@ -21,7 +21,7 @@ description:
       declare the dependent libraries your project needs and it will install
       them in your project for you.
 options:
-    command:
+    ansible.builtin.command:
         description:
             - Composer command like "install", "update" and so on.
         default: install
@@ -113,25 +113,25 @@ notes:
 EXAMPLES = '''
 - name: Download and installs all libs and dependencies outlined in the /path/to/project/composer.lock
   community.general.composer:
-    command: install
+    ansible.builtin.command: install
     working_dir: /path/to/project
 
 - name: Install a new package
   community.general.composer:
-    command: require
+    ansible.builtin.command: require
     arguments: my/package
     working_dir: /path/to/project
 
 - name: Clone and install a project with all dependencies
   community.general.composer:
-    command: create-project
+    ansible.builtin.command: create-project
     arguments: package/package /path/to/project ~1.0
     working_dir: /path/to/project
     prefer_dist: yes
 
 - name: Install a package globally
   community.general.composer:
-    command: require
+    ansible.builtin.command: require
     global_command: yes
     arguments: my/package
 '''

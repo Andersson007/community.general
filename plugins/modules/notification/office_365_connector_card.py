@@ -116,7 +116,7 @@ EXAMPLES = """
         name: Action's name prop
         targets:
         - os: default
-          uri: http://...
+          ansible.builtin.uri: http://...
     - start_group: true
       title: This is the title of a **second section**
       text: This second section is visually separated from the first one by setting its

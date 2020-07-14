@@ -98,7 +98,7 @@ class BecomeModule(BecomeBase):
 
         flags = self.get_option('become_flags')
         user = self.get_option('become_user')
-        if user:
+        if ansible.builtin.user:
             user = '-u %s' % (user)
         noexe = not self.get_option('wrap_exe')
 

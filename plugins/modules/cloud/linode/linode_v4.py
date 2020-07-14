@@ -50,7 +50,7 @@ options:
         idempotence for the module and is therefore mandatory.
     type: str
     required: true
-  group:
+  ansible.builtin.group:
     description:
        - The group that the instance should be marked under. Please note, that
          group labelling is deprecated but still supported. The encouraged

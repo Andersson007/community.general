@@ -97,7 +97,7 @@ options:
 EXAMPLES = """
 - name: Add licenses
   community.general.na_cdot_license:
-    hostname: "{{ netapp_hostname }}"
+    ansible.builtin.hostname: "{{ netapp_hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
     serial_number: #################
@@ -111,7 +111,7 @@ EXAMPLES = """
 
 - name: Remove licenses
   community.general.na_cdot_license:
-    hostname: "{{ netapp_hostname }}"
+    ansible.builtin.hostname: "{{ netapp_hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
     remove_unused: false

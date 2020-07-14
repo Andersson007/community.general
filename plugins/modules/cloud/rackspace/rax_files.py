@@ -24,7 +24,7 @@ options:
     description:
       - The container to use for container or metadata operations.
     required: true
-  meta:
+  ansible.builtin.meta:
     description:
       - A hash of items to set as metadata values on a container
   private:
@@ -73,7 +73,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 - name: "Test Cloud Files Containers"
   hosts: local
-  gather_facts: no
+  ansible.builtin.gather_facts: no
   tasks:
     - name: "List all containers"
       community.general.rax_files:
@@ -86,7 +86,7 @@ EXAMPLES = '''
     - name: "Create container 'mycontainer2' with metadata"
       community.general.rax_files:
         container: mycontainer2
-        meta:
+        ansible.builtin.meta:
           key: value
           file_for: someuser@example.com
 
@@ -118,7 +118,7 @@ EXAMPLES = '''
 
 - name: "Test Cloud Files Containers Metadata Storage"
   hosts: local
-  gather_facts: no
+  ansible.builtin.gather_facts: no
   tasks:
     - name: "Get mycontainer2 metadata"
       community.general.rax_files:
@@ -129,7 +129,7 @@ EXAMPLES = '''
       community.general.rax_files:
         container: mycontainer2
         type: meta
-        meta:
+        ansible.builtin.meta:
           uploaded_by: someuser@example.com
 
     - name: "Remove mycontainer2 metadata"
@@ -137,7 +137,7 @@ EXAMPLES = '''
         container: "mycontainer2"
         type: meta
         state: absent
-        meta:
+        ansible.builtin.meta:
           key: ""
           file_for: ""
 '''

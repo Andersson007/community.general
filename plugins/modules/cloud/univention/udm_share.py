@@ -53,7 +53,7 @@ options:
         default: 0
         description:
             - Directory owner of the share's root directory.
-    group:
+    ansible.builtin.group:
         default: '0'
         description:
             - Directory owner group of the share's root directory.

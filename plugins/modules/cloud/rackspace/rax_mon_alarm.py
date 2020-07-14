@@ -67,7 +67,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Alarm example
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:

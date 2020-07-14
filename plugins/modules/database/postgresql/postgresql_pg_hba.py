@@ -279,8 +279,8 @@ class PgHba(object):
         self.comment = []
         # read the pg_hbafile
         try:
-            with open(self.pg_hba_file, 'r') as file:
-                for line in file:
+            with open(self.pg_hba_file, 'r') as ansible.builtin.file:
+                for line in ansible.builtin.file:
                     line = line.strip()
                     # uncomment
                     if '#' in line:
@@ -705,7 +705,7 @@ def main():
     try:
         pg_hba = PgHba(dest, order, backup=backup, create=create)
     except PgHbaError as error:
-        module.fail_json(msg='Error reading file:\n{0}'.format(error))
+        module.fail_json(msg='Error reading ansible.builtin.file:\n{0}'.format(error))
 
     if contype:
         try:
@@ -733,7 +733,7 @@ def main():
                         module.set_fs_attributes_if_different(file_args, True, pg_hba.diff,
                                                               expand=False)
                 except PgHbaError as error:
-                    module.fail_json(msg='Error writing file:\n{0}'.format(error))
+                    module.fail_json(msg='Error writing ansible.builtin.file:\n{0}'.format(error))
                 if pg_hba.last_backup:
                     ret['backup_file'] = pg_hba.last_backup
 

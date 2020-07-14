@@ -20,7 +20,7 @@ requirements:
 author:
 - Timothy Vandenbrande (@TimothyVandenbrande)
 options:
-    user:
+    ansible.builtin.user:
         description:
             - The user to authenticate with.
         type: str
@@ -209,7 +209,7 @@ EXAMPLES = r'''
 - name: Basic get info from VM
   community.general.rhevm:
     server: rhevm01
-    user: '{{ rhev.admin.name }}'
+    ansible.builtin.user: '{{ rhev.admin.name }}'
     password: '{{ rhev.admin.pass }}'
     name: demo
     state: info
@@ -217,7 +217,7 @@ EXAMPLES = r'''
 - name: Basic create example from image
   community.general.rhevm:
     server: rhevm01
-    user: '{{ rhev.admin.name }}'
+    ansible.builtin.user: '{{ rhev.admin.name }}'
     password: '{{ rhev.admin.pass }}'
     name: demo
     cluster: centos
@@ -227,7 +227,7 @@ EXAMPLES = r'''
 - name: Power management
   community.general.rhevm:
     server: rhevm01
-    user: '{{ rhev.admin.name }}'
+    ansible.builtin.user: '{{ rhev.admin.name }}'
     password: '{{ rhev.admin.pass }}'
     cluster: RH
     name: uptime_server
@@ -237,7 +237,7 @@ EXAMPLES = r'''
 - name: Multi disk, multi nic create example
   community.general.rhevm:
     server: rhevm01
-    user: '{{ rhev.admin.name }}'
+    ansible.builtin.user: '{{ rhev.admin.name }}'
     password: '{{ rhev.admin.pass }}'
     cluster: RH
     name: server007
@@ -276,7 +276,7 @@ EXAMPLES = r'''
 
 - name: Add a CD to the disk cd_drive
   community.general.rhevm:
-    user: '{{ rhev.admin.name }}'
+    ansible.builtin.user: '{{ rhev.admin.name }}'
     password: '{{ rhev.admin.pass }}'
     name: server007
     cd_drive: rhev-tools-setup.iso
@@ -1304,7 +1304,7 @@ def core(module):
                     setMsg("cluster is a required argument.")
                     setFailed()
                 template = module.params.get('image')
-                if template:
+                if ansible.builtin.template:
                     disks = module.params.get('disks')
                     if disks is None:
                         setMsg("disks is a required argument.")

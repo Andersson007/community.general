@@ -57,7 +57,7 @@ options:
       - Use with I(detach=false) to remove the container after successful execution.
     type: bool
     default: no
-  command:
+  ansible.builtin.command:
     description:
       - Command to execute when the container starts. A command may be either a string or a list.
       - Prior to version 2.4, strings were split on commas.
@@ -308,7 +308,7 @@ options:
           - Start period for the container to initialize before starting health-retries countdown.
           - The default used by the Docker daemon is C(0s).
         type: str
-  hostname:
+  ansible.builtin.hostname:
     description:
       - The container's hostname.
     type: str
@@ -773,7 +773,7 @@ options:
     description:
       - Dictionary of key,value pairs.
     type: dict
-  user:
+  ansible.builtin.user:
     description:
       - Sets the username or UID used and optionally the groupname or GID for the specified command.
       - "Can be of the forms C(user), C(user:group), C(uid), C(uid:gid), C(user:gid) or C(uid:group)."
@@ -840,7 +840,7 @@ EXAMPLES = '''
   community.general.docker_container:
     name: myredis
     image: redis
-    command: redis-server --appendonly yes
+    ansible.builtin.command: redis-server --appendonly yes
     state: present
     recreate: yes
     exposed_ports:
@@ -880,7 +880,7 @@ EXAMPLES = '''
     name: mycontainer
     state: present
     image: ubuntu:14.04
-    command: sleep infinity
+    ansible.builtin.command: sleep infinity
 
 - name: Stop a container
   community.general.docker_container:
@@ -892,7 +892,7 @@ EXAMPLES = '''
     name: "container{{ item }}"
     recreate: yes
     image: someuser/anotherappimage
-    command: sleep 1d
+    ansible.builtin.command: sleep 1d
   with_sequence: count=4
 
 - name: Remove container
@@ -936,7 +936,7 @@ EXAMPLES = '''
   community.general.docker_container:
     name: sleepy
     image: ubuntu:14.04
-    command: ["sleep", "infinity"]
+    ansible.builtin.command: ["sleep", "infinity"]
 
 - name: Add container to networks
   community.general.docker_container:
@@ -980,7 +980,7 @@ EXAMPLES = '''
   community.general.docker_container:
     name: sleepy
     image: ubuntu:16.04
-    command: sleep infinity
+    ansible.builtin.command: sleep infinity
     capabilities:
       - sys_time
     cap_drop:
@@ -1650,7 +1650,7 @@ class TaskParameters(DockerBaseClass):
                 ipaddr = parts[0]
                 if not re.match(r'^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$', parts[0]) and not re.match(r'^\[[0-9a-fA-F:]+\]$', ipaddr):
                     self.fail(('Bind addresses for published ports must be IPv4 or IPv6 addresses, not hostnames. '
-                               'Use the dig lookup to resolve hostnames. (Found hostname: {0})').format(ipaddr))
+                               'Use the dig lookup to resolve hostnames. (Found ansible.builtin.hostname: {0})').format(ipaddr))
                 if re.match(r'^\[[0-9a-fA-F:]+\]$', ipaddr):
                     ipaddr = ipaddr[1:-1]
                 if parts[1]:

@@ -62,7 +62,7 @@ options:
     required: false
     choices: [ absent, present ]
     default: present
-  user:
+  ansible.builtin.user:
     description:
       - User to authenticate to GitHub as
     required: true
@@ -91,7 +91,7 @@ EXAMPLES = '''
     url: https://www.example.com/hooks/
     events:
       - push
-    user: "{{ github_user }}"
+    ansible.builtin.user: "{{ github_user }}"
     password: "{{ github_password }}"
 
 - name: Create a new webhook in a github enterprise installation with multiple event triggers (token auth)
@@ -104,7 +104,7 @@ EXAMPLES = '''
     events:
       - issue_comment
       - pull_request
-    user: "{{ github_user }}"
+    ansible.builtin.user: "{{ github_user }}"
     token: "{{ github_user_api_token }}"
     github_url: https://github.example.com
 
@@ -113,7 +113,7 @@ EXAMPLES = '''
     repository: ansible/ansible
     url: https://www.example.com/hooks/
     state: absent
-    user: "{{ github_user }}"
+    ansible.builtin.user: "{{ github_user }}"
     password: "{{ github_password }}"
 '''
 

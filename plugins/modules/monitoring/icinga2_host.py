@@ -72,7 +72,7 @@ options:
   zone:
     description:
       - The zone from where this host should be polled.
-  template:
+  ansible.builtin.template:
     description:
       - The template used to define the host.
       - Template cannot be modified after object creation.

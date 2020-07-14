@@ -52,7 +52,7 @@ options:
       - The maximum number of entities that are allowed in the scaling group.
         Must be an integer between 0 and 1000.
     required: true
-  meta:
+  ansible.builtin.meta:
     description:
       - A hash of metadata to associate with the instance
   min_entities:
@@ -107,7 +107,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 ---
 - hosts: localhost
-  gather_facts: false
+  ansible.builtin.gather_facts: false
   connection: local
   tasks:
     - community.general.rax_scaling_group:
@@ -174,7 +174,7 @@ def rax_asg(module, cooldown=300, disk_config=None, files=None, flavor=None,
 
     if state == 'present':
         # Normalize and ensure all metadata values are strings
-        if meta:
+        if ansible.builtin.meta:
             for k, v in meta.items():
                 if isinstance(v, list):
                     meta[k] = ','.join(['%s' % i for i in v])

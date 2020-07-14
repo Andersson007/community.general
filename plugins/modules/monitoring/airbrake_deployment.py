@@ -36,7 +36,7 @@ options:
       - The airbrake environment name, typically 'production', 'staging', etc.
     required: true
     type: str
-  user:
+  ansible.builtin.user:
     description:
       - The username of the person doing the deployment
     required: false
@@ -85,7 +85,7 @@ EXAMPLES = '''
     project_id: '12345'
     project_key: 'AAAAAA'
     environment: staging
-    user: ansible
+    ansible.builtin.user: ansible
     revision: '4.2'
 
 - name: Notify airbrake about an app deployment, using git hash as revision
@@ -93,7 +93,7 @@ EXAMPLES = '''
     project_id: '12345'
     project_key: 'AAAAAA'
     environment: staging
-    user: ansible
+    ansible.builtin.user: ansible
     revision: 'e54dd3a01f2c421b558ef33b5f79db936e2dcf15'
     version: '0.2.0'
 '''

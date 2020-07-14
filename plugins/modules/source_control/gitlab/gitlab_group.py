@@ -182,7 +182,7 @@ class GitLabGroup(object):
             try:
                 group.save()
             except Exception as e:
-                self._module.fail_json(msg="Failed to update group: %s " % e)
+                self._module.fail_json(msg="Failed to update ansible.builtin.group: %s " % e)
             return True
         else:
             return False
@@ -197,7 +197,7 @@ class GitLabGroup(object):
         try:
             group = self._gitlab.groups.create(arguments)
         except (gitlab.exceptions.GitlabCreateError) as e:
-            self._module.fail_json(msg="Failed to create group: %s " % to_native(e))
+            self._module.fail_json(msg="Failed to create ansible.builtin.group: %s " % to_native(e))
 
         return group
 
@@ -229,7 +229,7 @@ class GitLabGroup(object):
             try:
                 group.delete()
             except Exception as e:
-                self._module.fail_json(msg="Failed to delete group: %s " % to_native(e))
+                self._module.fail_json(msg="Failed to delete ansible.builtin.group: %s " % to_native(e))
 
     '''
     @param name Name of the groupe
@@ -238,7 +238,7 @@ class GitLabGroup(object):
     def existsGroup(self, project_identifier):
         # When group/user exists, object will be stored in self.groupObject.
         group = findGroup(self._gitlab, project_identifier)
-        if group:
+        if ansible.builtin.group:
             self.groupObject = group
             return True
         return False
@@ -293,7 +293,7 @@ def main():
     if parent_identifier:
         parent_group = findGroup(gitlab_instance, parent_identifier)
         if not parent_group:
-            module.fail_json(msg="Failed create GitLab group: Parent group doesn't exists")
+            module.fail_json(msg="Failed create GitLab ansible.builtin.group: Parent group doesn't exists")
 
         group_exists = gitlab_group.existsGroup(parent_group.full_path + '/' + group_path)
     else:

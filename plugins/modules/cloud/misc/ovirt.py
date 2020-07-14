@@ -20,7 +20,7 @@ description:
     - This module only supports oVirt/RHEV version 3. A newer module M(ovirt.ovirt.ovirt_vm) supports oVirt/RHV version 4.
     - Allows you to create new instances, either from scratch or an image, in addition to deleting or stopping instances on the oVirt/RHEV platform.
 options:
-  user:
+  ansible.builtin.user:
     description:
      - The user to authenticate with.
     required: true
@@ -141,7 +141,7 @@ requirements:
 EXAMPLES = '''
 - name: Basic example to provision from image
   community.general.ovirt:
-    user: admin@internal
+    ansible.builtin.user: admin@internal
     url: https://ovirt.example.com
     instance_name: ansiblevm04
     password: secret
@@ -154,7 +154,7 @@ EXAMPLES = '''
     instance_name: testansible
     resource_type: new
     instance_type: server
-    user: admin@internal
+    ansible.builtin.user: admin@internal
     password: secret
     url: https://ovirt.example.com
     instance_disksize: 10
@@ -174,7 +174,7 @@ EXAMPLES = '''
   community.general.ovirt:
     instance_name: testansible
     state: stopped
-    user: admin@internal
+    ansible.builtin.user: admin@internal
     password: secret
     url: https://ovirt.example.com
 
@@ -182,7 +182,7 @@ EXAMPLES = '''
   community.general.ovirt:
     instance_name: testansible
     state: started
-    user: admin@internal
+    ansible.builtin.user: admin@internal
     password: secret
     url: https://ovirt.example.com
 
@@ -190,10 +190,10 @@ EXAMPLES = '''
   community.general.ovirt:
     instance_name: testansible
     state: started
-    user: admin@internal
+    ansible.builtin.user: admin@internal
     password: secret
     url: https://ovirt.example.com
-    hostname: testansible
+    ansible.builtin.hostname: testansible
     domain: ansible.local
     ip: 192.0.2.100
     netmask: 255.255.255.0

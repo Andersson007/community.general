@@ -14,7 +14,7 @@ short_description: Manage arbitrary ports/services with firewalld
 description:
   - This module allows for addition or deletion of services and ports (either TCP or UDP) in either running or permanent firewalld rules.
 options:
-  service:
+  ansible.builtin.service:
     description:
       - Name of a service to add/remove to/from firewalld.
       - The service must be listed in output of firewall-cmd --get-services.
@@ -109,7 +109,7 @@ author:
 
 EXAMPLES = r'''
 - community.general.firewalld:
-    service: https
+    ansible.builtin.service: https
     permanent: yes
     state: enabled
 
@@ -125,7 +125,7 @@ EXAMPLES = r'''
 
 - community.general.firewalld:
     zone: dmz
-    service: http
+    ansible.builtin.service: http
     permanent: yes
     state: enabled
 

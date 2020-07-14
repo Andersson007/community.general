@@ -45,7 +45,7 @@ options:
     - respawn
     - sysinit
     - wait
-  command:
+  ansible.builtin.command:
     description:
     - What command has to run.
     type: str
@@ -75,7 +75,7 @@ EXAMPLES = '''
     name: startmyservice
     runlevel: 4
     action: once
-    command: echo hello
+    ansible.builtin.command: echo hello
     insertafter: existingservice
     state: present
   become: yes
@@ -86,7 +86,7 @@ EXAMPLES = '''
     name: startmyservice
     runlevel: 2
     action: wait
-    command: echo hello
+    ansible.builtin.command: echo hello
     state: present
   become: yes
 
@@ -95,7 +95,7 @@ EXAMPLES = '''
     name: startmyservice
     runlevel: 2
     action: wait
-    command: echo hello
+    ansible.builtin.command: echo hello
     state: absent
   become: yes
 '''

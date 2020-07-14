@@ -74,7 +74,7 @@ DOCUMENTATION = '''
             env:
             - name: ETCDCTL_DIAL_TIMEOUT
             type: int
-        user:
+        ansible.builtin.user:
             description:
             - Authentified user name.
             env:
@@ -101,19 +101,19 @@ DOCUMENTATION = '''
 
 EXAMPLES = '''
     - name: "a value from a locally running etcd"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ lookup('community.general.etcd3', 'foo/bar') }}"
 
     - name: "values from multiple folders on a locally running etcd"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ lookup('community.general.etcd3', 'foo', 'bar', 'baz') }}"
 
     - name: "look for a key prefix"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ lookup('community.general.etcd3', '/foo/bar', prefix=True) }}"
 
     - name: "connect to etcd3 with a client certificate"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ lookup('community.general.etcd3', 'foo/bar', cert_cert='/etc/ssl/etcd/client.pem', cert_key='/etc/ssl/etcd/client.key') }}"
 '''
 
@@ -214,14 +214,14 @@ class LookupModule(LookupBase):
             if self.get_option('prefix'):
                 try:
                     for val, meta in etcd.get_prefix(term):
-                        if val and meta:
+                        if val and ansible.builtin.meta:
                             ret.append({'key': to_native(meta.key), 'value': to_native(val)})
                 except Exception as exp:
                     display.warning('Caught except during etcd3.get_prefix: %s' % (to_native(exp)))
             else:
                 try:
                     val, meta = etcd.get(term)
-                    if val and meta:
+                    if val and ansible.builtin.meta:
                         ret.append({'key': to_native(meta.key), 'value': to_native(val)})
                 except Exception as exp:
                     display.warning('Caught except during etcd3.get: %s' % (to_native(exp)))

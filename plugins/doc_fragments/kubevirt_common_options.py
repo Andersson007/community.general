@@ -114,7 +114,7 @@ options:
         description:
             - "Specify tablets to be used as input devices"
         type: list
-    hostname:
+    ansible.builtin.hostname:
         description:
             - "Specifies the hostname of the virtual machine. The hostname will be set either by dhcp, cloud-init if configured or virtual machine
                name will be used."

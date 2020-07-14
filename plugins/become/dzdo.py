@@ -90,7 +90,7 @@ class BecomeModule(BecomeBase):
             flags = '%s -p "%s"' % (flags.replace('-n', ''), self.prompt)
 
         user = self.get_option('become_user')
-        if user:
+        if ansible.builtin.user:
             user = '-u %s' % (user)
 
         return ' '.join([becomecmd, flags, user, self._build_success_command(cmd, shell)])

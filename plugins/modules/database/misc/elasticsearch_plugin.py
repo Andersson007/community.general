@@ -29,7 +29,7 @@ options:
         default: present
     src:
         description:
-            - Optionally set the source location to retrieve the plugin from. This can be a file://
+            - Optionally set the source location to retrieve the plugin from. This can be a ansible.builtin.file://
               URL to install from a local file, or a remote URL. If this is not set, the plugin
               location is just based on the name.
             - The name parameter must match the descriptor in the plugin ZIP specified.

@@ -995,7 +995,7 @@ class RedfishUtils(object):
         return {'ret': True}
 
     def delete_user_via_patch(self, user, uri=None, data=None):
-        if not uri:
+        if not ansible.builtin.uri:
             response = self._find_account_uri(username=user.get('account_username'),
                                               acct_id=user.get('account_id'))
             if not response['ret']:
@@ -2182,11 +2182,11 @@ class RedfishUtils(object):
         # try first with strict media_type matching
         uri, data = self._find_empty_virt_media_slot(
             resources, media_types, media_match_strict=True)
-        if not uri:
+        if not ansible.builtin.uri:
             # if not found, try without strict media_type matching
             uri, data = self._find_empty_virt_media_slot(
                 resources, media_types, media_match_strict=False)
-        if not uri:
+        if not ansible.builtin.uri:
             return {'ret': False,
                     'msg': "Unable to find an available VirtualMedia resource "
                            "%s" % ('supporting ' + str(media_types)

@@ -36,7 +36,7 @@ options:
     comment:
         description:
           - An optional comment to add to the dns host object
-    hostname:
+    ansible.builtin.hostname:
         description:
           - The hostname for the dns host object
     interface:
@@ -68,7 +68,7 @@ EXAMPLES = """
     utm_host: sophos.host.name
     utm_token: abcdefghijklmno1234
     name: TestDNSEntry
-    hostname: testentry.some.tld
+    ansible.builtin.hostname: testentry.some.tld
     state: present
 
 - name: Remove UTM dns host entry
@@ -103,7 +103,7 @@ result:
         comment:
             description: The comment string
             type: str
-        hostname:
+        ansible.builtin.hostname:
             description: The hostname of the object
             type: str
         interface:

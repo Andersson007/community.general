@@ -52,7 +52,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Attach a Block Storage Volume
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:

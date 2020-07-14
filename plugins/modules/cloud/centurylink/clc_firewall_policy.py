@@ -76,7 +76,7 @@ EXAMPLES = '''
 ---
 - name: Create Firewall Policy
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Create / Verify an Firewall Policy at CenturyLink Cloud
@@ -92,7 +92,7 @@ EXAMPLES = '''
 ---
 - name: Delete Firewall Policy
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Delete an Firewall Policy at CenturyLink Cloud

@@ -56,8 +56,8 @@ class LXDClient(object):
         :type key_file: ``str``
         :param cert_file: The path of the client certificate file.
         :type cert_file: ``str``
-        :param debug: The debug flag. The request and response are stored in logs when debug is true.
-        :type debug: ``bool``
+        :param ansible.builtin.debug: The debug flag. The request and response are stored in logs when debug is true.
+        :type ansible.builtin.debug: ``bool``
         """
         self.url = url
         self.debug = debug

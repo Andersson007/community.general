@@ -186,7 +186,7 @@ class ManageIQAlertProfiles(object):
         old_profile = self.client.get(old_profile['href'] + '?expand=alert_definitions')
 
         # figure out which alerts we need to assign / unassign
-        # alerts listed by the user:
+        # alerts listed by the ansible.builtin.user:
         desired_alerts = set(self.get_alerts(desired_profile['alerts']))
 
         # alert which currently exist in the profile

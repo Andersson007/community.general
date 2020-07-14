@@ -40,7 +40,7 @@ EXAMPLES = '''
 ---
 - name: Set cluster Online
   hosts: localhost
-  gather_facts: no
+  ansible.builtin.gather_facts: no
   tasks:
   - name: Get cluster state
     community.general.pacemaker_cluster:

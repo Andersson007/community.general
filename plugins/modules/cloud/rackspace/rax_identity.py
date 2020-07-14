@@ -29,7 +29,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Load Rackspace Cloud Identity
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:

@@ -59,7 +59,7 @@ options:
       - If events in the flapping state should be handled.
     type: bool
     default: 'no'
-  command:
+  ansible.builtin.command:
     description:
       - The handler command to be executed.
       - The event data is passed to the process via STDIN.
@@ -87,7 +87,7 @@ EXAMPLES = '''
   community.general.sensu_handler:
     name: "irc_handler"
     type: "pipe"
-    command: "/usr/local/bin/notify-irc.sh"
+    ansible.builtin.command: "/usr/local/bin/notify-irc.sh"
     severities:
       - "ok"
       - "critical"
@@ -119,10 +119,10 @@ EXAMPLES = '''
     - Restart sensu-server
 
 - name: Secure Sensu handler configuration file
-  file:
+  ansible.builtin.file:
     path: "{{ handler['file'] }}"
     owner: "sensu"
-    group: "sensu"
+    ansible.builtin.group: "sensu"
     mode: "0600"
 '''
 

@@ -253,7 +253,7 @@ class InventoryModule(BaseInventoryPlugin, Constructable):
                                          hostname_preferences=hostname_preferences)
 
             # No suitable hostname were found in the attributes and the host won't be in the inventory
-            if not hostname:
+            if not ansible.builtin.hostname:
                 continue
 
             groups = self.match_groups(host_infos, tags)

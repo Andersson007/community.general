@@ -50,7 +50,7 @@ options:
     type: str
     choices: [ absent, present ]
     default: present
-  user:
+  ansible.builtin.user:
     description:
       - The specific user whose crontab should be modified.
       - This parameter defaults to C(root) when unset.
@@ -88,7 +88,7 @@ EXAMPLES = r'''
   community.general.cronvar:
     name: LOGFILE
     value: /var/log/yum-autoupdate.log
-    user: root
+    ansible.builtin.user: root
     cron_file: ansible_yum-autoupdate
 '''
 

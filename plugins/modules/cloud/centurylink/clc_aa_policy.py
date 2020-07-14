@@ -54,7 +54,7 @@ EXAMPLES = '''
 ---
 - name: Create AA Policy
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Create an Anti Affinity Policy
@@ -65,13 +65,13 @@ EXAMPLES = '''
       register: policy
 
     - name: debug
-      debug:
+      ansible.builtin.debug:
         var: policy
 
 ---
 - name: Delete AA Policy
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Delete an Anti Affinity Policy
@@ -82,7 +82,7 @@ EXAMPLES = '''
       register: policy
 
     - name: Debug
-      debug:
+      ansible.builtin.debug:
         var: policy
 '''
 

@@ -25,7 +25,7 @@ options:
         type: str
         required: true
         choices: [ absent, present ]
-    hostname:
+    ansible.builtin.hostname:
         description:
             - Sets the host lease hostname (mandatory if state=present).
         type: str

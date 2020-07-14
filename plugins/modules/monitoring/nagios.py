@@ -75,7 +75,7 @@ options:
     description:
       - The Servicegroup we want to set downtimes/alerts for.
         B(Required) option when using the C(servicegroup_service_downtime) amd C(servicegroup_host_downtime).
-  command:
+  ansible.builtin.command:
     description:
       - The raw command to send to nagios, which
         should not include the submitted time header or the line-feed
@@ -90,14 +90,14 @@ EXAMPLES = '''
   community.general.nagios:
     action: downtime
     minutes: 30
-    service: httpd
+    ansible.builtin.service: httpd
     host: '{{ inventory_hostname }}'
 
 - name: Schedule an hour of HOST downtime
   community.general.nagios:
     action: downtime
     minutes: 60
-    service: host
+    ansible.builtin.service: host
     host: '{{ inventory_hostname }}'
 
 - name: Schedule an hour of HOST downtime starting at 2019-04-23T02:00:00+00:00
@@ -105,14 +105,14 @@ EXAMPLES = '''
     action: downtime
     start: 1555984800
     minutes: 60
-    service: host
+    ansible.builtin.service: host
     host: '{{ inventory_hostname }}'
 
 - name: Schedule an hour of HOST downtime, with a comment describing the reason
   community.general.nagios:
     action: downtime
     minutes: 60
-    service: host
+    ansible.builtin.service: host
     host: '{{ inventory_hostname }}'
     comment: Rebuilding machine
 
@@ -120,7 +120,7 @@ EXAMPLES = '''
   community.general.nagios:
     action: downtime
     minutes: 45
-    service: all
+    ansible.builtin.service: all
     host: '{{ inventory_hostname }}'
 
 - name: Schedule downtime for a few services
@@ -147,31 +147,31 @@ EXAMPLES = '''
   community.general.nagios:
     action: delete_downtime
     host: '{{ inventory_hostname }}'
-    service: all
+    ansible.builtin.service: all
 
 - name: Delete all downtime for HOST with a particular comment
   community.general.nagios:
     action: delete_downtime
     host: '{{ inventory_hostname }}'
-    service: host
+    ansible.builtin.service: host
     comment: Planned maintenance
 
 - name: Enable SMART disk alerts
   community.general.nagios:
     action: enable_alerts
-    service: smart
+    ansible.builtin.service: smart
     host: '{{ inventory_hostname }}'
 
 - name: Disable httpd and nfs alerts
   community.general.nagios:
     action: disable_alerts
-    service: httpd,nfs
+    ansible.builtin.service: httpd,nfs
     host: '{{ inventory_hostname }}'
 
 - name: Disable HOST alerts
   community.general.nagios:
     action: disable_alerts
-    service: host
+    ansible.builtin.service: host
     host: '{{ inventory_hostname }}'
 
 - name: Silence ALL alerts
@@ -195,7 +195,7 @@ EXAMPLES = '''
 - name: Command something
   community.general.nagios:
     action: command
-    command: DISABLE_FAILURE_PREDICTION
+    ansible.builtin.command: DISABLE_FAILURE_PREDICTION
 '''
 
 import time
@@ -320,7 +320,7 @@ def main():
             module.fail_json(msg='a service is required when setting alerts')
 
     if action in ['command']:
-        if not command:
+        if not ansible.builtin.command:
             module.fail_json(msg='no command passed for command action')
     ##################################################################
     if not cmdfile:

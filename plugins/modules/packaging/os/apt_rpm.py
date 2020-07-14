@@ -17,7 +17,7 @@ short_description: apt_rpm package manager
 description:
   - Manages packages with I(apt-rpm). Both low-level (I(rpm)) and high-level (I(apt-get)) package manager binaries required.
 options:
-  package:
+  ansible.builtin.package:
     description:
       - list of packages to install, upgrade or remove.
     required: true

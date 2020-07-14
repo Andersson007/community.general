@@ -88,7 +88,7 @@ EXAMPLES = """
     vserver: ansibleVServer
     size: 5
     size_unit: mb
-    hostname: "{{ netapp_hostname }}"
+    ansible.builtin.hostname: "{{ netapp_hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
 
@@ -101,7 +101,7 @@ EXAMPLES = """
     vserver: ansibleVServer
     size: 5
     size_unit: gb
-    hostname: "{{ netapp_hostname }}"
+    ansible.builtin.hostname: "{{ netapp_hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
 """

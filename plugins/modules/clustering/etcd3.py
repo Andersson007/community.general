@@ -38,7 +38,7 @@ options:
             - the state of the value for the key.
             - can be present or absent
         required: true
-    user:
+    ansible.builtin.user:
         description:
             - The etcd user to authenticate with.
     password:
@@ -79,7 +79,7 @@ EXAMPLES = """
     key: "foo"
     value: "baz3"
     state: "present"
-    user: "someone"
+    ansible.builtin.user: "someone"
     password: "password123"
     timeout: 10
 

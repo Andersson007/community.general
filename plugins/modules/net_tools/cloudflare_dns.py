@@ -96,7 +96,7 @@ options:
     - Required for C(type=TLSA) when C(state=present).
     choices: [ 0, 1 ]
     type: int
-  service:
+  ansible.builtin.service:
     description:
     - Record service.
     - Required for C(type=SRV)
@@ -222,7 +222,7 @@ EXAMPLES = r'''
 - name: Create an SRV record _foo._tcp.example.net
   community.general.cloudflare_dns:
     domain: example.net
-    service: foo
+    ansible.builtin.service: foo
     proto: tcp
     port: 3500
     priority: 10
@@ -287,7 +287,7 @@ record:
                 port: 8080,
                 priority: 10,
                 proto: "_tcp",
-                service: "_xmpp",
+                ansible.builtin.service: "_xmpp",
                 target: "jabberhost.sample.com",
                 weight: 5,
             }
@@ -301,7 +301,7 @@ record:
             returned: success
             type: bool
             sample: False
-        meta:
+        ansible.builtin.meta:
             description: No documentation available.
             returned: success
             type: dict

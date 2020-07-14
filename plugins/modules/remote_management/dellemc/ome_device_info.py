@@ -23,7 +23,7 @@ description:
    - This module retrieves the list of all devices information with the exhaustive inventory of each
      device.
 options:
-    hostname:
+    ansible.builtin.hostname:
         description:
             - Target IP Address or hostname.
         type: str
@@ -86,13 +86,13 @@ EXAMPLES = """
 ---
 - name: Retrieve basic inventory of all devices.
   community.general.ome_device_info:
-    hostname: "192.168.0.1"
+    ansible.builtin.hostname: "192.168.0.1"
     username: "username"
     password: "password"
 
 - name: Retrieve basic inventory for devices identified by IDs 33333 or 11111 using filtering.
   community.general.ome_device_info:
-    hostname: "192.168.0.1"
+    ansible.builtin.hostname: "192.168.0.1"
     username: "username"
     password: "password"
     fact_subset: "basic_inventory"
@@ -101,7 +101,7 @@ EXAMPLES = """
 
 - name: Retrieve inventory details of specified devices identified by IDs 11111 and 22222.
   community.general.ome_device_info:
-    hostname: "192.168.0.1"
+    ansible.builtin.hostname: "192.168.0.1"
     username: "username"
     password: "password"
     fact_subset: "detailed_inventory"
@@ -112,7 +112,7 @@ EXAMPLES = """
 
 - name: Retrieve inventory details of specified devices identified by service tags MXL1234 and MXL4567.
   community.general.ome_device_info:
-    hostname: "192.168.0.1"
+    ansible.builtin.hostname: "192.168.0.1"
     username: "username"
     password: "password"
     fact_subset: "detailed_inventory"
@@ -123,7 +123,7 @@ EXAMPLES = """
 
 - name: Retrieve details of specified inventory type of specified devices identified by ID and service tags.
   community.general.ome_device_info:
-    hostname: "192.168.0.1"
+    ansible.builtin.hostname: "192.168.0.1"
     username: "username"
     password: "password"
     fact_subset: "detailed_inventory"
@@ -137,7 +137,7 @@ EXAMPLES = """
 
 - name: Retrieve subsystem health of specified devices identified by service tags.
   community.general.ome_device_info:
-    hostname: "192.168.0.1"
+    ansible.builtin.hostname: "192.168.0.1"
     username: "username"
     password: "password"
     fact_subset: "subsystem_health"

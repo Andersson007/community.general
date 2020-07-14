@@ -14,7 +14,7 @@ short_description: Various redis commands, slave and flush
 description:
    - Unified utility to interact with redis instances.
 options:
-    command:
+    ansible.builtin.command:
         description:
             - The selected redis command
             - C(config) (new in 1.6), ensures a configuration setting on an instance.
@@ -78,41 +78,41 @@ author: "Xabier Larrakoetxea (@slok)"
 EXAMPLES = '''
 - name: Set local redis instance to be slave of melee.island on port 6377
   community.general.redis:
-    command: slave
+    ansible.builtin.command: slave
     master_host: melee.island
     master_port: 6377
 
 - name: Deactivate slave mode
   community.general.redis:
-    command: slave
+    ansible.builtin.command: slave
     slave_mode: master
 
 - name: Flush all the redis db
   community.general.redis:
-    command: flush
+    ansible.builtin.command: flush
     flush_mode: all
 
 - name: Flush only one db in a redis instance
   community.general.redis:
-    command: flush
+    ansible.builtin.command: flush
     db: 1
     flush_mode: db
 
 - name: Configure local redis to have 10000 max clients
   community.general.redis:
-    command: config
+    ansible.builtin.command: config
     name: maxclients
     value: 10000
 
 - name: Configure local redis maxmemory to 4GB
   community.general.redis:
-    command: config
+    ansible.builtin.command: config
     name: maxmemory
     value: 4GB
 
 - name: Configure local redis to have lua time limit of 100 ms
   community.general.redis:
-    command: config
+    ansible.builtin.command: config
     name: lua-time-limit
     value: 100
 '''

@@ -103,7 +103,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Create a monitoring check
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:
@@ -117,7 +117,7 @@ EXAMPLES = '''
       monitoring_zones_poll: mziad,mzord,mzdfw
       details:
         count: 10
-      meta:
+      ansible.builtin.meta:
         hurf: durf
     register: the_check
 '''

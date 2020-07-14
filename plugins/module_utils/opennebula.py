@@ -211,7 +211,7 @@ class OpenNebulaModule:
         which works for labels and hopefully for something more.
 
         Args:
-            template: the template to transform
+            ansible.builtin.template: the template to transform
 
         Returns: the transformed template with data casts applied.
         """
@@ -219,7 +219,7 @@ class OpenNebulaModule:
         # TODO: check formally available data types in templates
         # TODO: some arrays might be converted to space separated
 
-        for key in template:
+        for key in ansible.builtin.template:
             value = template[key]
             if isinstance(value, dict):
                 self.cast_template(template[key])

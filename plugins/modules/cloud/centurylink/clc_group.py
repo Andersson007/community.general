@@ -66,7 +66,7 @@ EXAMPLES = '''
 ---
 - name: Create Server Group
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Create / Verify a Server Group at CenturyLink Cloud
@@ -77,7 +77,7 @@ EXAMPLES = '''
       register: clc
 
     - name: Debug
-      debug:
+      ansible.builtin.debug:
         var: clc
 
 # Delete a Server Group
@@ -85,7 +85,7 @@ EXAMPLES = '''
 ---
 - name: Delete Server Group
   hosts: localhost
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   connection: local
   tasks:
     - name: Delete / Verify Absent a Server Group at CenturyLink Cloud
@@ -96,7 +96,7 @@ EXAMPLES = '''
       register: clc
 
     - name: Debug
-      debug:
+      ansible.builtin.debug:
         var: clc
 '''
 
@@ -375,7 +375,7 @@ class ClcGroup(object):
         :param group_description: a short description of the server group (used when creating)
         :return: (changed, group) -
             changed:  Boolean- whether a change was made,
-            group:  A clc group object for the group
+            ansible.builtin.group:  A clc group object for the group
         """
         if not self.root_group:
             raise AssertionError("Implementation Error: Root Group not set")
@@ -401,7 +401,7 @@ class ClcGroup(object):
             changed = True
         else:
             self.module.fail_json(
-                msg="parent group: " +
+                msg="parent ansible.builtin.group: " +
                 parent +
                 " does not exist")
 
@@ -410,7 +410,7 @@ class ClcGroup(object):
     def _create_group(self, group, parent, description):
         """
         Create the provided server group
-        :param group: clc_sdk.Group - the group to create
+        :param ansible.builtin.group: clc_sdk.Group - the group to create
         :param parent: clc_sdk.Parent - the parent group for {group}
         :param description: string - a text description of the group
         :return: clc_sdk.Group - the created group

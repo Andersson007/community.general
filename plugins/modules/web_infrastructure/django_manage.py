@@ -16,7 +16,7 @@ description:
     - Manages a Django application using the I(manage.py) application frontend to I(django-admin). With the I(virtualenv) parameter, all
       management commands will be executed by the given I(virtualenv) installation.
 options:
-  command:
+  ansible.builtin.command:
     choices: [ 'cleanup', 'collectstatic', 'flush', 'loaddata', 'migrate', 'runfcgi', 'syncdb', 'test', 'validate', ]
     description:
       - The name of the Django management command to run. Built in commands are cleanup, collectstatic, flush, loaddata, migrate, runfcgi, syncdb,
@@ -99,18 +99,18 @@ author: "Scott Anderson (@tastychutney)"
 EXAMPLES = """
 - name: Run cleanup on the application installed in django_dir
   community.general.django_manage:
-    command: cleanup
+    ansible.builtin.command: cleanup
     app_path: "{{ django_dir }}"
 
 - name: Load the initial_data fixture into the application
   community.general.django_manage:
-    command: loaddata
+    ansible.builtin.command: loaddata
     app_path: "{{ django_dir }}"
     fixtures: "{{ initial_data }}"
 
 - name: Run syncdb on the application
   community.general.django_manage:
-    command: syncdb
+    ansible.builtin.command: syncdb
     app_path: "{{ django_dir }}"
     settings: "{{ settings_app_name }}"
     pythonpath: "{{ settings_dir }}"
@@ -118,13 +118,13 @@ EXAMPLES = """
 
 - name: Run the SmokeTest test case from the main app. Useful for testing deploys
   community.general.django_manage:
-    command: test
+    ansible.builtin.command: test
     app_path: "{{ django_dir }}"
     apps: main.SmokeTest
 
 - name: Create an initial superuser
   community.general.django_manage:
-    command: "createsuperuser --noinput --username=admin --email=admin@example.com"
+    ansible.builtin.command: "createsuperuser --noinput --username=admin --email=admin@example.com"
     app_path: "{{ django_dir }}"
 """
 
@@ -284,8 +284,8 @@ def main():
         if command == 'createcachetable' and 'table' in err and 'already exists' in err:
             out = 'Already exists.'
         else:
-            if "Unknown command:" in err:
-                _fail(module, cmd, err, "Unknown django command: %s" % command)
+            if "Unknown ansible.builtin.command:" in err:
+                _fail(module, cmd, err, "Unknown django ansible.builtin.command: %s" % command)
             _fail(module, cmd, out, err, path=os.environ["PATH"], syspath=sys.path)
 
     changed = False

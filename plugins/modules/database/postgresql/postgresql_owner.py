@@ -87,7 +87,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = r'''
-# Set owner as alice for function myfunc in database bar by ansible ad-hoc command:
+# Set owner as alice for function myfunc in database bar by ansible ad-hoc ansible.builtin.command:
 # ansible -m postgresql_owner -a "db=bar new_owner=alice obj_name=myfunc obj_type=function"
 
 - name: The same as above by playbook

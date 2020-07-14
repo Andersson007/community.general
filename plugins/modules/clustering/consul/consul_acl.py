@@ -116,7 +116,7 @@ EXAMPLES = """
       - operator: read
       - query: ""
         policy: write
-      - service: "consul"
+      - ansible.builtin.service: "consul"
         policy: write
       - session: "standup"
         policy: write

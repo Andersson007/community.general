@@ -22,7 +22,7 @@ options:
     description:
       - Category to execute on OOB controller
     type: str
-  command:
+  ansible.builtin.command:
     required: true
     description:
       - List of commands to execute on OOB controller
@@ -106,7 +106,7 @@ EXAMPLES = '''
   - name: Set BootMode to UEFI
     community.general.redfish_config:
       category: Systems
-      command: SetBiosAttributes
+      ansible.builtin.command: SetBiosAttributes
       resource_id: 437XR1138R2
       bios_attributes:
         BootMode: "Uefi"
@@ -117,7 +117,7 @@ EXAMPLES = '''
   - name: Set multiple BootMode attributes
     community.general.redfish_config:
       category: Systems
-      command: SetBiosAttributes
+      ansible.builtin.command: SetBiosAttributes
       resource_id: 437XR1138R2
       bios_attributes:
         BootMode: "Bios"
@@ -130,7 +130,7 @@ EXAMPLES = '''
   - name: Enable PXE Boot for NIC1 using deprecated options
     community.general.redfish_config:
       category: Systems
-      command: SetBiosAttributes
+      ansible.builtin.command: SetBiosAttributes
       resource_id: 437XR1138R2
       bios_attribute_name: PxeDev1EnDis
       bios_attribute_value: Enabled
@@ -141,7 +141,7 @@ EXAMPLES = '''
   - name: Set BIOS default settings with a timeout of 20 seconds
     community.general.redfish_config:
       category: Systems
-      command: SetBiosDefaultSettings
+      ansible.builtin.command: SetBiosDefaultSettings
       resource_id: 437XR1138R2
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
@@ -151,7 +151,7 @@ EXAMPLES = '''
   - name: Set boot order
     community.general.redfish_config:
       category: Systems
-      command: SetBootOrder
+      ansible.builtin.command: SetBootOrder
       boot_order:
         - Boot0002
         - Boot0001
@@ -165,7 +165,7 @@ EXAMPLES = '''
   - name: Set boot order to the default
     community.general.redfish_config:
       category: Systems
-      command: SetDefaultBootOrder
+      ansible.builtin.command: SetDefaultBootOrder
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -173,7 +173,7 @@ EXAMPLES = '''
   - name: Set Manager Network Protocols
     community.general.redfish_config:
       category: Manager
-      command: SetNetworkProtocols
+      ansible.builtin.command: SetNetworkProtocols
       network_protocols:
         SNMP:
           ProtocolEnabled: True
@@ -188,7 +188,7 @@ EXAMPLES = '''
   - name: Set Manager NIC
     community.general.redfish_config:
       category: Manager
-      command: SetManagerNic
+      ansible.builtin.command: SetManagerNic
       nic_config:
         DHCPv4:
           DHCPEnabled: False

@@ -84,7 +84,7 @@ options:
 EXAMPLES = """
    - name: Create Volume
      community.general.sf_volume_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: present
@@ -97,7 +97,7 @@ EXAMPLES = """
 
    - name: Update Volume
      community.general.sf_volume_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: present
@@ -107,7 +107,7 @@ EXAMPLES = """
 
    - name: Delete Volume
      community.general.sf_volume_manager:
-       hostname: "{{ solidfire_hostname }}"
+       ansible.builtin.hostname: "{{ solidfire_hostname }}"
        username: "{{ solidfire_username }}"
        password: "{{ solidfire_password }}"
        state: absent

@@ -168,7 +168,7 @@ def get_host_key(module, hostname):
     Fetches public key for specified host
 
     :param module: instance of the :class:`AnsibleModule`
-    :param hostname: host name
+    :param ansible.builtin.hostname: host name
     :return: key type and key content
     :rtype: tuple
 

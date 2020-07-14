@@ -30,7 +30,7 @@ options:
     url:
       description:
       - Set exact URL to download the plugin from.
-      - For local file, prefix its absolute path with file://
+      - For local file, prefix its absolute path with ansible.builtin.file://
     timeout:
       description:
       - "Timeout setting: 30s, 1m, 1h etc."

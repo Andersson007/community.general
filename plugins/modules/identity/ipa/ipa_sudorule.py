@@ -75,7 +75,7 @@ options:
       - List of options to add to the sudo rule.
     type: list
     elements: str
-  user:
+  ansible.builtin.user:
     description:
     - List of users assigned to the rule.
     - If an empty list is passed all users will be removed from the rule.

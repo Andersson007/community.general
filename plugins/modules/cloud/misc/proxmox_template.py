@@ -41,7 +41,7 @@ options:
       - path to uploaded file
       - required only for C(state=present)
     aliases: ['path']
-  template:
+  ansible.builtin.template:
     description:
       - the template name
       - required only for states C(absent), C(info)
@@ -110,7 +110,7 @@ EXAMPLES = '''
     api_user: root@pam
     api_password: 1q2w3e
     api_host: node1
-    template: ubuntu-14.04-x86_64.tar.gz
+    ansible.builtin.template: ubuntu-14.04-x86_64.tar.gz
     state: absent
 '''
 
@@ -225,7 +225,7 @@ def main():
             content_type = module.params['content_type']
             template = module.params['template']
 
-            if not template:
+            if not ansible.builtin.template:
                 module.fail_json(msg='template param is mandatory')
             elif not get_template(proxmox, node, storage, content_type, template):
                 module.exit_json(changed=False, msg='template with volid=%s:%s/%s is already deleted' % (storage, content_type, template))

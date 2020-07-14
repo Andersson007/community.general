@@ -17,7 +17,7 @@ description:
 author: "Seth Edwards (@Sedward)"
 requirements: []
 options:
-    user:
+    ansible.builtin.user:
         description:
            - Librato account username
         required: true
@@ -62,7 +62,7 @@ options:
 EXAMPLES = '''
 - name: Create a simple annotation event with a source
   community.general.librato_annotation:
-    user: user@example.com
+    ansible.builtin.user: user@example.com
     api_key: XXXXXXXXXXXXXXXXX
     title: App Config Change
     source: foo.bar
@@ -70,7 +70,7 @@ EXAMPLES = '''
 
 - name: Create an annotation that includes a link
   community.general.librato_annotation:
-    user: user@example.com
+    ansible.builtin.user: user@example.com
     api_key: XXXXXXXXXXXXXXXXXX
     name: code.deploy
     title: app code deploy
@@ -81,7 +81,7 @@ EXAMPLES = '''
 
 - name: Create an annotation with a start_time and end_time
   community.general.librato_annotation:
-    user: user@example.com
+    ansible.builtin.user: user@example.com
     api_key: XXXXXXXXXXXXXXXXXX
     name: maintenance
     title: Maintenance window

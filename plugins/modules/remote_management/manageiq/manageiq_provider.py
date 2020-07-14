@@ -58,7 +58,7 @@ options:
   provider:
     description: Default endpoint connection information, required if state is true.
     suboptions:
-      hostname:
+      ansible.builtin.hostname:
         description: The provider's api hostname.
         required: true
       port:
@@ -82,7 +82,7 @@ options:
   metrics:
     description: Metrics endpoint connection information.
     suboptions:
-      hostname:
+      ansible.builtin.hostname:
         description: The provider's api hostname.
         required: true
       port:
@@ -109,7 +109,7 @@ options:
   alerts:
     description: Alerts endpoint connection information.
     suboptions:
-      hostname:
+      ansible.builtin.hostname:
         description: The provider's api hostname.
         required: true
       port:
@@ -132,7 +132,7 @@ options:
   ssh_keypair:
     description: SSH key pair used for SSH connections to all hosts in this provider.
     suboptions:
-      hostname:
+      ansible.builtin.hostname:
         description: Director hostname.
         required: true
       userid:
@@ -149,7 +149,7 @@ EXAMPLES = '''
     state: 'present'
     provider:
       auth_key: 'topSecret'
-      hostname: 'example.com'
+      ansible.builtin.hostname: 'example.com'
       port: 8443
       validate_certs: true
       security_protocol: 'ssl-with-validation-custom-ca'
@@ -175,7 +175,7 @@ EXAMPLES = '''
     metrics:
       auth_key: 'topSecret'
       role: 'hawkular'
-      hostname: 'example.com'
+      ansible.builtin.hostname: 'example.com'
       port: 443
       validate_certs: true
       security_protocol: 'ssl-with-validation-custom-ca'
@@ -212,7 +212,7 @@ EXAMPLES = '''
     state: 'present'
     provider:
       auth_key: 'topSecret'
-      hostname: 'next.example.com'
+      ansible.builtin.hostname: 'next.example.com'
       port: 8443
       validate_certs: true
       security_protocol: 'ssl-with-validation-custom-ca'
@@ -237,7 +237,7 @@ EXAMPLES = '''
         -----END CERTIFICATE-----
     metrics:
       auth_key: 'topSecret'
-      hostname: 'next.example.com'
+      ansible.builtin.hostname: 'next.example.com'
       port: 443
       validate_certs: true
       security_protocol: 'ssl-with-validation-custom-ca'
@@ -285,7 +285,7 @@ EXAMPLES = '''
     type: 'Amazon'
     state: 'present'
     provider:
-      hostname: 'amazon.example.com'
+      ansible.builtin.hostname: 'amazon.example.com'
       userid: 'hello'
       password: 'world'
     manageiq_connection:
@@ -300,7 +300,7 @@ EXAMPLES = '''
     type: 'oVirt'
     state: 'present'
     provider:
-      hostname: 'rhev01.example.com'
+      ansible.builtin.hostname: 'rhev01.example.com'
       userid: 'admin@internal'
       password: 'password'
       validate_certs: true
@@ -324,7 +324,7 @@ EXAMPLES = '''
         XUsdmRaWiF+l4s6Dcd56SuRp5SGNa2+vP9Of/FX5
         -----END CERTIFICATE-----
     metrics:
-      hostname: 'metrics.example.com'
+      ansible.builtin.hostname: 'metrics.example.com'
       path: 'ovirt_engine_history'
       userid: 'user_id_metrics'
       password: 'password_metrics'
@@ -360,7 +360,7 @@ EXAMPLES = '''
     type: 'VMware'
     state: 'present'
     provider:
-      hostname: 'vcenter.example.com'
+      ansible.builtin.hostname: 'vcenter.example.com'
       host_default_vnc_port_start: 5800
       host_default_vnc_port_end: 5801
       userid: 'root'
@@ -379,7 +379,7 @@ EXAMPLES = '''
     azure_tenant_id: 'e272bd74-f661-484f-b223-88dd128a4048'
     state: 'present'
     provider:
-      hostname: 'azure.example.com'
+      ansible.builtin.hostname: 'azure.example.com'
       userid: 'e272bd74-f661-484f-b223-88dd128a4049'
       password: 'password'
     manageiq_connection:
@@ -395,7 +395,7 @@ EXAMPLES = '''
     api_version: 'v3'
     state: 'present'
     provider:
-      hostname: 'director.example.com'
+      ansible.builtin.hostname: 'director.example.com'
       userid: 'admin'
       password: 'password'
       security_protocol: 'ssl-with-validation'
@@ -420,7 +420,7 @@ EXAMPLES = '''
         XUsdmRaWiF+l4s6Dcd56SuRp5SGNa2+vP9Of/FX5
         -----END CERTIFICATE-----
     ssh_keypair:
-      hostname: director.example.com
+      ansible.builtin.hostname: director.example.com
       userid: heat-admin
       auth_key: 'SecretSSHPrivateKey'
 
@@ -434,7 +434,7 @@ EXAMPLES = '''
     tenant_mapping_enabled: 'False'
     keystone_v3_domain_id: 'mydomain'
     provider:
-      hostname: 'openstack.example.com'
+      ansible.builtin.hostname: 'openstack.example.com'
       userid: 'admin'
       password: 'password'
       security_protocol: 'ssl-with-validation'
@@ -460,7 +460,7 @@ EXAMPLES = '''
         -----END CERTIFICATE-----
     metrics:
       role: amqp
-      hostname: 'amqp.example.com'
+      ansible.builtin.hostname: 'amqp.example.com'
       security_protocol: 'non-ssl'
       port: 5666
       userid: admin
@@ -475,7 +475,7 @@ EXAMPLES = '''
     project: 'project1'
     state: 'present'
     provider:
-      hostname: 'gce.example.com'
+      ansible.builtin.hostname: 'gce.example.com'
       auth_key: 'google_json_key'
       validate_certs: 'false'
 '''

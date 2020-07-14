@@ -131,7 +131,7 @@ EXAMPLES = r'''
     connparams:
       host: 127.0.0.1
       port: 5432
-      user: repl
+      ansible.builtin.user: repl
       password: replpass
       dbname: mydb
 
@@ -142,7 +142,7 @@ EXAMPLES = r'''
     connparams:
       host: 127.0.0.1
       port: 5432
-      user: repl
+      ansible.builtin.user: repl
       password: replpass
       connect_timeout: 100
 

@@ -90,7 +90,7 @@ EXAMPLES = """
         set_password: apn1242183u1298u41
         role_name: vsadmin
         vserver: ansibleVServer
-        hostname: "{{ netapp_hostname }}"
+        ansible.builtin.hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
 

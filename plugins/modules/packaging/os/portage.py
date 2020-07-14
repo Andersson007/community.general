@@ -21,7 +21,7 @@ description:
   - Manages Gentoo packages
 
 options:
-  package:
+  ansible.builtin.package:
     description:
       - Package atom or set, e.g. C(sys-apps/foo) or C(>foo-2.13) or C(@world)
     aliases: [name]
@@ -177,32 +177,32 @@ author:
 EXAMPLES = '''
 - name: Make sure package foo is installed
   community.general.portage:
-    package: foo
+    ansible.builtin.package: foo
     state: present
 
 - name: Make sure package foo is not installed
   community.general.portage:
-    package: foo
+    ansible.builtin.package: foo
     state: absent
 
 - name: Update package foo to the latest version (os specific alternative to latest)
   community.general.portage:
-    package: foo
+    ansible.builtin.package: foo
     update: yes
 
 - name: Install package foo using PORTAGE_BINHOST setup
   community.general.portage:
-    package: foo
+    ansible.builtin.package: foo
     getbinpkg: yes
 
 - name: Re-install world from binary packages only and do not allow any compiling
   community.general.portage:
-    package: '@world'
+    ansible.builtin.package: '@world'
     usepkgonly: yes
 
 - name: Sync repositories and update world
   community.general.portage:
-    package: '@world'
+    ansible.builtin.package: '@world'
     update: yes
     deep: yes
     sync: yes
@@ -213,7 +213,7 @@ EXAMPLES = '''
 
 - name: Remove package foo if it is not explicitly needed
   community.general.portage:
-    package: foo
+    ansible.builtin.package: foo
     state: absent
     depclean: yes
 '''

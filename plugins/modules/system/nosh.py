@@ -46,7 +46,7 @@ options:
             - Enable or disable the service according to local preferences in *.preset files.
               Mutually exclusive with I(enabled). Only has an effect if set to true. Will take
               effect prior to I(state=reset).
-    user:
+    ansible.builtin.user:
         required: false
         default: 'no'
         type: bool
@@ -92,11 +92,11 @@ EXAMPLES = '''
       register: result
 
     - name: Fail if service not loaded
-      fail: msg="The {{ result.name }} service is not loaded"
+      ansible.builtin.fail: msg="The {{ result.name }} service is not loaded"
       when: not result.status
 
     - name: Fail if service is running
-      fail: msg="The {{ result.name }} service is running"
+      ansible.builtin.fail: msg="The {{ result.name }} service is running"
       when: result.status and result.status['DaemontoolsEncoreState'] == "running"
 '''
 

@@ -22,7 +22,7 @@ options:
     required: true
     aliases:
       - repo
-  user:
+  ansible.builtin.user:
     description:
       - User to authenticate to GitHub as
     required: true
@@ -48,14 +48,14 @@ EXAMPLES = '''
 - name: List hooks for a repository (password auth)
   community.general.github_webhook_info:
     repository: ansible/ansible
-    user: "{{ github_user }}"
+    ansible.builtin.user: "{{ github_user }}"
     password: "{{ github_password }}"
   register: ansible_webhooks
 
 - name: List hooks for a repository on GitHub Enterprise (token auth)
   community.general.github_webhook_info:
     repository: myorg/myrepo
-    user: "{{ github_user }}"
+    ansible.builtin.user: "{{ github_user }}"
     token: "{{ github_user_api_token }}"
     github_url: https://github.example.com/api/v3/
   register: myrepo_webhooks

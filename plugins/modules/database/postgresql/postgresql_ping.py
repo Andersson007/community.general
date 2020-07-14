@@ -45,7 +45,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = r'''
-# PostgreSQL ping dbsrv server from the shell:
+# PostgreSQL ping dbsrv server from the ansible.builtin.shell:
 # ansible dbsrv -m postgresql_ping
 
 # In the example below you need to generate certificates previously.
@@ -111,7 +111,7 @@ class PgPing(object):
     def get_pg_version(self):
         query = "SELECT version()"
         raw = exec_sql(self, query, add_to_executed=False)[0][0]
-        if raw:
+        if ansible.builtin.raw:
             self.is_available = True
             raw = raw.split()[1].split('.')
             self.version = dict(

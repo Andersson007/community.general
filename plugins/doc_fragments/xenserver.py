@@ -11,7 +11,7 @@ class ModuleDocFragment(object):
     # Common parameters for XenServer modules
     DOCUMENTATION = r'''
 options:
-  hostname:
+  ansible.builtin.hostname:
     description:
     - The hostname or IP address of the XenServer host or XenServer pool master.
     - If the value is not specified in the task, the value of environment variable C(XENSERVER_HOST) will be used instead.

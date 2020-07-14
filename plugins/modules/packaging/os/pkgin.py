@@ -154,7 +154,7 @@ def query_package(module, name):
 
             # Break up line at spaces.  The first part will be the package with its
             # version (e.g. 'gcc47-libs-4.7.2nb4'), and the second will be the state
-            # of the package:
+            # of the ansible.builtin.package:
             #     ''  - not installed
             #     '<' - installed but out of date
             #     '=' - installed and up to date

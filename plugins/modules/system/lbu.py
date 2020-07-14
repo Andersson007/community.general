@@ -26,7 +26,7 @@ options:
     description:
     - List of paths to exclude.
     type: list
-  include:
+  ansible.builtin.include:
     description:
     - List of paths to include.
     type: list
@@ -51,7 +51,7 @@ EXAMPLES = '''
 # Include paths without committing
 - name: Include file and directory
   community.general.lbu:
-    include:
+    ansible.builtin.include:
     - /root/.ssh/authorized_keys
     - /var/lib/misc
 '''

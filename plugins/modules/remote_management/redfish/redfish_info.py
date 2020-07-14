@@ -24,7 +24,7 @@ options:
       - List of categories to execute on OOB controller
     default: ['Systems']
     type: list
-  command:
+  ansible.builtin.command:
     required: false
     description:
       - List of commands to execute on OOB controller
@@ -57,29 +57,29 @@ EXAMPLES = '''
   - name: Get CPU inventory
     community.general.redfish_info:
       category: Systems
-      command: GetCpuInventory
+      ansible.builtin.command: GetCpuInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       msg: "{{ result.redfish_facts.cpu.entries | to_nice_json }}"
 
   - name: Get CPU model
     community.general.redfish_info:
       category: Systems
-      command: GetCpuInventory
+      ansible.builtin.command: GetCpuInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       msg: "{{ result.redfish_facts.cpu.entries.0.Model }}"
 
   - name: Get memory inventory
     community.general.redfish_info:
       category: Systems
-      command: GetMemoryInventory
+      ansible.builtin.command: GetMemoryInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -88,7 +88,7 @@ EXAMPLES = '''
   - name: Get fan inventory with a timeout of 20 seconds
     community.general.redfish_info:
       category: Chassis
-      command: GetFanInventory
+      ansible.builtin.command: GetFanInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -98,34 +98,34 @@ EXAMPLES = '''
   - name: Get Virtual Media information
     community.general.redfish_info:
       category: Manager
-      command: GetVirtualMedia
+      ansible.builtin.command: GetVirtualMedia
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       msg: "{{ result.redfish_facts.virtual_media.entries | to_nice_json }}"
 
   - name: Get Volume Inventory
     community.general.redfish_info:
       category: Systems
-      command: GetVolumeInventory
+      ansible.builtin.command: GetVolumeInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       msg: "{{ result.redfish_facts.volume.entries | to_nice_json }}"
 
   - name: Get Session information
     community.general.redfish_info:
       category: Sessions
-      command: GetSessions
+      ansible.builtin.command: GetSessions
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       msg: "{{ result.redfish_facts.session.entries | to_nice_json }}"
 
   - name: Get default inventory information
@@ -134,13 +134,13 @@ EXAMPLES = '''
       username: "{{ username }}"
       password: "{{ password }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       msg: "{{ result.redfish_facts | to_nice_json }}"
 
   - name: Get several inventories
     community.general.redfish_info:
       category: Systems
-      command: GetNicInventory,GetBiosAttributes
+      ansible.builtin.command: GetNicInventory,GetBiosAttributes
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -162,7 +162,7 @@ EXAMPLES = '''
   - name: Get Manager NIC inventory information
     community.general.redfish_info:
       category: Manager
-      command: GetManagerNicInventory
+      ansible.builtin.command: GetManagerNicInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -170,7 +170,7 @@ EXAMPLES = '''
   - name: Get boot override information
     community.general.redfish_info:
       category: Systems
-      command: GetBootOverride
+      ansible.builtin.command: GetBootOverride
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -178,7 +178,7 @@ EXAMPLES = '''
   - name: Get chassis inventory
     community.general.redfish_info:
       category: Chassis
-      command: GetChassisInventory
+      ansible.builtin.command: GetChassisInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -186,7 +186,7 @@ EXAMPLES = '''
   - name: Get all information available in the Manager category
     community.general.redfish_info:
       category: Manager
-      command: all
+      ansible.builtin.command: all
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -194,7 +194,7 @@ EXAMPLES = '''
   - name: Get firmware update capability information
     community.general.redfish_info:
       category: Update
-      command: GetFirmwareUpdateCapabilities
+      ansible.builtin.command: GetFirmwareUpdateCapabilities
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -202,7 +202,7 @@ EXAMPLES = '''
   - name: Get firmware inventory
     community.general.redfish_info:
       category: Update
-      command: GetFirmwareInventory
+      ansible.builtin.command: GetFirmwareInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -210,7 +210,7 @@ EXAMPLES = '''
   - name: Get software inventory
     community.general.redfish_info:
       category: Update
-      command: GetSoftwareInventory
+      ansible.builtin.command: GetSoftwareInventory
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -218,7 +218,7 @@ EXAMPLES = '''
   - name: Get Manager Services
     community.general.redfish_info:
       category: Manager
-      command: GetNetworkProtocols
+      ansible.builtin.command: GetNetworkProtocols
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -226,7 +226,7 @@ EXAMPLES = '''
   - name: Get all information available in all categories
     community.general.redfish_info:
       category: all
-      command: all
+      ansible.builtin.command: all
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -234,7 +234,7 @@ EXAMPLES = '''
   - name: Get system health report
     community.general.redfish_info:
       category: Systems
-      command: GetHealthReport
+      ansible.builtin.command: GetHealthReport
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -242,7 +242,7 @@ EXAMPLES = '''
   - name: Get chassis health report
     community.general.redfish_info:
       category: Chassis
-      command: GetHealthReport
+      ansible.builtin.command: GetHealthReport
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -250,7 +250,7 @@ EXAMPLES = '''
   - name: Get manager health report
     community.general.redfish_info:
       category: Manager
-      command: GetHealthReport
+      ansible.builtin.command: GetHealthReport
       baseuri: "{{ baseuri }}"
       username: "{{ username }}"
       password: "{{ password }}"

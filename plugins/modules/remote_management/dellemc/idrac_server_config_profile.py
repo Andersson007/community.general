@@ -37,7 +37,7 @@ options:
     description: iDRAC port.
     type: int
     default: 443
-  command:
+  ansible.builtin.command:
     description:
       - If C(import), will perform SCP import operations.
       - If C(export), will perform SCP export operations.
@@ -110,7 +110,7 @@ EXAMPLES = r'''
     idrac_ip: "192.168.0.1"
     idrac_user: "user_name"
     idrac_password: "user_password"
-    command: "import"
+    ansible.builtin.command: "import"
     share_name: "192.168.0.2:/share"
     share_user: "share_user_name"
     share_password: "share_user_password"
@@ -123,7 +123,7 @@ EXAMPLES = r'''
     idrac_ip: "192.168.0.1"
     idrac_user: "user_name"
     idrac_password: "user_password"
-    command: "import"
+    ansible.builtin.command: "import"
     share_name: "/scp_folder"
     share_user: "share_user_name"
     share_password: "share_user_password"

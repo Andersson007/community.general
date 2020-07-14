@@ -153,9 +153,9 @@ def main():
         rc, out, err = run_supervisorctl('status')
         for line in out.splitlines():
             # One status line may look like one of these two:
-            # process not in group:
+            # process not in ansible.builtin.group:
             #   echo_date_lonely RUNNING pid 7680, uptime 13:22:18
-            # process in group:
+            # process in ansible.builtin.group:
             #   echo_date_group:echo_date_00 RUNNING pid 7681, uptime 13:22:18
             fields = [field for field in line.split(' ') if field != '']
             process_name = fields[0]

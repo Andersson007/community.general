@@ -59,7 +59,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Build a Cloud Databases
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   tasks:
     - name: Server build request
       local_action:

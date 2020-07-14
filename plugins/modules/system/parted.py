@@ -124,7 +124,7 @@ partition_info:
     partitions:
       description: List of device partitions.
       type: list
-    script:
+    ansible.builtin.script:
       description: parted script executed by module
       type: str
   sample: {
@@ -515,7 +515,7 @@ def parted(script, device, align):
 
         if rc != 0:
             module.fail_json(
-                msg="Error while running parted script: %s" % command.strip(),
+                msg="Error while running parted ansible.builtin.script: %s" % command.strip(),
                 rc=rc, out=out, err=err
             )
 
@@ -647,12 +647,12 @@ def main():
             )
 
         # Set the unit of the run
-        if unit and script:
+        if unit and ansible.builtin.script:
             script = "unit %s %s" % (unit, script)
 
         # Execute the script and update the data structure.
         # This will create the partition for the next steps
-        if script:
+        if ansible.builtin.script:
             output_script += script
             parted(script, device, align)
             changed = True
@@ -692,11 +692,11 @@ def main():
                     script += "set %s %s off " % (number, f)
 
         # Set the unit of the run
-        if unit and script:
+        if unit and ansible.builtin.script:
             script = "unit %s %s" % (unit, script)
 
         # Execute the script
-        if script:
+        if ansible.builtin.script:
             output_script += script
             changed = True
             parted(script, device, align)

@@ -194,7 +194,7 @@ EXAMPLES = '''
   register: result
 
 - name: Print VM properties
-  debug:
+  ansible.builtin.debug:
     msg: result
 
 - name: Deploy a new VM on hold
@@ -327,7 +327,7 @@ EXAMPLES = '''
   register: vm
 
 - name: Wait for SSH to come up
-  wait_for_connection:
+  ansible.builtin.wait_for_connection:
   delegate_to: '{{ vm.instances[0].networks[0].ip }}'
 
 - name: Terminate VMs by ids
@@ -634,16 +634,16 @@ def get_template(module, client, predicate):
 
 
 def get_template_by_name(module, client, template_name):
-    return get_template(module, client, lambda template: (template.NAME == template_name))
+    return get_template(module, client, lambda ansible.builtin.template: (template.NAME == template_name))
 
 
 def get_template_by_id(module, client, template_id):
-    return get_template(module, client, lambda template: (template.ID == template_id))
+    return get_template(module, client, lambda ansible.builtin.template: (template.ID == template_id))
 
 
 def get_template_id(module, client, requested_id, requested_name):
     template = get_template_by_id(module, client, requested_id) if requested_id is not None else get_template_by_name(module, client, requested_name)
-    if template:
+    if ansible.builtin.template:
         return template.ID
     else:
         return None

@@ -45,7 +45,7 @@ options:
     choices: ['sync', 'eventlet', 'gevent', 'tornado ', 'gthread', 'gaiohttp']
     description:
       - 'The type of workers to use. The default class (sync) should handle most "normal" types of workloads.'
-  user:
+  ansible.builtin.user:
     description:
       -  'Switch worker processes to run as this user.'
 notes:
@@ -79,7 +79,7 @@ EXAMPLES = '''
     conf: '/workspace/example/gunicorn.cfg'
     venv: '/workspace/example/venv'
     pid: '/workspace/example/gunicorn.pid'
-    user: 'ansible'
+    ansible.builtin.user: 'ansible'
 '''
 
 RETURN = '''

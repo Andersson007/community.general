@@ -110,7 +110,7 @@ EXAMPLES = '''
   register: result
 
 - name: Print service properties
-  debug:
+  ansible.builtin.debug:
     msg: result
 
 - name: Instantiate a new service with specified service_name, service group and mode
@@ -297,11 +297,11 @@ def get_service(module, auth, pred):
 
 
 def get_service_by_id(module, auth, service_id):
-    return get_service(module, auth, lambda service: (int(service["ID"]) == int(service_id))) if service_id else None
+    return get_service(module, auth, lambda ansible.builtin.service: (int(service["ID"]) == int(service_id))) if service_id else None
 
 
 def get_service_by_name(module, auth, service_name):
-    return get_service(module, auth, lambda service: (service["NAME"] == service_name))
+    return get_service(module, auth, lambda ansible.builtin.service: (service["NAME"] == service_name))
 
 
 def get_service_info(module, auth, service):
@@ -516,7 +516,7 @@ def create_service_and_operation(module, auth, template_id, service_name, owner_
     if unique:
         service = get_service_by_name(module, auth, service_name)
 
-    if not service:
+    if not ansible.builtin.service:
         if not module.check_mode:
             service = create_service(module, auth, template_id, service_name, custom_attrs, unique, wait, wait_timeout)
         changed = True
@@ -541,12 +541,12 @@ def service_operation(module, auth, service_id=None, owner_id=None, group_id=Non
 
     changed = False
 
-    if not service:
+    if not ansible.builtin.service:
         service = get_service_by_id(module, auth, service_id)
     else:
         service_id = service["ID"]
 
-    if not service:
+    if not ansible.builtin.service:
         module.fail_json(msg="There is no service with id: " + str(service_id))
 
     if owner_id:
@@ -586,7 +586,7 @@ def service_operation(module, auth, service_id=None, owner_id=None, group_id=Non
 
 def delete_service(module, auth, service_id):
     service = get_service_by_id(module, auth, service_id)
-    if not service:
+    if not ansible.builtin.service:
         return {"changed": False}
 
     service_info = get_service_info(module, auth, service)
@@ -605,17 +605,17 @@ def delete_service(module, auth, service_id):
 
 
 def get_template_by_name(module, auth, template_name):
-    return get_template(module, auth, lambda template: (template["NAME"] == template_name))
+    return get_template(module, auth, lambda ansible.builtin.template: (template["NAME"] == template_name))
 
 
 def get_template_by_id(module, auth, template_id):
-    return get_template(module, auth, lambda template: (int(template["ID"]) == int(template_id))) if template_id else None
+    return get_template(module, auth, lambda ansible.builtin.template: (int(template["ID"]) == int(template_id))) if template_id else None
 
 
 def get_template_id(module, auth, requested_id, requested_name):
     template = get_template_by_id(module, auth, requested_id) if requested_id else get_template_by_name(module, auth, requested_name)
 
-    if template:
+    if ansible.builtin.template:
         return template["ID"]
 
     return None
@@ -624,7 +624,7 @@ def get_template_id(module, auth, requested_id, requested_name):
 def get_service_id_by_name(module, auth, service_name):
     service = get_service_by_name(module, auth, service_name)
 
-    if service:
+    if ansible.builtin.service:
         return service["ID"]
 
     return None

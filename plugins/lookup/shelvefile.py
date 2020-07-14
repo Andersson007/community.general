@@ -16,14 +16,14 @@ DOCUMENTATION = '''
       key:
         description: key to query
         required: True
-      file:
+      ansible.builtin.file:
         description: path to shelve file
         required: True
 '''
 
 EXAMPLES = """
 - name: retrieve a string value corresponding to a key inside a Python shelve file
-  debug: msg="{{ lookup('shelvefile', 'file=path_to_some_shelve_file.db key=key_to_retrieve') }}
+  ansible.builtin.debug: msg="{{ lookup('shelvefile', 'file=path_to_some_shelve_file.db key=key_to_retrieve') }}
 """
 
 RETURN = """

@@ -49,7 +49,7 @@ options:
   password:
     description:
       - The users' password.
-  group:
+  ansible.builtin.group:
     description:
       - The name of the group to which the user belongs.
   email:
@@ -68,7 +68,7 @@ EXAMPLES = '''
     userid: 'jdoe'
     name: 'Jane Doe'
     password: 'VerySecret'
-    group: 'EvmGroup-user'
+    ansible.builtin.group: 'EvmGroup-user'
     email: 'jdoe@example.com'
     manageiq_connection:
       url: 'http://127.0.0.1:3000'
@@ -81,7 +81,7 @@ EXAMPLES = '''
     userid: 'jdoe'
     name: 'Jane Doe'
     password: 'VerySecret'
-    group: 'EvmGroup-user'
+    ansible.builtin.group: 'EvmGroup-user'
     email: 'jdoe@example.com'
     manageiq_connection:
       url: 'http://127.0.0.1:3000'
@@ -153,7 +153,7 @@ class ManageIQUser(object):
             the group id, or send a module Fail signal if group not found.
         """
         group = self.manageiq.find_collection_resource_by('groups', description=description)
-        if not group:  # group doesn't exist
+        if not ansible.builtin.group:  # group doesn't exist
             self.module.fail_json(
                 msg="group %s does not exist in manageiq" % (description))
 
@@ -300,7 +300,7 @@ def main():
     # user should not exist
     if state == "absent":
         # if we have a user, delete it
-        if user:
+        if ansible.builtin.user:
             res_args = manageiq_user.delete_user(user)
         # if we do not have a user, nothing to do
         else:
@@ -311,7 +311,7 @@ def main():
     # user should exist
     if state == "present":
         # if we have a user, edit it
-        if user:
+        if ansible.builtin.user:
             res_args = manageiq_user.edit_user(user, name, group, password, email)
         # if we do not have a user, create it
         else:

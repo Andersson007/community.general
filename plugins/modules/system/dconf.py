@@ -177,7 +177,7 @@ class DBusWrapper(object):
         # Go through all the pids for this user, try to extract the D-Bus
         # session bus address from environment, and ensure it is possible to
         # connect to it.
-        self.module.debug("Trying to detect existing D-Bus user session for user: %d" % uid)
+        self.module.debug("Trying to detect existing D-Bus user session for ansible.builtin.user: %d" % uid)
 
         for pid in psutil.pids():
             process = psutil.Process(pid)
@@ -208,7 +208,7 @@ class DBusWrapper(object):
         effectively passed-on to AnsibleModule.run_command() method, with
         modification for using dbus-run-session if necessary.
 
-        :param command: Command to run, including parameters. Each element of the list should be a string.
+        :param ansible.builtin.command: Command to run, including parameters. Each element of the list should be a string.
         :type module: list
 
         :returns: tuple(result_code, standard_output, standard_error) -- Result code, standard output, and standard error from running the command.

@@ -36,7 +36,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Build an Isolated Network
-  gather_facts: False
+  ansible.builtin.gather_facts: False
 
   tasks:
     - name: Network create request

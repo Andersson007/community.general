@@ -173,7 +173,7 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
             # found groups
             elif k == 'Groups':
                 for group in v.split('/'):
-                    if group:
+                    if ansible.builtin.group:
                         group = self.inventory.add_group(group)
                         self.inventory.add_child(group, current_host)
                         if group not in cacheable_results:

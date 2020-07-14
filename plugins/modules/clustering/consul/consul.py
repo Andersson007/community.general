@@ -88,7 +88,7 @@ options:
         type: list
         description:
           - tags that will be attached to the service registration.
-    script:
+    ansible.builtin.script:
         type: str
         description:
           - the script/command that will be run periodically to check the health
@@ -148,7 +148,7 @@ EXAMPLES = '''
   community.general.consul:
     service_name: nginx
     service_port: 80
-    script: curl http://localhost
+    ansible.builtin.script: curl http://localhost
     interval: 60s
 
 - name: Register nginx with an http check
@@ -188,7 +188,7 @@ EXAMPLES = '''
   community.general.consul:
     check_name: Disk usage
     check_id: disk_usage
-    script: /opt/disk_usage.py
+    ansible.builtin.script: /opt/disk_usage.py
     interval: 5m
 
 - name: Register an http check against a service that's already registered
@@ -237,7 +237,7 @@ def add(module):
     if not service and not check:
         module.fail_json(msg='a name and port are required to register a service')
 
-    if service:
+    if ansible.builtin.service:
         if check:
             service.add_check(check)
         add_service(module, service)
@@ -300,7 +300,7 @@ def add_service(module, service):
 
     # there is no way to retrieve the details of checks so if a check is present
     # in the service it must be re-registered
-    if service.has_checks() or not existing or not existing == service:
+    if service.has_checks() or not existing or not existing == ansible.builtin.service:
 
         service.register(consul_api)
         # check that it registered correctly
@@ -321,7 +321,7 @@ def remove_service(module, service_id):
     ''' deregister a service from the given agent using its service id '''
     consul_api = get_consul_api(module)
     service = get_service_by_id_or_name(consul_api, service_id)
-    if service:
+    if ansible.builtin.service:
         consul_api.agent.service.deregister(service_id, token=module.params.get('token'))
         module.exit_json(changed=True, id=service_id)
 
@@ -463,7 +463,7 @@ class ConsulCheck(object):
 
         self.check = None
 
-        if script:
+        if ansible.builtin.script:
             self.check = consul.Check.script(script, self.interval)
 
         if ttl:

@@ -53,7 +53,7 @@ extends_documentation_fragment:
 EXAMPLES = r'''
 - name: Gather facts
   community.general.xenserver_guest_info:
-    hostname: "{{ xenserver_hostname }}"
+    ansible.builtin.hostname: "{{ xenserver_hostname }}"
     username: "{{ xenserver_username }}"
     password: "{{ xenserver_password }}"
     name: testvm_11

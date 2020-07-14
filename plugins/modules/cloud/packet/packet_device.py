@@ -202,13 +202,13 @@ EXAMPLES = '''
             public-ip: $private_ipv4
           units:
             - name: etcd.service
-              command: start
+              ansible.builtin.command: start
             - name: fleet.service
-              command: start
+              ansible.builtin.command: start
     register: newhosts
 
   - name: Wait for ssh
-    wait_for:
+    ansible.builtin.wait_for:
       delay: 1
       host: "{{ item.public_ipv4 }}"
       port: 22

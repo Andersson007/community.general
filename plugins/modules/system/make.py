@@ -31,7 +31,7 @@ options:
       - Change to this directory before running make.
     type: path
     required: true
-  file:
+  ansible.builtin.file:
     description:
       - Use a custom Makefile.
     type: path
@@ -65,7 +65,7 @@ EXAMPLES = r'''
   community.general.make:
     chdir: /home/ubuntu/cool-project
     target: all
-    file: /some-project/Makefile
+    ansible.builtin.file: /some-project/Makefile
 '''
 
 RETURN = r'''# '''
@@ -79,7 +79,7 @@ def run_command(command, module, check_rc=True):
     Run a command using the module, return
     the result code and std{err,out} content.
 
-    :param command: list of command arguments
+    :param ansible.builtin.command: list of command arguments
     :param module: Ansible make module instance
     :return: return code, stdout content, stderr content
     """

@@ -275,8 +275,8 @@ def pubnub_account(module, user):
     :type module:  AnsibleModule
     :param module: Reference on module which contain module launch
                    information and status report methods.
-    :type user:    User
-    :param user:   Reference on authorized user for which one of accounts
+    :type ansible.builtin.user:    User
+    :param ansible.builtin.user:   Reference on authorized user for which one of accounts
                    should be used during manipulations with block.
 
     :rtype:  Account
@@ -486,7 +486,7 @@ def _failure_title_from_exception(exception):
     elif exception.code == exceptions.PN_API_ACCESS_TOKEN_EXPIRED:
         title = 'API access error: time token expired.'
     elif exception.code == exceptions.PN_KEYSET_BLOCK_EXISTS:
-        title = 'Block create did fail: block with same name already exists).'
+        title = 'Block create did ansible.builtin.fail: block with same name already exists).'
     elif exception.code == exceptions.PN_KEYSET_BLOCKS_FETCH_DID_FAIL:
         title = 'Unable fetch list of blocks for keyset.'
     elif exception.code == exceptions.PN_BLOCK_CREATE_DID_FAIL:
@@ -498,9 +498,9 @@ def _failure_title_from_exception(exception):
     elif exception.code == exceptions.PN_BLOCK_START_STOP_DID_FAIL:
         title = 'Block start/stop did fail.'
     elif exception.code == exceptions.PN_EVENT_HANDLER_MISSING_FIELDS:
-        title = 'Event handler creation did fail: missing fields.'
+        title = 'Event handler creation did ansible.builtin.fail: missing fields.'
     elif exception.code == exceptions.PN_BLOCK_EVENT_HANDLER_EXISTS:
-        title = 'Event handler creation did fail: missing fields.'
+        title = 'Event handler creation did ansible.builtin.fail: missing fields.'
     elif exception.code == exceptions.PN_EVENT_HANDLER_CREATE_DID_FAIL:
         title = 'Event handler creation did fail.'
     elif exception.code == exceptions.PN_EVENT_HANDLER_UPDATE_DID_FAIL:

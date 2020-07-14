@@ -53,7 +53,7 @@ options:
         description:
             - The URL of the Maven Repository to download from.
             - Use s3://... if the repository is hosted on Amazon S3, added in version 2.2.
-            - Use file://... if the repository is local, added in version 2.6
+            - Use ansible.builtin.file://... if the repository is local, added in version 2.6
         default: https://repo1.maven.org/maven2
     username:
         description:
@@ -330,7 +330,7 @@ class MavenDownloader:
 
     def find_version_by_spec(self, artifact):
         path = "/%s/%s" % (artifact.path(False), self.metadata_file_name)
-        content = self._getContent(self.base + path, "Failed to retrieve the maven metadata file: " + path)
+        content = self._getContent(self.base + path, "Failed to retrieve the maven metadata ansible.builtin.file: " + path)
         xml = etree.fromstring(content)
         original_versions = xml.xpath("/metadata/versioning/versions/version/text()")
         versions = []
@@ -377,7 +377,7 @@ class MavenDownloader:
         if self.latest_version_found:
             return self.latest_version_found
         path = "/%s/%s" % (artifact.path(False), self.metadata_file_name)
-        content = self._getContent(self.base + path, "Failed to retrieve the maven metadata file: " + path)
+        content = self._getContent(self.base + path, "Failed to retrieve the maven metadata ansible.builtin.file: " + path)
         xml = etree.fromstring(content)
         v = xml.xpath("/metadata/versioning/versions/version[last()]/text()")
         if v:
@@ -395,7 +395,7 @@ class MavenDownloader:
             if self.local:
                 return self._uri_for_artifact(artifact, artifact.version)
             path = "/%s/%s" % (artifact.path(), self.metadata_file_name)
-            content = self._getContent(self.base + path, "Failed to retrieve the maven metadata file: " + path)
+            content = self._getContent(self.base + path, "Failed to retrieve the maven metadata ansible.builtin.file: " + path)
             xml = etree.fromstring(content)
 
             for snapshotArtifact in xml.xpath("/metadata/versioning/snapshotVersions/snapshotVersion"):
@@ -431,7 +431,7 @@ class MavenDownloader:
                 with io.open(parsed_url.path, 'rb') as f:
                     return f.read()
             if force:
-                raise ValueError(failmsg + " because can not find file: " + url)
+                raise ValueError(failmsg + " because can not find ansible.builtin.file: " + url)
             return None
         response = self._request(url, failmsg, force)
         if response:
@@ -478,7 +478,7 @@ class MavenDownloader:
                 if os.path.isfile(parsed_url.path):
                     shutil.copy2(parsed_url.path, tempname)
                 else:
-                    return "Can not find local file: " + parsed_url.path
+                    return "Can not find local ansible.builtin.file: " + parsed_url.path
             else:
                 response = self._request(url, "Failed to download artifact " + str(artifact))
                 with os.fdopen(tempfd, 'wb') as f:

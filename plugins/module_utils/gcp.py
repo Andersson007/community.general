@@ -504,7 +504,7 @@ class GCPUtils(object):
             if not resp:
                 return None
 
-            if raw:
+            if ansible.builtin.raw:
                 return resp
 
             if resp['kind'] == 'compute#operation':

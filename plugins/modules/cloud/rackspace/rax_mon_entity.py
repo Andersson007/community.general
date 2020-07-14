@@ -49,7 +49,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Entity example
-  gather_facts: False
+  ansible.builtin.gather_facts: False
   hosts: local
   connection: local
   tasks:
@@ -61,7 +61,7 @@ EXAMPLES = '''
       named_ip_addresses:
         web_box: 192.0.2.4
         db_box: 192.0.2.5
-      meta:
+      ansible.builtin.meta:
         hurf: durf
     register: the_entity
 '''

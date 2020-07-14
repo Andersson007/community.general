@@ -129,7 +129,7 @@ EXAMPLES = '''
 
 # tasks.yml
 ---
-- include: katello.yml
+- ansible.builtin.include: katello.yml
   vars:
     name: Create Dev Environment
     entity: lifecycle_environment
@@ -138,7 +138,7 @@ EXAMPLES = '''
       prior: Library
       organization: Default Organization
 
-- include: katello.yml
+- ansible.builtin.include: katello.yml
   vars:
     name: Create Centos Product
     entity: product
@@ -146,7 +146,7 @@ EXAMPLES = '''
       name: Centos 7
       organization: Default Organization
 
-- include: katello.yml
+- ansible.builtin.include: katello.yml
   vars:
     name: Create 7.2 Repository
     entity: repository
@@ -157,7 +157,7 @@ EXAMPLES = '''
       content_type: yum
       url: http://mirror.centos.org/centos/7/os/x86_64/
 
-- include: katello.yml
+- ansible.builtin.include: katello.yml
   vars:
       name: Create Centos 7 View
       entity: content_view
@@ -168,7 +168,7 @@ EXAMPLES = '''
           - name: Centos 7.2
             product: Centos 7
 
-- include: katello.yml
+- ansible.builtin.include: katello.yml
   vars:
       name: Enable RHEL Product
       entity: repository_set
@@ -179,7 +179,7 @@ EXAMPLES = '''
         basearch: x86_64
         releasever: 7
 
-- include: katello.yml
+- ansible.builtin.include: katello.yml
   vars:
       name: Promote Contentview Environment with longer timeout
       task_timeout: 10800

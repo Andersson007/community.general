@@ -39,18 +39,18 @@ EXAMPLES = r'''
 # Example influxdb_database command from Ansible Playbooks
 - name: Create database
   community.general.influxdb_database:
-      hostname: "{{influxdb_ip_address}}"
+      ansible.builtin.hostname: "{{influxdb_ip_address}}"
       database_name: "{{influxdb_database_name}}"
 
 - name: Destroy database
   community.general.influxdb_database:
-      hostname: "{{influxdb_ip_address}}"
+      ansible.builtin.hostname: "{{influxdb_ip_address}}"
       database_name: "{{influxdb_database_name}}"
       state: absent
 
 - name: Create database using custom credentials
   community.general.influxdb_database:
-      hostname: "{{influxdb_ip_address}}"
+      ansible.builtin.hostname: "{{influxdb_ip_address}}"
       username: "{{influxdb_username}}"
       password: "{{influxdb_password}}"
       database_name: "{{influxdb_database_name}}"
